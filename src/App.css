@@ -1,3 +1,10 @@
+:root {
+  --overlay-general-bg: rgb(151, 151, 151);
+  --overlay-general-padding: 20px;
+  --overlay-general-border-radius: 8px;
+  --overlay-general-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 * {
 	margin: 0;
 	box-sizing: border-box;
@@ -13,6 +20,12 @@ header > nav {
 	display: flex;
 }
 
+body{
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .auth {
 	display: flex;
 	align-items: center;
@@ -23,10 +36,199 @@ header > nav {
 	margin-right: 20px;
 }
 
-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 40px;
-	text-align: center;
+
+.photo-list{
+     list-style: none;
+    margin: 20px;
+    padding: 0;
+}
+
+.photo .photoDetails {
+  position: relative;
+}
+.photo .photoDetails .photoDate{
+    top: 10px;
+    position: absolute;
+    left: 5px;
+  color: #fa0000;
+  font-size: 17px;
+    
+}
+
+.photo .photoDetails .photoPlace{
+    top: 30px;
+    position: absolute;
+    left: 5px;
+  color: #1100fa;
+  font-size: 17px;
+}
+
+.photo .likeANDcommentButtons{
+  display: flex;
+  gap: 10px;
+}
+
+.photo .userDescription{
+  align-items: center;
+  display: flex;
+  height: 30px;
+  margin: 20px 0;
+}
+
+.disabled-link {
+  pointer-events: none; /* Deshabilita eventos de puntero */
+  color: red; 
+  background-color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.userInfo a{
+  display: flex;
+  align-items: center;
+  
+}
+.userInfo p{
+  margin: 5px;
+}
+
+/* CSS para el modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Z-index alto para estar encima del contenido principal */
+}
+
+/* CSS para el contenido del modal */
+.modal-content {
+  background-color: var(--overlay-general-bg);
+  padding: var(--overlay-general-padding);
+  border-radius: var(--overlay-general-border-radius);
+  box-shadow: var(--overlay-general-box-shadow);
+}
+
+
+/* CSS para el search overlay */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; 
+  z-index: 1;
+}
+
+/* CSS para el contenido del searchContent */
+.search-content {
+  position: absolute;
+  top: 8vh;
+    left: 44vw;
+  background-color: var(--overlay-general-bg);
+  padding: var(--overlay-general-padding);
+  border-radius: var(--overlay-general-border-radius);
+  box-shadow: var(--overlay-general-box-shadow);
+  display: flex;
+  gap: 20px;
+}
+
+/* CSS para el user overlay */
+.user-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; 
+  z-index: 2;
+
+}
+
+/* CSS para el contenido del userContent */
+.user-content {
+  position: absolute;
+  top: 10vh; 
+  left: 0; 
+  float: left;
+  /* width: 15%;*/
+  height: 50%; 
+  background-color: var(--overlay-general-bg);
+  padding: var(--overlay-general-padding);
+  border-radius: var(--overlay-general-border-radius);
+  box-shadow: var(--overlay-general-box-shadow);
+  gap: 20px; 
+  overflow: hidden;
+}
+
+.user-content fieldset{
+      display: flex;
+    flex-direction: column;
+}
+
+/*list-search-user*/
+.user-content .list-search-user {
+  margin: 10px 0;
+  padding: 0;
+  max-height: 90%;
+  overflow-y: auto;
+  
+}
+
+.user-content .list-user {
+  display: flex;
+  align-items: center; 
+}
+
+.user-content .userInfo a{
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.user-content .userInfo .name-user{
+  font-size: 14px;
+  color: black;
+  margin: 0 0 0 15px  ;
+}
+
+
+/*Para comentarios*/
+
+.comments > p{
+ margin: 10px 5px;
+}
+.comments-list{
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.comment-date{
+  margin-left: auto;
+  font-size: 14px;
+  color: royalblue;
+}
+
+.comments-list-container {
+  max-height: 150px; /* Altura máxima deseada */
+  overflow-y: auto; /* Muestra la barra de desplazamiento solo cuando es necesario */
+  background-color: aliceblue;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+/*SCROLLBARS*/
+ .comments-list-container::-webkit-scrollbar {
+  width: 6px; /* Ancho de la barra de desplazamiento en navegadores webkit */
+}
+
+ .comments-list-container::-webkit-scrollbar-thumb {
+  background-color: #fa0000; /* Color de la barra de desplazamiento */
+  border-radius: 8px; /* Borde redondeado de la barra de desplazamiento */
+
 }

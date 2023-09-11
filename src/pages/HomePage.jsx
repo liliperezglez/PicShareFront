@@ -1,8 +1,24 @@
+import PhotoList from "../components/PhotoList";
+import usePosts from "../hooks/usePosts";
+import { Loading } from "../components/Loading";
+
 export const HomePage = () => {
-    return (
-        <section>
-            <h1>Latest Posts</h1>
-            <p>Aquí irá la lista de los ultimos posts</p>
-        </section>
-    )
-}
+  const { photos, loading, error, addPost, removePost } = usePosts();
+
+  if (loading) return <Loading />;
+  if (error) return <p>{error}</p>;
+  return (
+    <>
+      <section>
+        <h1>Posts</h1>
+        <PhotoList photos={photos} removePost={removePost} />
+        <aside>
+          <p>
+            😋😊 Estás al día en las últimas fotos subidas, Visita algún usuario
+            para ver sus fotos 🎉🎆
+          </p>
+        </aside>
+      </section>
+    </>
+  );
+};

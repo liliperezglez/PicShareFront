@@ -1,52 +1,46 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Auth } from './Auth';
-import { AuthContext } from '../context/AuthContext';
+import { Auth } from "./Auth";
+import { AuthContext } from "../context/AuthContext";
+import SearchOverlay from "./SearchOverlay";
 
 export const Header = () => {
-	const { idUser } = useContext(AuthContext);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-	const handleSearchPhoto = () => {};
+  const openSearch = () => {
+    setIsSearchOpen(true);
+  };
 
-	const handleSearchUser = () => {};
+  const closeSearch = () => {
+    setIsSearchOpen(false);
+  };
 
-	return (
-		<header>
-			<h1>
-				<Link to='/'>PicShare</Link>
-			</h1>
+  const { idUser } = useContext(AuthContext);
 
-			<input
-				type='image'
-				src='../src/resources/users_icon.svg'
-				alt='Buscar usuario'
-				height='35'
-				width='35'
-				onClick={handleSearchUser}
-			/>
+  return (
+    <header>
+      <h1>
+        <Link to="/">PicShare</Link>
+      </h1>
 
-			<input
-				type='image'
-				src='../src/resources/photoGallery_icon.svg'
-				alt='Buscar foto'
-				height='35'
-				width='35'
-				onClick={handleSearchPhoto}
-			/>
+      {isSearchOpen && <SearchOverlay closeSearch={closeSearch} />}
+      <button className="searchButton" onClick={openSearch}>
+        Buscar usuarios o photos
+      </button>
 
-			{idUser && (
-				<input
-					type='image'
-					src='../src/resources/addNewPhoto_icon.svg'
-					height='35'
-					width='35'
-				/>
-			)}
+      {idUser && (
+        <input
+          type="image"
+          src="../src/resources/addNewPhoto_icon.svg"
+          height="35"
+          width="35"
+        />
+      )}
 
-			<nav>
-				<Auth />
-			</nav>
-		</header>
-	);
+      <nav>
+        <Auth />
+      </nav>
+    </header>
+  );
 };

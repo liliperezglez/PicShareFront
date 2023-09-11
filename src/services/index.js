@@ -1,3 +1,21 @@
+// Register
+export const registerUserService = async ({ email, name, username, pwd, repeatpwd }) => {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}register`, {
+    method: "POST",
+    body: JSON.stringify({ email, name, username, pwd, repeatpwd }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  console.log(json)
+};
+
 // Login
 export const logInUserService = async ({ email, pwd }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}login`, {
@@ -16,74 +34,8 @@ export const logInUserService = async ({ email, pwd }) => {
 };
 
 // Obtener los datos del usuario logueado
-export const getMyUserDataService = async (idUser) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}users/${idUser}`
-  );
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-  return json.data.user;
-};
-
-export const getAllPhotosService = async () => {
-  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}`);
-
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-
-  return json.data;
-};
-
-export const deletePhotosService = async ({ id, token }) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}entries/${id}`,
-    {
-      method: "DELETE",
-      headers: {
-        authorization: token,
-      },
-    }
-  );
-
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-};
-
-export const addCommentService = async ({ data, id, token }) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}entries/${id}/comment`,
-    {
-      method: "POST",
-      body: data,
-      headers: {
-        authorization: token,
-      },
-    }
-  );
-
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-
-  return json.data;
-};
-
-export const getSingleUserService = async (id) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}users/${id}`
-  );
-
+export const getMyUserDataService = async ( idUser ) => {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/${idUser}`);
   const json = await response.json();
 
   if (!response.ok) {

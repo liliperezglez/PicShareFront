@@ -35,7 +35,72 @@ export const logInUserService = async ({ email, pwd }) => {
 
 // Obtener los datos del usuario logueado
 export const getMyUserDataService = async ( idUser ) => {
-  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/${idUser}`);
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}users/${idUser}`);
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const getAllPhotosService = async () => {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}`);
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const deletePhotosService = async ({ id, token }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}entries/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
+
+export const addCommentService = async ({ data, id, token }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}entries/${id}/comment`,
+    {
+      method: "POST",
+      body: data,
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const getSingleUserService = async (id) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}users/${id}`
+  );
+
   const json = await response.json();
 
   if (!response.ok) {
@@ -72,3 +137,4 @@ export const getPhotosByDesc = async (description) => {
 
   return json.photos;
 };
+

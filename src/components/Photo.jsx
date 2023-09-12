@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import DeletePost from "./DeletePost";
 import UserDescription from "./UserDescription";
 
-function Photo({ photo, removePost, user }) {
+function Photo({ photo, removePost, addComment }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -46,6 +46,7 @@ function Photo({ photo, removePost, user }) {
         <DeletePost photo={photo} removePost={removePost} />
         <div>
           <img
+            onClick={openModal}
             src={`${import.meta.env.VITE_APP_BACKEND.replace(
               /\/+$/,
               ""
@@ -53,7 +54,13 @@ function Photo({ photo, removePost, user }) {
             alt={photo.description}
           />
         </div>
-        {isModalOpen && <Modal photo={photo} closeModal={closeModal} />}
+        {isModalOpen && (
+          <Modal
+            photo={photo}
+            addComment={addComment}
+            closeModal={closeModal}
+          />
+        )}
       </div>
       <div className="likeANDcommentButtons">
         <p>💘💗 {photo.likes}</p>

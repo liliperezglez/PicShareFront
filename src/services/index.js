@@ -1,6 +1,12 @@
 // Register
-export const registerUserService = async ({ email, name, username, pwd, repeatpwd }) => {
-  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}register`, {
+export const registerUserService = async ({
+  email,
+  name,
+  username,
+  pwd,
+  repeatpwd,
+}) => {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/register`, {
     method: "POST",
     body: JSON.stringify({ email, name, username, pwd, repeatpwd }),
     headers: {
@@ -13,12 +19,12 @@ export const registerUserService = async ({ email, name, username, pwd, repeatpw
   if (!response.ok) {
     throw new Error(json.message);
   }
-  console.log(json)
+  console.log(json);
 };
 
 // Login
 export const logInUserService = async ({ email, pwd }) => {
-  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}login`, {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/login`, {
     method: "POST",
     body: JSON.stringify({ email, pwd }),
     headers: {
@@ -34,8 +40,10 @@ export const logInUserService = async ({ email, pwd }) => {
 };
 
 // Obtener los datos del usuario logueado
-export const getMyUserDataService = async ( idUser ) => {
-  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}users/${idUser}`);
+export const getMyUserDataService = async (idUser) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/users/${idUser}`
+  );
   const json = await response.json();
 
   if (!response.ok) {
@@ -59,7 +67,7 @@ export const getAllPhotosService = async () => {
 
 export const deletePhotosService = async ({ id, token }) => {
   const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}entries/${id}`,
+    `${import.meta.env.VITE_APP_BACKEND}/entries/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -75,13 +83,14 @@ export const deletePhotosService = async ({ id, token }) => {
   }
 };
 
-export const addCommentService = async ({ data, id, token }) => {
+export const addCommentService = async ({ comment, id, token }) => {
   const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}entries/${id}/comment`,
+    `${import.meta.env.VITE_APP_BACKEND}/entries/${id}/comment`,
     {
       method: "POST",
-      body: data,
+      body: JSON.stringify({ comment }),
       headers: {
+        "Content-Type": "application/json",
         authorization: token,
       },
     }
@@ -98,7 +107,7 @@ export const addCommentService = async ({ data, id, token }) => {
 
 export const getSingleUserService = async (id) => {
   const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}users/${id}`
+    `${import.meta.env.VITE_APP_BACKEND}/users/${id}`
   );
 
   const json = await response.json();
@@ -112,7 +121,7 @@ export const getSingleUserService = async (id) => {
 
 export const getUserByUsernameService = async (username) => {
   const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}users/search?username=${username}`
+    `${import.meta.env.VITE_APP_BACKEND}/users/search?username=${username}`
   );
   const json = await response.json();
 
@@ -127,7 +136,7 @@ export const getPhotosByDesc = async (description) => {
   const response = await fetch(
     `${
       import.meta.env.VITE_APP_BACKEND
-    }entries/photos/search?description=${description}`
+    }/entries/photos/search?description=${description}`
   );
   const json = await response.json();
 
@@ -137,4 +146,3 @@ export const getPhotosByDesc = async (description) => {
 
   return json.photos;
 };
-

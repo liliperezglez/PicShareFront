@@ -1,10 +1,10 @@
-import CommentForm from "./CommentForm";
+import React, { useState } from "react";
 import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 import UserDescription from "./UserDescription";
 
-function Modal({ photo, closeModal }) {
+function Modal({ photo, closeModal, addComment }) {
   const handleOverlayClick = (e) => {
-    // Verificar si el clic ocurrió en el fondo del modal
     if (e.target.classList.contains("modal-overlay")) {
       closeModal();
     }
@@ -25,7 +25,7 @@ function Modal({ photo, closeModal }) {
         </div>
 
         <Comments photo={photo} />
-        <CommentForm id={photo.idEntry} />
+        <CommentForm addComment={addComment} id={photo.idEntry} />
         <button onClick={closeModal}>Cerrar</button>
       </div>
     </div>

@@ -19,11 +19,10 @@ export const AuthProviderComponent = ({ children }) => {
 
     if (token && idUser) {
       getMyUserDataService(idUser).then((userData) => {
-        console.log(userData);
-        setName(userData.name);
-        setUserName(userData.username);
-        setAvatar(userData.avatar);
-        setUserCreatedAt(userData.date);
+        setName(userData.user.name);
+        setUserName(userData.user.username);
+        setAvatar(userData.user.avatar);
+        setUserCreatedAt(userData.user.date);
       });
     }
   }, [token, idUser, name, userName, avatar, userCreatedAt]);

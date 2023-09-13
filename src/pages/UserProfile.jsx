@@ -45,8 +45,7 @@ export const UserProfile = () => {
                 {new Date(userData.user.date).toLocaleDateString()}
               </p>
               <LinkToUserProfile idUser={idUser} user={userData.user} />
-              <PhotoList photos={userData.photos} removePost={removePost} />
-            </div>
+              <PhotoList photos={userData.photos} removePost={removePost} />            </div>
           </>
         )
       )}

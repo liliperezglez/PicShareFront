@@ -10,6 +10,9 @@ function PhotoList({ photos, removePost, addComment }) {
               photo={photo}
               removePost={removePost}
               addComment={addComment}
+              idEntry={photo.idEntry}
+              idUser={photo.idUser}
+              likesCount={photo.likes}
             />
           </li>
         );

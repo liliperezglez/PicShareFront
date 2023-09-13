@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export const Auth = () => {
   const { token, idUser, avatar, userName, logout } = useContext(AuthContext);
-
+  
   return idUser && token ? (
     <div>
       <Link to={`/users/${idUser}`} className="auth">

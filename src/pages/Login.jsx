@@ -14,10 +14,8 @@ export const Login = () => {
     e.preventDefault();
     try {
       const data = await logInUserService({ email, pwd });
-
       setIdUser(data.idUser);
       setToken(data.token);
-
       navigate("/");
     } catch (error) {
       console.log(error.message);

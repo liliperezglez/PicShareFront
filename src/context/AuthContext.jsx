@@ -13,6 +13,7 @@ export const AuthProviderComponent = ({ children }) => {
   const [userCreatedAt, setUserCreatedAt] = useState("");
   const navigate = useNavigate("");
 
+
   useEffect(() => {
     localStorage.setItem("token", token);
     localStorage.setItem("idUser", idUser);
@@ -46,6 +47,7 @@ export const AuthProviderComponent = ({ children }) => {
         userName,
         avatar,
         userCreatedAt,
+        setAvatar,
         setToken,
         setIdUser,
         logout,

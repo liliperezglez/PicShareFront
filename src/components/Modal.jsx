@@ -14,6 +14,7 @@ function Modal({ photo, closeModal, addComment }) {
     <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
         <img
+          style={{ width: "400px" }}
           src={`${import.meta.env.VITE_APP_BACKEND.replace(
             /\/+$/,
             ""

@@ -5,8 +5,11 @@ import Modal from "./Modal";
 import DeletePost from "./DeletePost";
 import UserDescription from "./UserDescription";
 import { AuthContext } from "../context/AuthContext";
-import { likePhotoService, unlikePhotoService, getLikeStatusService } from "../services";
-
+import {
+  likePhotoService,
+  unlikePhotoService,
+  getLikeStatusService,
+} from "../services";
 
 function Photo({ photo, removePost, addComment, idEntry }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +37,7 @@ function Photo({ photo, removePost, addComment, idEntry }) {
     }
 
     fetchLikeStatus();
-  }, [token, idEntry, idUser]);
+  }, []);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -64,15 +67,15 @@ function Photo({ photo, removePost, addComment, idEntry }) {
       return `Hace ${seconds} S.`;
     }
   }
-  
+
   const handleLikeClick = async (e) => {
     e.preventDefault();
     try {
       const updatedLiked = !liked; // Cambia liked al valor opuesto
-  
+
       // Actualiza el estado de liked
       setLiked(updatedLiked);
-  
+
       // Realiza la acción de dar/quitar like en el servidor
       if (updatedLiked) {
         await likePhotoService({ token, idEntry });
@@ -81,7 +84,7 @@ function Photo({ photo, removePost, addComment, idEntry }) {
         await unlikePhotoService({ token, idEntry });
         setLikesCount((prevCount) => prevCount - 1); // Disminuye el contador de likes
       }
-  
+
       // Guardar información de los Likes en el almacenamiento local
       const likeInfo = {
         liked: updatedLiked ? 1 : 0,
@@ -92,7 +95,6 @@ function Photo({ photo, removePost, addComment, idEntry }) {
       console.log("Error al procesar el like:", error);
     }
   };
-  
 
   return (
     <article className="photo">
@@ -102,6 +104,7 @@ function Photo({ photo, removePost, addComment, idEntry }) {
       <div className="photoDetails">
         <p className="photoDate">{calculateTimeDifference(photo.date)} </p>
         <p className="photoPlace">{photo.place && photo.place}</p>
+
         <DeletePost photo={photo} removePost={removePost} />
         <div>
           <img
@@ -122,10 +125,11 @@ function Photo({ photo, removePost, addComment, idEntry }) {
         )}
       </div>
       <div className="likeANDcommentButtons">
-      {token && (
-        <button className="likeButton" onClick={handleLikeClick}>
-          {liked ? "❤️" : "🤍"} {likesCount}
-        </button>)}
+        {token && (
+          <button className="likeButton" onClick={handleLikeClick}>
+            {liked ? "❤️" : "🤍"} {likesCount}
+          </button>
+        )}
         <button className="commentButton" onClick={openModal}>
           💬🗯
         </button>

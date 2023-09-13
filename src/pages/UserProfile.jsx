@@ -7,18 +7,28 @@ import usePosts from "../hooks/usePosts";
 import LinkToUserProfile from "../components/LinkToUserProfile";
 
 export const UserProfile = () => {
-  const { removePost } = usePosts();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [userData, setUserData] = useState(null);
+  const {
+    setPhotos,
+    photos,
+    loading,
+    setLoading,
+    error,
+    setError,
+    user,
+    setUser,
+    addPost,
+    removePost,
+    addComment,
+  } = usePosts();
   const { idUser } = useParams();
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const data = await getSingleUserService(idUser);
-        console.log(data);
-        setUserData(data);
+        console.log(data, "Soy el data del perfil");
+        setPhotos(data.photos);
+        setUser(data.user);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -26,7 +36,9 @@ export const UserProfile = () => {
       }
     };
 
-    fetchUserData();
+    if (idUser) {
+      fetchUserData();
+    }
   }, [idUser]);
 
   return (
@@ -36,16 +48,20 @@ export const UserProfile = () => {
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
-        userData && (
+        user && (
           <>
-            <h1>Nombre: {userData.user.name}</h1>
+            <h1>Nombre: {user.name}</h1>
             <div>
               <p className="userRegister">
-                Registrado el{" "}
-                {new Date(userData.user.date).toLocaleDateString()}
+                Registrado el {new Date(user.date).toLocaleDateString()}
               </p>
-              <LinkToUserProfile idUser={idUser} user={userData.user} />
-              <PhotoList photos={userData.photos} removePost={removePost} />            </div>
+              <LinkToUserProfile idUser={idUser} user={user} />
+              <PhotoList
+                photos={photos}
+                addComment={addComment}
+                removePost={removePost}
+              />
+            </div>
           </>
         )
       )}

@@ -26,6 +26,7 @@ function App() {
         <Route path="/users/:idUser" element={<UserProfile />} />
         <Route path="/entries/photos" element={<AddPost />} />
         <Route path="/entries/photos/search" element={<PhotosDescPage />} />
+        
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 

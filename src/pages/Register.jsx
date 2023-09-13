@@ -5,8 +5,8 @@ import { registerUserService } from "../services";
 export const Register = () => {
     const navigate = useNavigate();
     const [email, setEmail ] = useState('');
-    const [username, setUsername ] = useState('');
     const [name, setName ] = useState('');
+    const [username, setUsername ] = useState('');
     const [pwd, setPwd ] = useState('');
     const [repeatpwd, setRepeatPwd ] = useState('');
     const [error, setError] = useState('');
@@ -21,7 +21,7 @@ export const Register = () => {
         }
 
         try {
-            const response = await registerUserService({email, name, username, pwd, repeatpwd});
+            await registerUserService({email, name, username, pwd, repeatpwd});
             navigate("/login");
         } catch (error) {
             console.log(error.message);

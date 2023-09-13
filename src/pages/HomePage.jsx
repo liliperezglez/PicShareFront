@@ -31,7 +31,7 @@ export const HomePage = () => {
     };
 
     getPhotos();
-  }, [photos.length]);
+  }, [photos.length, setError, setLoading, setPhotos]);
 
   console.log(photos, "soy de home");
 

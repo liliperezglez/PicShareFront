@@ -26,6 +26,14 @@ body{
   box-sizing: border-box;
 }
 
+footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+text-align: center;}
+
 .auth {
 	display: flex;
 	align-items: center;

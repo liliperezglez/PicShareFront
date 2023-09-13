@@ -1,20 +1,29 @@
 import { useState } from "react";
-import { getPhotosByDesc } from "../services/index";
+import { getPhotosByDescService } from "../services/index";
 import PhotoList from "../components/PhotoList";
+import usePosts from "../hooks/usePosts";
 
 export default function PhotosDescPage() {
   const [description, setDescription] = useState("");
-  const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [searched, setSearched] = useState(false);
+  const {
+    setPhotos,
+    photos,
+    loading,
+    setLoading,
+    error,
+    setError,
+    addPost,
+    addComment,
+  } = usePosts();
 
+  console.log(addComment, "Description");
   const handleSearch = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
-      const data = await getPhotosByDesc(description);
+      const data = await getPhotosByDescService(description);
       setPhotos(data);
       setSearched(true);
       setError("");
@@ -27,30 +36,34 @@ export default function PhotosDescPage() {
 
   return (
     <section>
-      <h1>Fotos</h1>
-      <form className="search-photos-form" onSubmit={handleSearch}>
-        <fieldset>
-          <label htmlFor="searchPhotos">Buscar Fotos por Descripción</label>
-          <input
-            type="text"
-            id="searchPhotos"
-            name="searchPhotos"
-            placeholder="Escribe una descripción"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </fieldset>
-        <button type="submit">Buscar fotos</button>
-      </form>
-      {loading && <p>Cargando...</p>}
-      {error && <p>Error: {error}</p>}
-      {searched && photos.length > 0 && (
+      {error ? (
+        <p>Error: {error}</p>
+      ) : (
         <>
-          <h3>Resultados de búsqueda:</h3>
-          <div className="photosDesc-content">
-            <PhotoList photos={photos} />
-          </div>
+          <h1>Fotos</h1>
+          <form className="search-photos-form" onSubmit={handleSearch}>
+            <fieldset>
+              <label htmlFor="searchPhotos">Buscar Fotos por Descripción</label>
+              <input
+                type="text"
+                id="searchPhotos"
+                name="searchPhotos"
+                placeholder="Escribe una descripción"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
+            </fieldset>
+            <button type="submit">Buscar fotos</button>
+          </form>
+          {searched && photos.length > 0 && (
+            <>
+              <h3>Resultados de búsqueda:</h3>
+              <div className="photosDesc-content">
+                <PhotoList photos={photos} addComment={addComment} />
+              </div>
+            </>
+          )}
         </>
       )}
     </section>

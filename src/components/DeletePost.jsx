@@ -1,10 +1,13 @@
 import { useContext, useState } from "react";
 import { deletePhotosService } from "../services";
+import { AuthContext } from "../context/AuthContext";
 
 function DeletePost({ photo, removePost }) {
+  const { token } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const deletePost = async (id) => {
+    console.log(id, "Soy el que supuestamente se borra");
     try {
       await deletePhotosService({ id, token });
 
@@ -15,16 +18,21 @@ function DeletePost({ photo, removePost }) {
       setError(error.message);
     }
   };
+  // console.log(photo, "SOY DEL DELETEPOST");
   return (
     <>
       <button
         className="deletePostButton"
         onClick={() => {
-          if (window.confirm("¿Estás seguro?")) deletePost(photo.id);
+          if (
+            window.confirm(`¿Estás seguro de borrar el post? ${photo.idEntry}`)
+          )
+            deletePost(photo.idEntry);
         }}
       >
         ❌
       </button>
+
       {error ? <p>{error}</p> : null}
     </>
   );

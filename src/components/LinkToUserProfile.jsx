@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LinkToUserProfile({ idUser, user }) {
-  const location = useLocation();
   const currentUserId = user.idUser;
 
   // Verificar si la ruta actual coincide con la del usuario

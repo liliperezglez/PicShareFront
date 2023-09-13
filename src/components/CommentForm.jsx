@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import usePosts from "../hooks/usePosts";
 
 function CommentForm({ id, addComment }) {
   const { token, idUser } = useContext(AuthContext);
@@ -16,7 +15,6 @@ function CommentForm({ id, addComment }) {
         date: new Date().toISOString(),
         token: token,
       };
-
       addComment(id, newCommentData);
       // updateComments(newCommentData);
       setNewComment("");

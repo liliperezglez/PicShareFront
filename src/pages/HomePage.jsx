@@ -31,9 +31,8 @@ export const HomePage = () => {
     };
 
     getPhotos();
-  }, [photos.length, setError, setLoading, setPhotos]);
+  }, [photos.length, setError, setPhotos]);
 
-  console.log(photos, "soy de home");
 
   return (
     <section>

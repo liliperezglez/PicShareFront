@@ -2,7 +2,7 @@ import { getUserByUsernameService } from "../services";
 import { useState, useEffect } from "react";
 import UserInfo from "./UserInfo";
 
-function SearchUser({ closeUserSearch }) {
+function SearchUser() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchUsername, setSearchUsername] = useState("");

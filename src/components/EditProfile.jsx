@@ -152,7 +152,7 @@ export const EditProfile = ({closeEditProfile}) => {
 					</fieldset>
 				</div>
 				<button>Registrarse</button>
-				{error ? <p>{error}</p> : null}
+				{error ? <p className="error-message">{error}</p> : null}
 			</form>
 			</div>
 		</section>

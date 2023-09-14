@@ -9,7 +9,6 @@ import { EditProfile } from '../components/EditProfile';
 
 export const UserProfile = () => {
   const { token, idUser } = useContext(AuthContext);
-  const [userData, setUserData] = useState(null);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
   const {
@@ -54,18 +53,17 @@ export const UserProfile = () => {
   }, [actualUser]);
 
   useEffect(() => {
-    console.log(parseInt(actualUser) === parseInt(idUser))
     setEditProfileButton(parseInt(actualUser) === parseInt(idUser) ? 
     true : false);
     
   }, [actualUser]);
-
+  
   return (
     <section>
       {loading ? (
         <Loading />
       ) : error ? (
-        <p>Error: {error}</p>
+        <p className="error-message">Error: {error}</p>
       ) : (
         user && (
           <div>

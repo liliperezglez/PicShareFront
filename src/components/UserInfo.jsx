@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 
-function UserInfo({ user, nombre }) {
+function UserInfo({ user, nombre ,closeUserSearch,closeSearch }) {
   const { idUser } = useParams();
     return (
       <div className="userInfo">
-        <Link to={`/users/${user.idUser}`}>
+        <Link to={`/users/${user.idUser}`} onClick={ ()=>{closeSearch(); closeUserSearch()}}>
           <img
             style={{ width: "50px" }}
             src={user.avatar ? 

@@ -2,7 +2,7 @@ import { getUserByUsernameService } from "../services";
 import { useState, useEffect } from "react";
 import UserInfo from "./UserInfo";
 
-function SearchUser() {
+function SearchUser({closeUserSearch ,closeSearch}) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchUsername, setSearchUsername] = useState("");
@@ -50,12 +50,12 @@ function SearchUser() {
               required
             />
           </fieldset>
-          {error ? <p>{error}</p> : null}
+          {error ? <p className="error-message">{error}</p> : null}
           {loading ? <p>Cargando...</p> : null}
           <ul className="list-search-user">
             {users.map((user) => (
               <li key={user.idUser} className="list-user">
-                <UserInfo user={user} nombre={user.name} />
+                <UserInfo user={user} nombre={user.name} closeSearch={closeSearch} closeUserSearch={closeUserSearch}/>
               </li>
             ))}
           </ul>

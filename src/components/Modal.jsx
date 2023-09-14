@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import UserDescription from "./UserDescription";
+import Photo from "./Photo";
 
 function Modal({ photo, closeModal, addComment }) {
   const handleOverlayClick = (e) => {
@@ -24,8 +25,8 @@ function Modal({ photo, closeModal, addComment }) {
         <div>
           <UserDescription user={photo} />
         </div>
-
-        <Comments photo={photo} />
+        {/* <Photo photo={photo}/> */}
+         <Comments photo={photo} />
         <CommentForm addComment={addComment} id={photo.idEntry} />
         <button onClick={closeModal}>Cerrar</button>
       </div>

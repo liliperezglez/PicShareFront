@@ -84,7 +84,7 @@ export const Register = () => {
                     />
                 </fieldset>
                 <button>Registrarse</button>
-                {error ? <p>{error}</p> : null}
+                {error ? <p className="error-message">{error}</p> : null}
             </form>
         </section>
     );

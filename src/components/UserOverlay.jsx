@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchUser from "./SearchUser";
 
-function UserOverlay() {
+function UserOverlay({closeSearch}) {
   const [isUserOpen, setIsUserOpen] = useState(false);
 
   const openUserSearch = () => {
@@ -13,7 +13,7 @@ function UserOverlay() {
   };
   return (
     <>
-      {isUserOpen && <SearchUser closeUserSearch={closeUserSearch} />}
+      {isUserOpen && <SearchUser closeUserSearch={closeUserSearch} closeSearch={closeSearch}/>}
       <button className="searchUserButton" onClick={openUserSearch}  >
         <input
           type="image"

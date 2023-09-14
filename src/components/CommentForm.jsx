@@ -39,7 +39,7 @@ function CommentForm({ id, addComment }) {
             />
           </fieldset>
           <button type="submit">Comentar</button>
-          {error ? <p>{error}</p> : null}
+          {error ? <p className="error-message">{error}</p> : null}
         </form>
       )}
     </>

@@ -127,10 +127,11 @@ export const deletePhotosService = async ({ id, token }) => {
   );
 
   const json = await response.json();
-
+  
   if (!response.ok) {
     throw new Error(json.message);
   }
+  return json
 };
 
 export const addCommentService = async ({ comment, id, token }) => {

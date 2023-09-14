@@ -11,7 +11,7 @@ function SearchOverlay({ closeSearch }) {
   return (
     <div className="search-overlay" onClick={handleOverlayClick}>
       <div className="search-content">
-        <UserOverlay />
+        <UserOverlay closeSearch={closeSearch}/>
         <SearchPhotos closeSearch={closeSearch}/>
       </div>
     </div>

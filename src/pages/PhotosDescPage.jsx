@@ -6,13 +6,11 @@ import usePosts from "../hooks/usePosts";
 export default function PhotosDescPage() {
   const [description, setDescription] = useState("");
   const [searched, setSearched] = useState(false);
+  const [error, setError] = useState("");
+  const [loading ,setLoading] = useState("")
   const {
     setPhotos,
     photos,
-    loading,
-    setLoading,
-    error,
-    setError,
     addPost,
     addComment,
   } = usePosts();
@@ -36,9 +34,6 @@ export default function PhotosDescPage() {
 
   return (
     <section>
-      {error ? (
-        <p>Error: {error}</p>
-      ) : (
         <>
           <h1>Fotos</h1>
           <form className="search-photos-form" onSubmit={handleSearch}>
@@ -64,8 +59,10 @@ export default function PhotosDescPage() {
               </div>
             </>
           )}
+          {loading ? <p>{loading}</p>:null}
+          {error ? <p className="error-message">{error}</p> : null}
         </>
-      )}
+      
     </section>
   );
 }

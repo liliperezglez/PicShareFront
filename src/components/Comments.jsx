@@ -3,7 +3,7 @@ import UserInfo from "./UserInfo";
 function Comments({ photo }) {
   return (
     <div className="comments">
-      <p>Comentarios:</p>
+      <p>{photo.comments.length }{console.log("Soy comentarios, inacabado")} Comentario{photo.comments.length > 1 && "s"  }:</p>
       {Array.isArray(photo.comments) && photo.comments.length > 0 ? (
         <ul className="comments-list-container">
           {photo.comments.map((comment, index) => (

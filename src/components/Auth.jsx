@@ -9,8 +9,7 @@ export const Auth = () => {
     <div>
       <Link to={`/users/${idUser}`} className="auth">
         <img
-          src={
-            avatar
+          src={avatar
               ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}`
               : "../src/resources/userNoAvatar_icon.svg"
           }

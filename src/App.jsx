@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -14,7 +14,6 @@ import PhotosDescPage from "./pages/PhotosDescPage";
 import "./App.css";
 
 function App() {
-  let { idUser } = useParams();
   return (
     <main className="app">
       <Header />

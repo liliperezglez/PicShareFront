@@ -70,16 +70,15 @@ export const changeAvatar = async ({ token, avatar }) => {
     method: "POST",
     body: avatar,
     headers: {
-      "Content-Type": "multipart/form-data",
       authorization: token,
     },
   });
+  
   const json = await response.json()
 
   if(!response.ok){
     throw new Error(json.message);
   }
-
   return json;
 };
 

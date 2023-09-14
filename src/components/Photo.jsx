@@ -11,6 +11,7 @@ import {
   getLikeStatusService,
 } from "../services";
 
+
 function Photo({ photo, removePost, addComment, idEntry }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { token } = useContext(AuthContext);
@@ -99,7 +100,7 @@ function Photo({ photo, removePost, addComment, idEntry }) {
   return (
     <article className="photo">
       <div className="userPostInfo">
-        <UserInfo user={photo} />
+        {!idUser && <UserInfo user={photo} />}
       </div>
       <div className="photoDetails">
         <p className="photoDate">{calculateTimeDifference(photo.date)} </p>
@@ -124,7 +125,7 @@ function Photo({ photo, removePost, addComment, idEntry }) {
           />
         )}
       </div>
-      <div className="likeANDcommentButtons">
+      {!idUser && <div className="likeANDcommentButtons">
         {token && (
           <button className="likeButton" onClick={handleLikeClick}>
             {liked ? "❤️" : "🤍"} {likesCount}
@@ -133,8 +134,8 @@ function Photo({ photo, removePost, addComment, idEntry }) {
         <button className="commentButton" onClick={openModal}>
           💬🗯
         </button>
-      </div>
-      <UserDescription user={photo} />
+      </div>}
+      {!idUser && <UserDescription user={photo} />}
     </article>
   );
 }

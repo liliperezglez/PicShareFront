@@ -1,16 +1,16 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { editUserData, changeAvatar} from '../services/index';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
 
 
 export const EditProfile = ({closeEditProfile}) => {
 	const navigate = useNavigate();
-	const {token, idUser, avatar, userName, logout} = useContext(AuthContext);
-	const [newAvatar, setNewAvatar] = useState(avatar);
+	const {token, idUser, avatar, userName, setAvatar, logout} = useContext(AuthContext);
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [username, setUsername] = useState('');
+	const [newAvatar, setNewAvatar] = useState('')
 	const [pwd, setPwd] = useState('');
 	const [pwdNew, setPwdNew] = useState('');
 	const [repeatpwd, setRepeatPwd] = useState('');
@@ -40,17 +40,19 @@ export const EditProfile = ({closeEditProfile}) => {
 	const handleNewAvatar = async (e) => {
 		e.preventDefault();
 		setError('');
-
-		try {
-			const response = await changeAvatar({token, newAvatar}); //TODO: seguir aqui
-
-		} catch (error) {
-			console.log(error.message);
-			setError(error.message);
-			
-			
+	try {
+		const formData = new FormData();
+		if(newAvatar) {
+			formData.append('avatar', newAvatar)
+			await changeAvatar({token, avatar:formData});
+			setAvatar(newAvatar)
 		}
-	};
+		
+	} catch (error) {
+		console.log(error.message);
+		setError(error.message);		
+	}
+};
 
 	const handleOverlayClick = (e) => {
 		// Verificar si el clic ocurrió en el fondo del modal
@@ -58,6 +60,11 @@ export const EditProfile = ({closeEditProfile}) => {
 			closeEditProfile();
 		}
 		};
+
+		useEffect(()=>{
+			setNewAvatar('')
+		},[avatar])
+
 	return (
 		<section className="modal-overlay" onClick={handleOverlayClick}>
 			<div className="modal-content">
@@ -73,15 +80,21 @@ export const EditProfile = ({closeEditProfile}) => {
 						/>
 						<input
 								type='file'
-								id='newAvatar'
-								name='newAvatar'
-								accept="image/*"
-								onChange={(e) => {setNewAvatar(e.target.files[0])}}
+								id='avatar'
+								name='avatar'
+								accept={"image/*"}
+								onChange={(e) => setNewAvatar(e.target.files[0])}
 						/>
-						<p>JPG, JPEG o PNG.</p>	
-						{/* {newAvatar ? <figure>
-							<img src={URL.createObjectURL((newAvatar))} style={{width: '75px'}} />
-						</figure> : null} */}
+						{newAvatar ? (
+							<figure>
+								<img
+									src={URL.createObjectURL(newAvatar)}
+									style={{ width: "100px" }}
+									alt="Preview"
+								/>
+							</figure>
+						) : null}
+						<p>JPG, JPEG o PNG.</p>	 
 					</div>	
 				</fieldset>
 				<button>Cambiar avatar</button>
@@ -98,6 +111,7 @@ export const EditProfile = ({closeEditProfile}) => {
 							required
 							onChange={(e) => setEmail(e.target.value)}
 						/>
+						
 					</fieldset>
 					<fieldset>
 						<label htmlFor='name'>Nombre * </label>

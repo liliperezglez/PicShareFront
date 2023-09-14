@@ -7,10 +7,13 @@ import usePosts from '../hooks/usePosts';
 import { AuthContext } from '../context/AuthContext';
 import { EditProfile } from '../components/EditProfile';
 
+
 export const UserProfile = () => {
-  const { token, idUser } = useContext(AuthContext);
+  const { token, idUser, avatar, setAvatar } = useContext(AuthContext);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
+  const [updateAvatar, setUpdateAvatar] = useState(false);
+  const actualUser = useParams().idUser;
   const {
     setPhotos,
     photos,
@@ -26,8 +29,6 @@ export const UserProfile = () => {
   } = usePosts();
 
 
-  const actualUser = useParams().idUser;
-
   const openEditProfile = () => {
     setEditProfile(true);
   };
@@ -42,20 +43,20 @@ export const UserProfile = () => {
         const data = await getSingleUserService(actualUser);
         setPhotos(data.photos);
         setUser(data.user);
+        setAvatar(data.user.avatar);
         setLoading(false);
       } catch (error) {
         setError(error.message);
         setLoading(false);
       }
     };
-	    fetchUserData();
+      fetchUserData();
+  }, [actualUser, updateAvatar]);
 
-  }, [actualUser]);
 
   useEffect(() => {
     setEditProfileButton(parseInt(actualUser) === parseInt(idUser) ? 
     true : false);
-    
   }, [actualUser]);
   
   return (
@@ -69,13 +70,9 @@ export const UserProfile = () => {
           <div>
             <div>
               <img
-                src={
-                  user.avatar
-                    ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${
-                        user.actualUser || actualUser
-                      }/${user.avatar}`
-                    : "../src/resources/userNoAvatar_icon.svg"
-                }
+                src={user.avatar
+                  ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`
+                  : "../src/resources/userNoAvatar_icon.svg"}
                 alt={user.username}
               />
               <h2>{user.name}</h2>
@@ -93,5 +90,6 @@ export const UserProfile = () => {
         )
       )}
     </section>
+
   );
 };

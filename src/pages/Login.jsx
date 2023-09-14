@@ -51,7 +51,7 @@ export const Login = () => {
           />
         </fieldset>
         <button>Login</button>
-        {error ? <p>{error}</p> : null}
+        {error ? <p className="error-message">{error}</p> : null}
       </form>
     </section>
   );

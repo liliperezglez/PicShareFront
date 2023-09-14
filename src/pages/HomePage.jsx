@@ -1,17 +1,14 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import PhotoList from "../components/PhotoList";
 import usePosts from "../hooks/usePosts";
-import { Loading } from "../components/Loading";
 import { getAllPhotosService } from "../services";
 
 export const HomePage = () => {
+   const [error, setError] = useState("");
+  const [loading ,setLoading] = useState("")
   const {
     setPhotos,
     photos,
-    loading,
-    setLoading,
-    error,
-    setError,
     addPost,
     removePost,
     addComment,
@@ -36,10 +33,6 @@ export const HomePage = () => {
 
   return (
     <section>
-      {error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <>
           <h1>Posts</h1>
           <PhotoList
             photos={photos}
@@ -52,8 +45,8 @@ export const HomePage = () => {
               usuario para ver sus fotos 🎉🎆
             </p>
           </aside>
-        </>
-      )}
+          {loading ? <p>{loading}</p>:null}
+          {error ? <p className="error-message">{error}</p> : null}
     </section>
   );
 };

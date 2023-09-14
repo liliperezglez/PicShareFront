@@ -6,7 +6,7 @@ export default function SearchPhotos({closeSearch}) {
   const { loading, error } = usePosts;
 
   if (loading) return <Loading />;
-  if (error) return <p>{error}</p>;
+  if (error) return <p className="error-message">{error}</p>;
 
   return (
     <>

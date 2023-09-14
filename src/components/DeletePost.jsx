@@ -18,7 +18,7 @@ function DeletePost({ photo, removePost }) {
       setError(error.message);
     }
   };
-  // console.log(photo, "SOY DEL DELETEPOST");
+
   return (
     <>
       <button
@@ -33,7 +33,7 @@ function DeletePost({ photo, removePost }) {
         ❌
       </button>
 
-      {error ? <p>{error}</p> : null}
+      {error ? <p className="error-message">{error}</p> : null}
     </>
   );
 }

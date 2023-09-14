@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Loading } from "../components/Loading";
 import usePosts from "../hooks/usePosts";
 
-export default function SearchPhotos() {
+export default function SearchPhotos({closeSearch}) {
   const { loading, error } = usePosts;
 
   if (loading) return <Loading />;
@@ -10,7 +10,7 @@ export default function SearchPhotos() {
 
   return (
     <>
-      <Link to="/entries/photos/search" className="searchPhotoButton">
+      <Link to="/entries/photos/search" onClick={closeSearch} className="searchPhotoButton">
         <button className="searchPhotosButton">
           <input
             type="image"

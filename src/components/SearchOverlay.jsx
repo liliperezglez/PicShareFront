@@ -3,7 +3,6 @@ import UserOverlay from "./UserOverlay";
 
 function SearchOverlay({ closeSearch }) {
   const handleOverlayClick = (e) => {
-    // Verificar si el clic ocurrió en el fondo del modal
     if (e.target.classList.contains("search-overlay")) {
       closeSearch();
     }
@@ -13,7 +12,7 @@ function SearchOverlay({ closeSearch }) {
     <div className="search-overlay" onClick={handleOverlayClick}>
       <div className="search-content">
         <UserOverlay />
-        <SearchPhotos />
+        <SearchPhotos closeSearch={closeSearch}/>
       </div>
     </div>
   );

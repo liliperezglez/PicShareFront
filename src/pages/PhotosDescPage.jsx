@@ -15,7 +15,6 @@ export default function PhotosDescPage() {
     addComment,
   } = usePosts();
 
-  console.log(addComment, "Description");
   const handleSearch = async (e) => {
     e.preventDefault();
 

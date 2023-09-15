@@ -14,32 +14,11 @@ import {
 
 function Photo({ photo, removePost, addComment, idEntry }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { token } = useContext(AuthContext);
+  const { token,calculateTimeDifference } = useContext(AuthContext);
   const [likesCount, setLikesCount] = useState(photo.likes);
   const [liked, setLiked] = useState(false);
   const { idUser } = useParams();
-
-  useEffect(() => {
-    //Obtener info de likes desde el localstorage
-    const likeInfo = localStorage.getItem(`photo_likes_${idEntry}`);
-    if (likeInfo) {
-      const parsedLikeInfo = JSON.parse(likeInfo);
-      setLiked(parsedLikeInfo.liked === 1);
-      setLikesCount(parsedLikeInfo.likesCount);
-    }
-    // Obtener el estado actual del "like" desde el servidor cuando se carga la foto
-    async function fetchLikeStatus() {
-      try {
-        const response = await getLikeStatusService({ token, idEntry });
-        setLiked(response.liked);
-      } catch (error) {
-        console.log("Error al obtener el estado del like:", error);
-      }
-    }
-
-    fetchLikeStatus();
-  }, []);
-
+  
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -48,26 +27,27 @@ function Photo({ photo, removePost, addComment, idEntry }) {
     setIsModalOpen(false);
   };
 
-  function calculateTimeDifference(date) {
-    const currentDate = new Date();
-    const postDate = new Date(date);
-    const timeDifference = currentDate - postDate;
+  useEffect(() => {
+    //Obtener info de likes desde el localstorage
+    const likeInfo = localStorage.getItem(`photo_likes_${idEntry}`);
+    if (likeInfo) {
+      const parsedLikeInfo = JSON.parse(likeInfo);
+      setLiked(parsedLikeInfo.liked === 1);
+      setLikesCount(parsedLikeInfo.likesCount);
+    }    
+    // Obtener el estado actual del "like" desde el servidor cuando se carga la foto
+    async function fetchLikeStatus() {
+      try {
+        const response = await getLikeStatusService({ token, idEntry });
+        setLiked(response.liked);
+      } catch (error) {
+        console.log("Error al obtener el estado del like:", error);
+      }  
+    }  
 
-    const seconds = Math.floor(timeDifference / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
+    fetchLikeStatus();
+  }, []);  
 
-    if (days > 0) {
-      return `Hace ${days} D.`;
-    } else if (hours > 0) {
-      return `Hace ${hours} h.`;
-    } else if (minutes > 0) {
-      return `Hace ${minutes} min.`;
-    } else {
-      return `Hace ${seconds} S.`;
-    }
-  }
 
   const handleLikeClick = async (e) => {
     e.preventDefault();

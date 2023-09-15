@@ -32,8 +32,8 @@ export const Header = () => {
       {idUser && (
         <Link to="/entries/photos">
           <img
-          src="../src/resources/addNewPhoto_icon.svg"
-          alt="Añadir Nuevo Post"
+          type="image"
+          src="../../src/resources/addNewPhoto_icon.svg"
           height="35"
           width="35"
         />

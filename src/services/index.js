@@ -256,3 +256,28 @@ export const getLikeStatusService = async ({ token, idEntry }) => {
   const data = await response.json();
   return { liked: data.liked };
 };
+
+// Añadir foto
+export const addPhotoService = async ({ token, formData }) => {
+  console.log("Token antes de la solicitud:", token);
+  console.log(formData.get('place'), formData.get('description'), formData.get('photo'));
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/entries/photos`,
+    {
+      method: "POST",
+      body: formData,
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+  
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json;
+};
+  

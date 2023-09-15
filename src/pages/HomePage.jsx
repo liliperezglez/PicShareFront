@@ -28,8 +28,7 @@ export const HomePage = () => {
     };
 
     getPhotos();
-  }, [photos.length, setError, setPhotos]);
-
+  }, [photos.length, setError, setLoading, setPhotos]);
 
   return (
     <section>

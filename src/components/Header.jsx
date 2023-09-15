@@ -30,12 +30,14 @@ export const Header = () => {
       </button>
 
       {idUser && (
-        <input
-          type="image"
+        <Link to="/entries/photos">
+          <img
           src="../src/resources/addNewPhoto_icon.svg"
+          alt="Añadir Nuevo Post"
           height="35"
           width="35"
         />
+        </Link>
       )}
 
       <nav>

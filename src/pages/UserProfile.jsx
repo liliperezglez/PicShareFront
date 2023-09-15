@@ -59,6 +59,25 @@ export const UserProfile = () => {
     true : false);
   }, [actualUser]);
   
+
+let avatarSrc = "";
+
+if (parseInt(idUser) === parseInt(actualUser) && avatar && user ) {
+  avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${avatar}`;
+} else if ( user && user.avatar && actualUser){
+  avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`;
+}else{
+  avatarSrc = "../src/resources/userNoAvatar_icon.svg"
+}
+
+
+const updatedPhotos = photos.map((photoNew) => {
+  if (parseInt(photoNew.idUser) === parseInt(user.idUser)) {    
+    return {  ...photoNew,avatar:user.avatar,username:user.username};
+  }
+  return photoNew;
+});
+
   return (
     <section>
       {loading ? (
@@ -70,9 +89,7 @@ export const UserProfile = () => {
           <div>
             <div>
               <img
-                src={user.avatar
-                  ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`
-                  : "../src/resources/userNoAvatar_icon.svg"}
+                src={avatarSrc}
                 alt={user.username}
               />
               <h2>{user.name}</h2>
@@ -84,7 +101,7 @@ export const UserProfile = () => {
             { editProfileButton && <button onClick={openEditProfile}>Editar perfil</button> }
             <div>
               <p className='userRegister'></p>
-              <PhotoList photos={photos} addComment={addComment} username={user.username} removePost={removePost} />
+              <PhotoList photos={updatedPhotos} addComment={addComment} username={user.username} removePost={removePost} />
             </div>
           </div>
         )

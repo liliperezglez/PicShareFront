@@ -14,7 +14,6 @@ const usePosts = () => {
   };
 
   const removePost = (id) => {
-    console.log(id, "ID A BORRAR");
     setPhotos(photos.filter((photo) => photo.idEntry !== id));
   };
 
@@ -41,7 +40,6 @@ const usePosts = () => {
             },
             ...commentsOld,
           ];
-          console.log(updatedComments, "soy el upd");
           return {
             ...photo,
             comments: updatedComments,

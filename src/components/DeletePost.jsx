@@ -3,35 +3,39 @@ import { deletePhotosService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 
 function DeletePost({ photo, removePost }) {
-  const { token } = useContext(AuthContext);
+  const { token,idUser,role } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const deletePost = async (id) => {
-    console.log(id, "Soy el que supuestamente se borra");
     try {
-      await deletePhotosService({ id, token });
+       await deletePhotosService({ id, token });
 
       if (removePost) {
         removePost(id);
       }
+      
     } catch (error) {
       setError(error.message);
     }
   };
 
   return (
+    
     <>
-      <button
-        className="deletePostButton"
-        onClick={() => {
-          if (
-            window.confirm(`¿Estás seguro de borrar el post? ${photo.idEntry}`)
-          )
-            deletePost(photo.idEntry);
+    {(role === "admin" || token && parseInt(photo.idUser) === parseInt(idUser)) && (
+          <button
+           className="deletePostButton"
+             onClick={() => {
+            if (
+               window.confirm(`¿Estás seguro de borrar esta publicación?`)
+            )
+             deletePost(photo.idEntry);
         }}
       >
         ❌
       </button>
+        )}
+      
 
       {error ? <p className="error-message">{error}</p> : null}
     </>

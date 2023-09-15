@@ -16,7 +16,6 @@ function CommentForm({ id, addComment }) {
         token: token,
       };
       addComment(id, newCommentData);
-      // updateComments(newCommentData);
       setNewComment("");
     } catch (error) {
       setError(error.message);
@@ -26,7 +25,7 @@ function CommentForm({ id, addComment }) {
   return (
     <>
       {token && idUser && (
-        <form className="new-comment" onSubmit={handleForm}>
+        <form className="comment-form" onSubmit={handleForm}>
           <fieldset>
             <input
               type="text"

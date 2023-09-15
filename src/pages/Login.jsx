@@ -8,7 +8,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [error, setError] = useState("");
-  const { setToken, setIdUser } = useContext(AuthContext);
+  const { setToken, setIdUser, setRole } = useContext(AuthContext);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -16,6 +16,7 @@ export const Login = () => {
       const data = await logInUserService({ email, pwd });
       setIdUser(data.idUser);
       setToken(data.token);
+      setRole(data.role)
       navigate("/");
     } catch (error) {
       console.log(error.message);

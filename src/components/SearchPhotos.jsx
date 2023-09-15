@@ -14,7 +14,7 @@ export default function SearchPhotos({closeSearch}) {
         <button className="searchPhotosButton">
           <input
             type="image"
-            src="../src/resources/photoGallery_icon.svg"
+            src="../../src/resources/photoGallery_icon.svg"
             alt="Buscar foto"
             height="35"
             width="35"

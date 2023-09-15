@@ -1,12 +1,13 @@
 import { useState, useContext, useEffect } from "react";
-import { editUserData, changeAvatar} from '../services/index';
+import { editUserData, changeAvatar, deleteAccount} from '../services/index';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
+import { DeleteProfile } from '../components/DeleteProfile';
 
 
 export const EditProfile = ({closeEditProfile}) => {
 	const navigate = useNavigate();
-	const {token, idUser, avatar, userName, setAvatar, logout} = useContext(AuthContext);
+	const {token, idUser, avatar, userName, setAvatar, userCreatedAt, logout} = useContext(AuthContext);
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [username, setUsername] = useState('');
@@ -15,6 +16,18 @@ export const EditProfile = ({closeEditProfile}) => {
 	const [pwdNew, setPwdNew] = useState('');
 	const [repeatpwd, setRepeatPwd] = useState('');
 	const [error, setError] = useState('');
+	const [deleteProfile, setDeleteProfile] = useState(false);
+
+
+
+	const openDeleteProfile = () => {
+		setDeleteProfile(true);
+	};
+	
+	const closeDeleteProfile = () => {
+		setDeleteProfile(false);
+	};
+
 
 	const handleEditForm = async (e) => {
 		e.preventDefault();
@@ -24,13 +37,13 @@ export const EditProfile = ({closeEditProfile}) => {
 			setError('Las contraseñas no coinciden');
 			return;
 		}
-
 		try {
 			const response = await editUserData({token, idUser, email, name, username, pwd, pwdNew, repeatpwd});
 			if(response.status === 'OK'){
 				navigate('/login');
 				logout();
 			}
+			
 		} catch (error) {
 			console.log(error.message);
 			setError(error.message);
@@ -40,19 +53,23 @@ export const EditProfile = ({closeEditProfile}) => {
 	const handleNewAvatar = async (e) => {
 		e.preventDefault();
 		setError('');
-	try {
-		const formData = new FormData();
-		if(newAvatar) {
-			formData.append('avatar', newAvatar)
-			await changeAvatar({token, avatar:formData});
-			setAvatar(newAvatar)
+		try {
+			const formData = new FormData();
+			if(newAvatar) {
+				formData.append('avatar', newAvatar)
+				await changeAvatar({token, avatar:formData});
+				setAvatar(newAvatar)
+			}
+			
+		} catch (error) {
+			console.log(error.message);
+			setError(error.message);		
 		}
-		
-	} catch (error) {
-		console.log(error.message);
-		setError(error.message);		
-	}
-};
+	};
+
+
+
+
 
 	const handleOverlayClick = (e) => {
 		// Verificar si el clic ocurrió en el fondo del modal
@@ -64,6 +81,8 @@ export const EditProfile = ({closeEditProfile}) => {
 		useEffect(()=>{
 			setNewAvatar('')
 		},[avatar])
+
+
 
 	return (
 		<section className="modal-overlay" onClick={handleOverlayClick}>
@@ -100,7 +119,6 @@ export const EditProfile = ({closeEditProfile}) => {
 				<button>Cambiar avatar</button>
 			</form>
 			<form onSubmit={handleEditForm}>
-				
 				<div>
 					<fieldset>
 						<label htmlFor='email'>Email * </label>
@@ -144,7 +162,7 @@ export const EditProfile = ({closeEditProfile}) => {
 						/>
 					</fieldset>
 				</div>
-				<p>/////////</p>
+				<p>/////////</p>  
 				<div>
 					<fieldset>
 						<label htmlFor='newPwd'>Nueva Contraseña: </label>
@@ -165,7 +183,12 @@ export const EditProfile = ({closeEditProfile}) => {
 						/>
 					</fieldset>
 				</div>
-				<button>Registrarse</button>
+				<div>
+				<button type="submit">Guardar cambios</button>
+				{deleteProfile && <DeleteProfile closeDeleteProfile={closeDeleteProfile} />}
+				<button type="button" onClick={openDeleteProfile}>Eliminar cuenta</button>
+				
+				</div>
 				{error ? <p className="error-message">{error}</p> : null}
 			</form>
 			</div>

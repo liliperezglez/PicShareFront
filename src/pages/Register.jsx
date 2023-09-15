@@ -21,7 +21,8 @@ export const Register = () => {
         }
 
         try {
-            await registerUserService({email, name, username, pwd, repeatpwd});
+            const register = await registerUserService({email, name, username, pwd, repeatpwd});
+            alert(register.message.includes('recuperado') ? `${register.message}. Se mantendrá tu antiguo nombre de usuario` : register.message)
             navigate("/login");
         } catch (error) {
             console.log(error.message);

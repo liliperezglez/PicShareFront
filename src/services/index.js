@@ -19,7 +19,7 @@ export const registerUserService = async ({
   if (!response.ok) {
     throw new Error(json.message);
   }
-  console.log(json);
+  return json
 };
 
 
@@ -64,6 +64,27 @@ export const editUserData = async ({ token, idUser, email, name, username, pwd, 
 
 
 
+// Borrar cuenta
+export const deleteAccount = async ({ token, idUser }) => {
+
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/${idUser}`, {
+    method: "DELETE",
+    headers: {
+      authorization: token,
+    },
+  });
+  const json = await response.json();
+  console.log(json)
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json;
+};
+
+
+
 // Cambiar avatar
 export const changeAvatar = async ({ token, avatar }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/avatar`, {
@@ -73,10 +94,10 @@ export const changeAvatar = async ({ token, avatar }) => {
       authorization: token,
     },
   });
-  
+
   const json = await response.json()
 
-  if(!response.ok){
+  if (!response.ok) {
     throw new Error(json.message);
   }
   return json;
@@ -126,7 +147,7 @@ export const deletePhotosService = async ({ id, token }) => {
   );
 
   const json = await response.json();
-  
+
   if (!response.ok) {
     throw new Error(json.message);
   }
@@ -187,8 +208,7 @@ export const getUserByUsernameService = async (username) => {
 
 export const getPhotosByDescService = async (description) => {
   const response = await fetch(
-    `${
-      import.meta.env.VITE_APP_BACKEND
+    `${import.meta.env.VITE_APP_BACKEND
     }/entries/photos/search?description=${description}`
   );
   const json = await response.json();

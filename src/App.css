@@ -6,77 +6,76 @@
 }
 
 * {
-	margin: 0;
-	box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header > nav {
-	display: flex;
+  display: flex;
 }
 
-body{
+body {
   padding: 10px;
   margin: 0;
   box-sizing: border-box;
 }
 
 footer {
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:30px;
-  width:100%;
-text-align: center;}
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
 
 .auth {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
 }
 
 .auth > li {
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
-
-.photo-list{
-     list-style: none;
-    margin: 20px;
-    padding: 0;
+.photo-list {
+  list-style: none;
+  margin: 20px;
+  padding: 0;
 }
 
 .photo .photoDetails {
   position: relative;
 }
-.photo .photoDetails .photoDate{
-    top: 10px;
-    position: absolute;
-    left: 5px;
+.photo .photoDetails .photoDate {
+  top: 10px;
+  position: absolute;
+  left: 5px;
   color: #fa0000;
   font-size: 17px;
-    
 }
 
-.photo .photoDetails .photoPlace{
-    top: 30px;
-    position: absolute;
-    left: 5px;
+.photo .photoDetails .photoPlace {
+  top: 30px;
+  position: absolute;
+  left: 5px;
   color: #1100fa;
   font-size: 17px;
 }
 
-.photo .likeANDcommentButtons{
+.photo .likeANDcommentButtons {
   display: flex;
   gap: 10px;
 }
 
-.photo .userDescription{
+.photo .userDescription {
   align-items: center;
   display: flex;
   height: 30px;
@@ -85,18 +84,17 @@ text-align: center;}
 
 .disabled-link {
   pointer-events: none; /* Deshabilita eventos de puntero */
-  color: red; 
+  color: red;
   background-color: #fff;
   text-decoration: none;
   font-size: 20px;
 }
 
-.userInfo a{
+.userInfo a {
   display: flex;
   align-items: center;
-  
 }
-.userInfo p{
+.userInfo p {
   margin: 5px;
 }
 
@@ -122,7 +120,6 @@ text-align: center;}
   box-shadow: var(--overlay-general-box-shadow);
 }
 
-
 /* CSS para el search overlay */
 .search-overlay {
   position: fixed;
@@ -130,7 +127,7 @@ text-align: center;}
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent; 
+  background: transparent;
   z-index: 1;
 }
 
@@ -138,7 +135,7 @@ text-align: center;}
 .search-content {
   position: absolute;
   top: 8vh;
-    left: 44vw;
+  left: 44vw;
   background-color: var(--overlay-general-bg);
   padding: var(--overlay-general-padding);
   border-radius: var(--overlay-general-border-radius);
@@ -154,30 +151,29 @@ text-align: center;}
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent; 
+  background: transparent;
   z-index: 2;
-
 }
 
 /* CSS para el contenido del userContent */
 .user-content {
   position: absolute;
-  top: 10vh; 
-  left: 0; 
+  top: 10vh;
+  left: 0;
   float: left;
   /* width: 15%;*/
-  height: 50%; 
+  height: 50%;
   background-color: var(--overlay-general-bg);
   padding: var(--overlay-general-padding);
   border-radius: var(--overlay-general-border-radius);
   box-shadow: var(--overlay-general-box-shadow);
-  gap: 20px; 
+  gap: 20px;
   overflow: hidden;
 }
 
-.user-content fieldset{
-      display: flex;
-    flex-direction: column;
+.user-content fieldset {
+  display: flex;
+  flex-direction: column;
 }
 
 /*list-search-user*/
@@ -186,37 +182,35 @@ text-align: center;}
   padding: 0;
   max-height: 90%;
   overflow-y: auto;
-  
 }
 
 .user-content .list-user {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
-.user-content .userInfo a{
+.user-content .userInfo a {
   text-decoration: none;
   margin-bottom: 10px;
 }
-.user-content .userInfo .name-user{
+.user-content .userInfo .name-user {
   font-size: 14px;
   color: black;
-  margin: 0 0 0 15px  ;
+  margin: 0 0 0 15px;
 }
-
 
 /*Para comentarios*/
 
-.comments > p{
- margin: 10px 5px;
+.comments > p {
+  margin: 10px 5px;
 }
-.comments-list{
+.comments-list {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
 }
 
-.comment-date{
+.comment-date {
   margin-left: auto;
   font-size: 14px;
   color: royalblue;
@@ -231,12 +225,11 @@ text-align: center;}
 }
 
 /*SCROLLBARS*/
- .comments-list-container::-webkit-scrollbar {
+.comments-list-container::-webkit-scrollbar {
   width: 6px; /* Ancho de la barra de desplazamiento en navegadores webkit */
 }
 
- .comments-list-container::-webkit-scrollbar-thumb {
+.comments-list-container::-webkit-scrollbar-thumb {
   background-color: #fa0000; /* Color de la barra de desplazamiento */
   border-radius: 8px; /* Borde redondeado de la barra de desplazamiento */
-
 }

@@ -310,7 +310,7 @@ export const addPhotoService = async ({ token, formData }) => {
       },
     }
   );
-  
+
   const json = await response.json();
 
   if (!response.ok) {
@@ -319,4 +319,4 @@ export const addPhotoService = async ({ token, formData }) => {
 
   return json;
 };
-  
+

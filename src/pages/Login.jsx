@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
-import { logInUserService } from "../services";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { useContext, useState } from 'react';
+import { logInUserService } from '../services';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [pwd, setPwd] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [error, setError] = useState('');
   const { setToken, setIdUser, setRole } = useContext(AuthContext);
 
   const handleForm = async (e) => {
@@ -16,8 +16,8 @@ export const Login = () => {
       const data = await logInUserService({ email, pwd });
       setIdUser(data.idUser);
       setToken(data.token);
-      setRole(data.role)
-      navigate("/");
+      setRole(data.role);
+      navigate('/');
     } catch (error) {
       console.log(error.message);
       setError(error.message);
@@ -29,30 +29,23 @@ export const Login = () => {
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="email">Email</label>
+          <label htmlFor='email'>Email</label>
           <input
-            type="email"
-            name="email"
-            id="email"
+            type='email'
+            name='email'
+            id='email'
             value={email}
             required
-            autoComplete="current-email"
+            autoComplete='current-email'
             onChange={(e) => setEmail(e.target.value)}
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="pwd">Contraseña</label>
-          <input
-            type="password"
-            name="pwd"
-            id="pwd"
-            value={pwd}
-            required
-            onChange={(e) => setPwd(e.target.value)}
-          />
+          <label htmlFor='pwd'>Contraseña</label>
+          <input type='password' name='pwd' id='pwd' value={pwd} required onChange={(e) => setPwd(e.target.value)} />
         </fieldset>
         <button>Login</button>
-        {error ? <p className="error-message">{error}</p> : null}
+        {error ? <p className='error-message'>{error}</p> : null}
       </form>
     </section>
   );

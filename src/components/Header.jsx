@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Auth } from "./Auth";
-import { AuthContext } from "../context/AuthContext";
-import SearchOverlay from "./SearchOverlay";
+import { Auth } from './Auth';
+import { AuthContext } from '../context/AuthContext';
+import SearchOverlay from './SearchOverlay';
 
 export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -21,22 +21,17 @@ export const Header = () => {
   return (
     <header>
       <h1>
-        <Link to="/">PicShare</Link>
+        <Link to='/'>PicShare</Link>
       </h1>
 
       {isSearchOpen && <SearchOverlay closeSearch={closeSearch} />}
-      <button className="searchButton" onClick={openSearch}>
+      <button className='searchButton' onClick={openSearch}>
         Buscar usuarios o photos
       </button>
 
       {idUser && (
-        <Link to="/entries/photos">
-          <img
-          type="image"
-          src="../../src/resources/addNewPhoto_icon.svg"
-          height="35"
-          width="35"
-        />
+        <Link to='/entries/photos'>
+          <img type='image' src='../../src/resources/addNewPhoto_icon.svg' height='35' width='35' />
         </Link>
       )}
 

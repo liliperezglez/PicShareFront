@@ -55,10 +55,10 @@ const usePosts = () => {
   };
 
 
-  
+
   const removeComment = async (idEntry, idComment, token) => {
     try {
-       await deleteCommentService({ id: idEntry, idComment, token });
+      await deleteCommentService({ id: idEntry, idComment, token });
 
       // Actualiza el estado de comentarios después de eliminar uno con éxito
       const updatedPhotos = photos.map((photo) => {

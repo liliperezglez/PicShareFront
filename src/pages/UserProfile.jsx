@@ -9,10 +9,9 @@ import { EditProfile } from '../components/EditProfile';
 
 
 export const UserProfile = () => {
-  const { token, idUser, avatar, setAvatar } = useContext(AuthContext);
+  const {  idUser, avatar, setAvatar } = useContext(AuthContext);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
-  const [updateAvatar, setUpdateAvatar] = useState(false);
   const actualUser = useParams().idUser;
   const {
     setPhotos,
@@ -23,9 +22,9 @@ export const UserProfile = () => {
     setError,
     user,
     setUser,
-    addPost,
     removePost,
     addComment,
+    removeComment,
   } = usePosts();
 
 
@@ -51,7 +50,7 @@ export const UserProfile = () => {
       }
     };
       fetchUserData();
-  }, [actualUser, updateAvatar]);
+  }, [actualUser]);
 
 
   useEffect(() => {
@@ -101,7 +100,7 @@ const updatedPhotos = photos.map((photoNew) => {
             { editProfileButton && <button onClick={openEditProfile}>Editar perfil</button> }
             <div>
               <p className='userRegister'></p>
-              <PhotoList photos={updatedPhotos} addComment={addComment} username={user.username} removePost={removePost} />
+              <PhotoList photos={updatedPhotos} addComment={addComment} removeComment={removeComment} username={user.username} removePost={removePost} />
             </div>
           </div>
         )

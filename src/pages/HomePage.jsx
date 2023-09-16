@@ -9,8 +9,8 @@ export const HomePage = () => {
   const {
     setPhotos,
     photos,
-    addPost,
     removePost,
+    removeComment,
     addComment,
   } = usePosts();
 
@@ -37,6 +37,7 @@ export const HomePage = () => {
             photos={photos}
             removePost={removePost}
             addComment={addComment}
+            removeComment={removeComment}
           />
           <aside>
             <p>

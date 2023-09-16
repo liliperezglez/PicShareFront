@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { addCommentService } from "../services";
+import { addCommentService, deleteCommentService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 
 const usePosts = () => {
@@ -8,6 +8,7 @@ const usePosts = () => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const { idUser, userName, avatar } = useContext(AuthContext);
+
 
   const addPost = (data) => {
     setPhotos([data, ...photos]);
@@ -47,10 +48,31 @@ const usePosts = () => {
         }
         return photo;
       });
-
       setPhotos(updatedPhotos);
     } catch (error) {
       setError(error.message);
+    }
+  };
+
+
+  
+  const removeComment = async (idEntry, idComment, token) => {
+    try {
+       await deleteCommentService({ id: idEntry, idComment, token });
+
+      // Actualiza el estado de comentarios después de eliminar uno con éxito
+      const updatedPhotos = photos.map((photo) => {
+        if (photo.idEntry === idEntry) {
+          photo.comments = photo.comments.filter((comment) => comment.idComment !== idComment);
+        }
+        return photo;
+      });
+      setPhotos(updatedPhotos);
+
+      alert("Mensaje eliminado correctamente");
+    } catch (error) {
+      setError(error.message);
+      alert("No se ha podido borrar el mensaje, prueba más tarde");
     }
   };
 
@@ -66,6 +88,7 @@ const usePosts = () => {
     user,
     addComment,
     setLoading,
+    removeComment
   };
 };
 

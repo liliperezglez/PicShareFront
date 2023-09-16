@@ -176,6 +176,25 @@ export const addCommentService = async ({ comment, id, token }) => {
   return json.data;
 };
 
+export const deleteCommentService = async ({ id, idComment, token }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/entries/${id}/comment/${idComment}`,
+    {
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json
+};
+
 
 
 export const getSingleUserService = async (id) => {

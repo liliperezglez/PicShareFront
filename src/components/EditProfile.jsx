@@ -35,8 +35,7 @@ export const EditProfile = ({ closeEditProfile }) => {
     }
     try {
       const response = await editUserData({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd });
-      if (response.status === 'OK') {
-        navigate('/login');
+      if (response.status === 'OK' && pwdNew && repeatpwd) {
         logout();
       }
     } catch (error) {

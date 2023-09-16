@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { addCommentService, deleteCommentService, editCommentService } from "../services";
 import { AuthContext } from "../context/AuthContext";
+import { likePhotoService } from "../services";
 
 const usePosts = () => {
   const [photos, setPhotos] = useState([]);
@@ -9,10 +10,21 @@ const usePosts = () => {
   const [error, setError] = useState("");
   const { idUser, userName, avatar } = useContext(AuthContext);
 
+const toggleLike = async (idEntry, token) => {
+  const photo = photos.find((photo) => photo.idEntry === idEntry);
+  if (!photo) return;
 
-  const addPost = (data) => {
-    setPhotos([data, ...photos]);
-  };
+  try {
+    const response = await likePhotoService({ token, idEntry });
+    const updatedPhotos = photos.map((photo) =>
+      photo.idEntry === idEntry ? { ...photo, likes: response.data.totalVotos,  } : photo
+    );
+    setPhotos(updatedPhotos);
+
+  } catch (error) {
+    console.error("Error al procesar el like:", error);
+  }
+};
 
   const removePost = (id) => {
     setPhotos(photos.filter((photo) => photo.idEntry !== id));
@@ -54,8 +66,7 @@ const usePosts = () => {
     }
   };
 
-
-
+  
   const removeComment = async (idEntry, idComment, token) => {
     try {
       await deleteCommentService({ id: idEntry, idComment, token });
@@ -105,7 +116,6 @@ const usePosts = () => {
     photos,
     error,
     loading,
-    addPost,
     removePost,
     setPhotos,
     setError,
@@ -114,7 +124,8 @@ const usePosts = () => {
     addComment,
     setLoading,
     removeComment,
-    editComment
+    editComment,
+    toggleLike
   };
 };
 

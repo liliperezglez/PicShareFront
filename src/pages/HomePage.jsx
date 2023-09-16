@@ -13,6 +13,7 @@ export const HomePage = () => {
     removeComment,
     editComment,
     addComment,
+    toggleLike
   } = usePosts();
 
   useEffect(() => {
@@ -40,6 +41,7 @@ export const HomePage = () => {
             addComment={addComment}
             editComment={editComment}
             removeComment={removeComment}
+            toggleLike={toggleLike}
           />
           <aside>
             <p>

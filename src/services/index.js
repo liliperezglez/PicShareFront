@@ -260,7 +260,6 @@ export const getPhotosByDescService = async (description) => {
   return json.photos;
 };
 
-// Dar like
 export const likePhotoService = async ({ token, idEntry }) => {
   const response = await fetch(
     `${import.meta.env.VITE_APP_BACKEND}/entries/${idEntry}/votes`,
@@ -276,45 +275,12 @@ export const likePhotoService = async ({ token, idEntry }) => {
     const json = await response.json();
     throw new Error(json.message);
   }
-};
 
-// Quitar like
-export const unlikePhotoService = async ({ token, idEntry }) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}/entries/${idEntry}/votes`,
-    {
-      method: "DELETE",
-      headers: {
-        authorization: token,
-      },
-    }
-  );
+  const updatedLikes = await response.json();
+console.log(updatedLikes)
+  return updatedLikes; 
 
-  if (!response.ok) {
-    const json = await response.json();
-    throw new Error(json.message);
-  }
-};
 
-// Obtener likes de la foto
-export const getLikeStatusService = async ({ token, idEntry }) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND}/entries/${idEntry}/votes`,
-    {
-      method: "GET",
-      headers: {
-        authorization: token,
-      },
-    }
-  );
-
-  if (!response.ok) {
-    const json = await response.json();
-    throw new Error(json.message);
-  }
-
-  const data = await response.json();
-  return { liked: data.liked };
 };
 
 // Añadir foto

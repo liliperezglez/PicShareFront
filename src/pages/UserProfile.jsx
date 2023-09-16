@@ -7,26 +7,12 @@ import usePosts from '../hooks/usePosts';
 import { AuthContext } from '../context/AuthContext';
 import { EditProfile } from '../components/EditProfile';
 
-
 export const UserProfile = () => {
-  const {  idUser, avatar, setAvatar } = useContext(AuthContext);
+  const { idUser, avatar, setAvatar } = useContext(AuthContext);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
   const actualUser = useParams().idUser;
-  const {
-    setPhotos,
-    photos,
-    loading,
-    setLoading,
-    error,
-    setError,
-    user,
-    setUser,
-    removePost,
-    addComment,
-    removeComment,
-  } = usePosts();
-
+  const { setPhotos, photos, loading, setLoading, error, setError, user, setUser, removePost, addComment, removeComment } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -49,63 +35,61 @@ export const UserProfile = () => {
         setLoading(false);
       }
     };
-      fetchUserData();
+    fetchUserData();
   }, [actualUser]);
-
 
   useEffect(() => {
-    setEditProfileButton(parseInt(actualUser) === parseInt(idUser) ? 
-    true : false);
+    setEditProfileButton(parseInt(actualUser) === parseInt(idUser));
   }, [actualUser]);
-  
 
-let avatarSrc = "";
+  let avatarSrc = '';
 
-if (parseInt(idUser) === parseInt(actualUser) && avatar && user ) {
-  avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${avatar}`;
-} else if ( user && user.avatar && actualUser){
-  avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`;
-}else{
-  avatarSrc = "../src/resources/userNoAvatar_icon.svg"
-}
-
-
-const updatedPhotos = photos.map((photoNew) => {
-  if (parseInt(photoNew.idUser) === parseInt(user.idUser)) {    
-    return {  ...photoNew,avatar:user.avatar,username:user.username};
+  if (parseInt(idUser) === parseInt(actualUser) && avatar && user) {
+    avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${avatar}`;
+  } else if (user && user.avatar && actualUser) {
+    avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`;
+  } else {
+    avatarSrc = '../src/resources/userNoAvatar_icon.svg';
   }
-  return photoNew;
-});
+
+  const updatedPhotos = photos.map((photoNew) => {
+    if (parseInt(photoNew.idUser) === parseInt(user.idUser)) {
+      return { ...photoNew, avatar: user.avatar, username: user.username };
+    }
+    return photoNew;
+  });
 
   return (
     <section>
       {loading ? (
         <Loading />
       ) : error ? (
-        <p className="error-message">Error: {error}</p>
+        <p className='error-message'>Error: {error}</p>
       ) : (
         user && (
           <div>
             <div>
-              <img
-                src={avatarSrc}
-                alt={user.username}
-              />
+              <img src={avatarSrc} alt={user.username} />
               <h2>{user.name}</h2>
               <h3>{user.username}</h3>
               {`Miembro desde ${new Date(user.date).toLocaleDateString()}`}
               <h4>Publicaciones: {photos.length}</h4>
             </div>
             {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
-            { editProfileButton && <button onClick={openEditProfile}>Editar perfil</button> }
+            {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
             <div>
               <p className='userRegister'></p>
-              <PhotoList photos={updatedPhotos} addComment={addComment} removeComment={removeComment} username={user.username} removePost={removePost} />
+              <PhotoList
+                photos={updatedPhotos}
+                addComment={addComment}
+                removeComment={removeComment}
+                username={user.username}
+                removePost={removePost}
+              />
             </div>
           </div>
         )
       )}
     </section>
-
   );
 };

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 function CommentsOptions({ idComment, comment, idEntry, removeComment }) {
   const { token, idUser, role } = useContext(AuthContext);
@@ -21,20 +21,15 @@ function CommentsOptions({ idComment, comment, idEntry, removeComment }) {
   return (
     <>
       {isOpenOption && (
-        <div className="modal-overlay">
-          <div className="modal-content" key={idComment}>
+        <div className='modal-overlay'>
+          <div className='modal-content' key={idComment}>
             <p>{comment.comment}</p>
-            <button onClick={() => deleteComment(idComment, idEntry)}>
-              Eliminar comentario
-            </button>
+            <button onClick={() => deleteComment(idComment, idEntry)}>Eliminar comentario</button>
             <button onClick={closeOptions}>Salir</button>
           </div>
         </div>
       )}
-      {((token && parseInt(idUser) === parseInt(comment.idUser)) ||
-        role === "admin") && (
-        <button onClick={openOptions}>⚙</button>
-      )}
+      {((token && parseInt(idUser) === parseInt(comment.idUser)) || role === 'admin') && <button onClick={openOptions}>⚙</button>}
     </>
   );
 }

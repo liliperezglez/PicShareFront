@@ -1,27 +1,24 @@
-import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getMyUserDataService } from "../services/index";
+import { createContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getMyUserDataService } from '../services/index';
 
 export const AuthContext = createContext();
 
 export const AuthProviderComponent = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [idUser, setIdUser] = useState(localStorage.getItem("idUser"));
-  const [name, setName] = useState("");
-  const [role, setRole] = useState(localStorage.getItem("role"));
-  const [userName, setUserName] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const [userCreatedAt, setUserCreatedAt] = useState("");
-  const navigate = useNavigate("");
-  
-
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [idUser, setIdUser] = useState(localStorage.getItem('idUser'));
+  const [name, setName] = useState('');
+  const [role, setRole] = useState(localStorage.getItem('role'));
+  const [userName, setUserName] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [userCreatedAt, setUserCreatedAt] = useState('');
+  const navigate = useNavigate('');
 
   useEffect(() => {
-    localStorage.setItem("token", token);
-    localStorage.setItem("idUser", idUser);
-    localStorage.setItem("role", role);
+    localStorage.setItem('token', token);
+    localStorage.setItem('idUser', idUser);
+    localStorage.setItem('role', role);
 
-    
     if (token && idUser) {
       getMyUserDataService(idUser).then((userData) => {
         setName(userData.user.name);
@@ -30,20 +27,19 @@ export const AuthProviderComponent = ({ children }) => {
         setUserCreatedAt(userData.user.date);
       });
     }
-  }, [token, idUser, name, userName, avatar, userCreatedAt,calculateTimeDifference]);
+  }, [token, idUser, name, userName, avatar, userCreatedAt, calculateTimeDifference]);
 
   const logout = () => {
-    setToken("");
-    setIdUser("");
-    setRole("")
-    setName("");
-    setUserName("");
-    setAvatar("");
-    setUserCreatedAt("");
-    navigate("/");
+    setToken('');
+    setIdUser('');
+    setRole('');
+    setName('');
+    setUserName('');
+    setAvatar('');
+    setUserCreatedAt('');
+    navigate('/');
   };
 
-  
   function calculateTimeDifference(date) {
     const currentDate = new Date();
     const postDate = new Date(date);
@@ -80,7 +76,7 @@ export const AuthProviderComponent = ({ children }) => {
         setToken,
         setIdUser,
         logout,
-        calculateTimeDifference
+        calculateTimeDifference,
       }}
     >
       {children}

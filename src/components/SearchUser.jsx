@@ -1,15 +1,15 @@
-import { getUserByUsernameService } from "../services";
-import { useState, useEffect } from "react";
-import UserInfo from "./UserInfo";
+import { getUserByUsernameService } from '../services';
+import { useState, useEffect } from 'react';
+import UserInfo from './UserInfo';
 
-function SearchUser({closeUserSearch ,closeSearch}) {
+function SearchUser({ closeUserSearch, closeSearch }) {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [searchUsername, setSearchUsername] = useState("");
+  const [error, setError] = useState('');
+  const [searchUsername, setSearchUsername] = useState('');
   const [users, setUsers] = useState([]);
 
   const handleOverlayClick = (e) => {
-    if (e.target.classList.contains("user-overlay")) {
+    if (e.target.classList.contains('user-overlay')) {
       closeUserSearch();
     }
   };
@@ -19,7 +19,7 @@ function SearchUser({closeUserSearch ,closeSearch}) {
       try {
         setLoading(true);
         const data = await getUserByUsernameService(searchUsername);
-        setError("");
+        setError('');
         setUsers(data);
       } catch (error) {
         setError(error.message);
@@ -35,27 +35,27 @@ function SearchUser({closeUserSearch ,closeSearch}) {
   }, [searchUsername]);
 
   return (
-    <form className="search-user">
-      <div className="user-overlay" onClick={handleOverlayClick}>
-        <div className="user-content">
+    <form className='search-user'>
+      <div className='user-overlay' onClick={handleOverlayClick}>
+        <div className='user-content'>
           <fieldset>
-            <label htmlFor="searchUser">Buscar por nombre de usuario</label>
+            <label htmlFor='searchUser'>Buscar por nombre de usuario</label>
             <input
-              type="text"
-              name="searchUser"
-              id="searchUser"
+              type='text'
+              name='searchUser'
+              id='searchUser'
               value={searchUsername}
-              placeholder="Escribe el usuario"
+              placeholder='Escribe el usuario'
               onChange={(e) => setSearchUsername(e.target.value)}
               required
             />
           </fieldset>
-          {error ? <p className="error-message">{error}</p> : null}
+          {error ? <p className='error-message'>{error}</p> : null}
           {loading ? <p>Cargando...</p> : null}
-          <ul className="list-search-user">
+          <ul className='list-search-user'>
             {users.map((user) => (
-              <li key={user.idUser} className="list-user">
-                <UserInfo user={user} nombre={user.name} closeSearch={closeSearch} closeUserSearch={closeUserSearch}/>
+              <li key={user.idUser} className='list-user'>
+                <UserInfo user={user} nombre={user.name} closeSearch={closeSearch} closeUserSearch={closeUserSearch} />
               </li>
             ))}
           </ul>

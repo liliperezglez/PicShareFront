@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { addCommentService, deleteCommentService } from "../services";
+import { addCommentService, deleteCommentService, editCommentService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 
 const usePosts = () => {
@@ -69,10 +69,35 @@ const usePosts = () => {
       });
       setPhotos(updatedPhotos);
 
-      alert("Mensaje eliminado correctamente");
+      alert("Comentario eliminado correctamente");
     } catch (error) {
       setError(error.message);
-      alert("No se ha podido borrar el mensaje, prueba más tarde");
+      alert("No se ha podido borrar el comentario, prueba más tarde");
+    }
+  };
+
+  const editComment = async (idEntry, idComment, comment, token) => {
+    try {
+      await editCommentService({ id: idEntry, idComment, comment, token });
+
+      const updatedPhotos = photos.map((photo) => {
+        if(photo.idEntry === idEntry) {
+          photo.comments = photo.comments.map((existingComment) => {
+            if (existingComment.idComment === idComment) {
+              //Actualiza comentario
+              existingComment.comment = comment;
+            }
+            return existingComment;
+          });
+        }
+        return photo;
+      });
+      setPhotos(updatedPhotos);
+
+      alert("Comentario editado correctamente");
+    } catch (error) {
+      setError(error.message);
+      alert("No se ha podido editar el comentario, prueba más tarde");
     }
   };
 
@@ -88,7 +113,8 @@ const usePosts = () => {
     user,
     addComment,
     setLoading,
-    removeComment
+    removeComment,
+    editComment
   };
 };
 

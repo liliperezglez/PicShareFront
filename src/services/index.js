@@ -195,6 +195,27 @@ export const deleteCommentService = async ({ id, idComment, token }) => {
   return json
 };
 
+// Editar comment
+export const editCommentService = async ({ id, idComment, comment, token }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/entries/${id}/comment/${idComment}`,
+  {
+    method: "PUT",
+    headers: {
+      authorization: token,
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({ comment }),
+  }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json
+};
 
 
 export const getSingleUserService = async (id) => {
@@ -319,4 +340,7 @@ export const addPhotoService = async ({ token, formData }) => {
 
   return json;
 };
+
+
+
 

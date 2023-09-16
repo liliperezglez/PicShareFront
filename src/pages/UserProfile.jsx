@@ -12,7 +12,7 @@ export const UserProfile = () => {
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
   const actualUser = useParams().idUser;
-  const { setPhotos, photos, loading, setLoading, error, setError, user, setUser, removePost, addComment, removeComment } = usePosts();
+  const { setPhotos, photos, loading, setLoading, error, setError, user, setUser, removePost, addComment, editComment, removeComment } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -82,6 +82,7 @@ export const UserProfile = () => {
               <PhotoList
                 photos={updatedPhotos}
                 addComment={addComment}
+                editComment={editComment}
                 removeComment={removeComment}
                 username={user.username}
                 removePost={removePost}

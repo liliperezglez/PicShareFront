@@ -37,8 +37,8 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
             }
             alt={`Avatar de ${userName}`}
           />
-          <p>{userName}</p>
-          <p>{`Miembro desde ${new Date(userCreatedAt).toLocaleDateString()}`}</p>
+          <p>Hola {userName}.</p>
+          <p>{`Eres miembro desde ${new Date(userCreatedAt).toLocaleDateString()}`}</p>
         </div>
         <hr />
         <div>

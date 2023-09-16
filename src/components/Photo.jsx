@@ -7,7 +7,7 @@ import UserDescription from './UserDescription';
 import { AuthContext } from '../context/AuthContext';
 import LikeButton from './LikeButton';
 
-function Photo({ photo, removePost, addComment, removeComment }) {
+function Photo({ photo, removePost, addComment, editComment,  removeComment }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { calculateTimeDifference } = useContext(AuthContext);
 
@@ -36,7 +36,15 @@ function Photo({ photo, removePost, addComment, removeComment }) {
             alt={photo.description}
           />
         </div>
-        {isModalOpen && <Modal photo={photo} addComment={addComment} closeModal={closeModal} removeComment={removeComment} />}
+        {isModalOpen && (
+          <Modal
+            photo={photo}
+            addComment={addComment}
+            editComment={editComment}
+            closeModal={closeModal}
+            removeComment={removeComment}
+          />
+        )}
       </div>
       {!idUser && (
         <div className='likeANDcommentButtons'>

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import UserInfo from './UserInfo';
-import { AuthContext } from '../context/AuthContext';
-import CommentsOptions from './CommentsOptions';
+import { useContext } from "react";
+import UserInfo from "./UserInfo";
+import { AuthContext } from "../context/AuthContext";
+import CommentsOptions from "./CommentsOptions";
 
-function Comments({ photo, removeComment }) {
+function Comments({ photo, editComment, removeComment }) {
   const { calculateTimeDifference } = useContext(AuthContext);
 
   return (
@@ -17,8 +17,18 @@ function Comments({ photo, removeComment }) {
             {photo.comments.map((comment) => (
               <li key={comment.idComment} className='comments-list'>
                 <UserInfo user={comment} />: {comment.comment}
-                <div className='comment-date'>{calculateTimeDifference(comment.edit_date ? comment.edit_date : comment.date)}</div>
-                <CommentsOptions removeComment={removeComment} idEntry={photo.idEntry} idComment={comment.idComment} comment={comment} />
+                <div className="comment-date">
+                  {calculateTimeDifference(
+                    comment.edit_date ? comment.edit_date : comment.date
+                  )}
+                </div>
+                  <CommentsOptions
+                    editComment={editComment}
+                    removeComment={removeComment}
+                    idEntry={photo.idEntry}
+                    idComment={comment.idComment}
+                    comment={comment}
+                  />
               </li>
             ))}
           </ul>

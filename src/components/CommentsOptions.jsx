@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
-function CommentsOptions({ idComment, comment, idEntry, removeComment }) {
+function CommentsOptions({ idComment, comment, idEntry, editComment, removeComment }) {
   const { token, idUser, role } = useContext(AuthContext);
   const [isOpenOption, setIsOpenOption] = useState(false);
+  const [newComment, setNewComment] = useState("");
 
   const openOptions = () => {
     setIsOpenOption(true);
@@ -18,13 +19,35 @@ function CommentsOptions({ idComment, comment, idEntry, removeComment }) {
     closeOptions();
   };
 
+  const changeComment = (idEntry, idComment, comment) => {
+    editComment(idEntry, idComment, comment, token);
+    closeOptions();
+  };
+
+  const handleChangeComment = (e) => {
+    setNewComment(e.target.value);
+  }
+
   return (
     <>
       {isOpenOption && (
         <div className='modal-overlay'>
           <div className='modal-content' key={idComment}>
             <p>{comment.comment}</p>
-            <button onClick={() => deleteComment(idComment, idEntry)}>Eliminar comentario</button>
+            <button onClick={() => deleteComment(idComment, idEntry)}>
+              Eliminar comentario
+                </button>
+          <div>
+          <form> <input 
+          type="text" 
+          value={newComment}
+          onChange={handleChangeComment}
+		      required />
+          <button onClick={() => changeComment(idEntry, idComment, newComment)}>
+              Editar comentario
+                </button>
+          </form>
+          </div>
             <button onClick={closeOptions}>Salir</button>
           </div>
         </div>
@@ -35,3 +58,4 @@ function CommentsOptions({ idComment, comment, idEntry, removeComment }) {
 }
 
 export default CommentsOptions;
+;

@@ -4,7 +4,7 @@ import CommentForm from './CommentForm';
 import UserDescription from './UserDescription';
 import Photo from './Photo';
 
-function Modal({ photo, closeModal, addComment, removeComment }) {
+function Modal({ photo, closeModal, addComment, editComment,  removeComment }) {
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
@@ -23,7 +23,7 @@ function Modal({ photo, closeModal, addComment, removeComment }) {
           <UserDescription user={photo} />
         </div>
         {/* <Photo photo={photo}/> */}
-        <Comments photo={photo} removeComment={removeComment} />
+        <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
         <CommentForm addComment={addComment} id={photo.idEntry} />
         <button onClick={closeModal}>Cerrar</button>
       </div>

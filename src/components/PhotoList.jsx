@@ -1,6 +1,6 @@
 import Photo from "./Photo";
 
-function PhotoList({ photos, removePost, addComment }) {
+function PhotoList({ photos, removePost, addComment,removeComment }) {
   return photos.length ? (
     <ul className="photo-list">
       {photos.map((photo) => {
@@ -9,10 +9,8 @@ function PhotoList({ photos, removePost, addComment }) {
             <Photo
               photo={photo}
               removePost={removePost}
+              removeComment={removeComment}
               addComment={addComment}
-              idEntry={photo.idEntry}
-              idUser={photo.idUser}
-              likesCount={photo.likes}
             />
           </li>
         );

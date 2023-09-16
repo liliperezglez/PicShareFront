@@ -1,19 +1,42 @@
-function CommentsOptions({comment, closeOptions}) {
-      const handleOverlayClick = (e) => {
-    if (e.target.classList.contains("modal-overlay")) {
-      closeOptions();
-    }
-  }
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+
+function CommentsOptions({ idComment, comment, idEntry, removeComment }) {
+  const { token, idUser, role } = useContext(AuthContext);
+  const [isOpenOption, setIsOpenOption] = useState(false);
+
+  const openOptions = () => {
+    setIsOpenOption(true);
+  };
+
+  const closeOptions = () => {
+    setIsOpenOption(false);
+  };
+
+  const deleteComment = (idComment, idEntry) => {
+    removeComment(idEntry, idComment, token);
+    closeOptions();
+  };
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
-      <div className="modal-content">
-        <p>{comment.comment}</p>
-    
-        <button onClick={closeOptions}>Salir</button>
-      </div>
-    </div>
-  )
+    <>
+      {isOpenOption && (
+        <div className="modal-overlay">
+          <div className="modal-content" key={idComment}>
+            <p>{comment.comment}</p>
+            <button onClick={() => deleteComment(idComment, idEntry)}>
+              Eliminar comentario
+            </button>
+            <button onClick={closeOptions}>Salir</button>
+          </div>
+        </div>
+      )}
+      {((token && parseInt(idUser) === parseInt(comment.idUser)) ||
+        role === "admin") && (
+        <button onClick={openOptions}>⚙</button>
+      )}
+    </>
+  );
 }
 
-export default CommentsOptions
+export default CommentsOptions;

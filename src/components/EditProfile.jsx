@@ -1,12 +1,12 @@
 import { useState, useContext, useEffect } from 'react';
-import { editUserData, changeAvatar, deleteAccount } from '../services/index';
-import { useNavigate, useParams } from 'react-router-dom';
+import { editUserData, changeAvatar } from '../services/index';
 import { AuthContext } from '../context/AuthContext';
 import { DeleteProfile } from '../components/DeleteProfile';
+import { useNavigate } from 'react-router-dom';
 
 export const EditProfile = ({ closeEditProfile }) => {
   const navigate = useNavigate();
-  const { token, idUser, avatar, userName, setAvatar, userCreatedAt, logout } = useContext(AuthContext);
+  const { token, idUser, avatar, userName, setAvatar, logout } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
@@ -16,6 +16,8 @@ export const EditProfile = ({ closeEditProfile }) => {
   const [repeatpwd, setRepeatPwd] = useState('');
   const [error, setError] = useState('');
   const [deleteProfile, setDeleteProfile] = useState(false);
+  const [errorAvatar,setErrorAvatar]=useState("")
+  const [message,setMessage]=useState("")
 
   const openDeleteProfile = () => {
     setDeleteProfile(true);
@@ -35,9 +37,12 @@ export const EditProfile = ({ closeEditProfile }) => {
     }
     try {
       const response = await editUserData({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd });
+      {response.status === 'OK' && setMessage(response.message)}
       if (response.status === 'OK' && pwdNew && repeatpwd) {
         logout();
       }
+       e.target.reset();
+       navigate(`/users/${idUser}`)
     } catch (error) {
       console.log(error.message);
       setError(error.message);
@@ -53,7 +58,11 @@ export const EditProfile = ({ closeEditProfile }) => {
         formData.append('avatar', newAvatar);
         await changeAvatar({ token, avatar: formData });
         setAvatar(newAvatar);
+        setErrorAvatar("")
+      }else{
+        setErrorAvatar("Por favor, selecciona el archivo")
       }
+      navigate(`/users/${idUser}`)
     } catch (error) {
       console.log(error.message);
       setError(error.message);
@@ -87,7 +96,10 @@ export const EditProfile = ({ closeEditProfile }) => {
                 }
                 alt={`Avatar de ${userName}`}
               />
-              <input type='file' id='avatar' name='avatar' accept={'image/*'} onChange={(e) => setNewAvatar(e.target.files[0])} />
+              <input type='file' id='avatar' name='avatar' accept={'image/*'} onChange={(e) => {
+                setNewAvatar(e.target.files[0]); 
+                setErrorAvatar("")
+                }} />
               {newAvatar ? (
                 <figure>
                   <img src={URL.createObjectURL(newAvatar)} style={{ width: '100px' }} alt='Preview' />
@@ -97,6 +109,7 @@ export const EditProfile = ({ closeEditProfile }) => {
             </div>
           </fieldset>
           <button>Cambiar avatar</button>
+          {errorAvatar ? <p className='error-message'>{errorAvatar}</p> : null}
         </form>
         <form onSubmit={handleEditForm}>
           <div>
@@ -105,18 +118,19 @@ export const EditProfile = ({ closeEditProfile }) => {
               <input type='email' id='email' name='email' required onChange={(e) => setEmail(e.target.value)} />
             </fieldset>
             <fieldset>
-              <label htmlFor='name'>Nombre * </label>
-              <input type='name' id='name' name='name' required onChange={(e) => setName(e.target.value)} />
-            </fieldset>
-            <fieldset>
               <label htmlFor='username'>Nombre de usuario * </label>
               <input type='username' id='username' name='username' required onChange={(e) => setUsername(e.target.value)} />
+            </fieldset>
+            <fieldset>
+              <label htmlFor='name'>Nombre * </label>
+              <input type='name' id='name' name='name' required onChange={(e) => setName(e.target.value)} />
             </fieldset>
             <fieldset>
               <label htmlFor='pwd'>Contraseña * </label>
               <input type='password' id='pwd' name='pwd' required onChange={(e) => setPwd(e.target.value)} />
             </fieldset>
           </div>
+          {message ? <p>{message}</p> : null}
           <p>/////////</p>
           <div>
             <fieldset>
@@ -129,12 +143,18 @@ export const EditProfile = ({ closeEditProfile }) => {
             </fieldset>
           </div>
           <div>
+            <div>  
             <button type='submit'>Guardar cambios</button>
             {deleteProfile && <DeleteProfile closeDeleteProfile={closeDeleteProfile} />}
             <button type='button' onClick={openDeleteProfile}>
               Eliminar cuenta
             </button>
+            </div>
+          <button type='button' onClick={closeEditProfile}>
+              Salir
+            </button>
           </div>
+
           {error ? <p className='error-message'>{error}</p> : null}
         </form>
       </div>

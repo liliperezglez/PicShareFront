@@ -12,7 +12,7 @@ export const AuthProviderComponent = ({ children }) => {
   const [userName, setUserName] = useState('');
   const [avatar, setAvatar] = useState('');
   const [userCreatedAt, setUserCreatedAt] = useState('');
-  const navigate = useNavigate('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem('token', token);

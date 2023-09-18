@@ -28,13 +28,13 @@ function Photo({ photo, removePost, addComment, editComment,  removeComment, tog
         <p className='photoDate'>{calculateTimeDifference(photo.date)} </p>
         <p className='photoPlace'>{photo.place && photo.place}</p>
 
-        <DeletePost photo={photo} removePost={removePost} />
         <div>
           <img
             onClick={openModal}
             src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`}
             alt={photo.description}
           />
+        <DeletePost photo={photo} removePost={removePost} />
         </div>
         {isModalOpen && (
           <Modal
@@ -43,8 +43,7 @@ function Photo({ photo, removePost, addComment, editComment,  removeComment, tog
             editComment={editComment}
             closeModal={closeModal}
             removeComment={removeComment}
-            // updateLikesCount={updateLikesCount}
-            // likesMap={likesMap}
+            toggleLike={toggleLike}
           />
         )}
       </div>

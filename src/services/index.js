@@ -277,7 +277,6 @@ export const likePhotoService = async ({ token, idEntry }) => {
   }
 
   const updatedLikes = await response.json();
-console.log(updatedLikes)
   return updatedLikes; 
 
 
@@ -285,8 +284,6 @@ console.log(updatedLikes)
 
 // Añadir foto
 export const addPhotoService = async ({ token, formData }) => {
-  console.log("Token antes de la solicitud:", token);
-  console.log(formData.get('place'), formData.get('description'), formData.get('photo'));
   const response = await fetch(
     `${import.meta.env.VITE_APP_BACKEND}/entries/photos`,
     {

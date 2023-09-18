@@ -80,7 +80,6 @@ const toggleLike = async (idEntry, token) => {
       });
       setPhotos(updatedPhotos);
 
-      alert("Comentario eliminado correctamente");
     } catch (error) {
       setError(error.message);
       alert("No se ha podido borrar el comentario, prueba más tarde");
@@ -105,7 +104,6 @@ const toggleLike = async (idEntry, token) => {
       });
       setPhotos(updatedPhotos);
 
-      alert("Comentario editado correctamente");
     } catch (error) {
       setError(error.message);
       alert("No se ha podido editar el comentario, prueba más tarde");

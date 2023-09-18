@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
 import UserDescription from './UserDescription';
+import LikeButton from './LikeButton';
 
-function Modal({ photo, closeModal, addComment, editComment,  removeComment }) {
+function Modal({ photo, closeModal, addComment, editComment,  toggleLike ,removeComment }) {
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
@@ -19,7 +20,7 @@ function Modal({ photo, closeModal, addComment, editComment,  removeComment }) {
           alt={photo.description}
         />
         <div>
-        {/* <LikeButton updateLikesCount={updateLikesCount} likesMap={likesMap} photo={photo}/> */}
+        <LikeButton photo={photo} toggleLike={toggleLike}/>
           <UserDescription user={photo} />
         </div>
         <Comments photo={photo} removeComment={removeComment} editComment={editComment} />

@@ -13,7 +13,7 @@ function Comments({ photo, editComment, removeComment }) {
           <p>
             {photo.comments.length} Comentario{photo.comments.length > 1 && 's'}:
           </p>
-          <ul className='comments-list-container' key={photo.idEntry}>
+          <ul className='comments-list-container'>
             {photo.comments.map((comment) => (
               <li key={comment.idComment} className='comments-list'>
                 <UserInfo user={comment} />: {comment.comment}

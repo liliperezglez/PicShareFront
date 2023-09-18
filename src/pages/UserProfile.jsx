@@ -11,8 +11,13 @@ export const UserProfile = () => {
   const { idUser, avatar, setAvatar } = useContext(AuthContext);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
+  const [error, setError] = useState("");
+  const [loading ,setLoading] = useState("")
   const actualUser = useParams().idUser;
-  const { setPhotos, photos, loading, setLoading, error, setError, user, setUser, removePost, addComment, editComment, removeComment } = usePosts();
+  const [username,setUsername] =useState("");
+  const [name,setName] =useState("");
+  const [userLoaded, setUserLoaded] = useState(false);
+  const { setPhotos, photos, user, setUser, removePost, addComment, editComment, removeComment } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -29,6 +34,9 @@ export const UserProfile = () => {
         setPhotos(data.photos);
         setUser(data.user);
         setAvatar(data.user.avatar);
+        setUsername(data.user.username)
+        setName(data.user.name)
+        setUserLoaded(true)
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -36,7 +44,7 @@ export const UserProfile = () => {
       }
     };
     fetchUserData();
-  }, [actualUser]);
+  }, [actualUser,user]);
 
   useEffect(() => {
     setEditProfileButton(parseInt(actualUser) === parseInt(idUser));
@@ -61,17 +69,13 @@ export const UserProfile = () => {
 
   return (
     <section>
-      {loading ? (
-        <Loading />
-      ) : error ? (
-        <p className='error-message'>Error: {error}</p>
-      ) : (
-        user && (
+      {
+        ( userLoaded) && (
           <div>
             <div>
               <img src={avatarSrc} alt={user.username} />
-              <h2>{user.name}</h2>
-              <h3>{user.username}</h3>
+              <h2>{name}</h2>
+              <h3>{username}</h3>
               {`Miembro desde ${new Date(user.date).toLocaleDateString()}`}
               <h4>Publicaciones: {photos.length}</h4>
             </div>
@@ -84,13 +88,15 @@ export const UserProfile = () => {
                 addComment={addComment}
                 editComment={editComment}
                 removeComment={removeComment}
-                username={user.username}
+                username={username}
                 removePost={removePost}
               />
             </div>
           </div>
         )
-      )}
+        }
+        {loading ? <Loading />:null}
+        {error ? <p className="error-message">{error}</p> : null}
     </section>
   );
 };

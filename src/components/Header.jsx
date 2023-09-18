@@ -7,6 +7,7 @@ import SearchOverlay from './SearchOverlay';
 
 export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { idUser , token, avatar} = useContext(AuthContext);
 
   const openSearch = () => {
     setIsSearchOpen(true);
@@ -16,10 +17,10 @@ export const Header = () => {
     setIsSearchOpen(false);
   };
 
-  const { idUser } = useContext(AuthContext);
 
   return (
-    <header>
+    <>
+   <nav className='nav-menu'>
       <h1>
         <Link to='/'>PicShare</Link>
       </h1>
@@ -35,9 +36,21 @@ export const Header = () => {
         </Link>
       )}
 
-      <nav>
+      {(idUser && token) && 
+      <Link to={`/users/${idUser}`}>
+        <img
+          src={
+            avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'
+          }
+          height='40'
+          width='40'
+          alt='Avatar'
+        />
+        <span>Perfil</span>
+      </Link>}
+
+    </nav>
         <Auth />
-      </nav>
-    </header>
+    </>
   );
 };

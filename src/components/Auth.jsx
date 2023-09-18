@@ -6,7 +6,7 @@ export const Auth = () => {
   const { token, idUser, avatar, userName, logout } = useContext(AuthContext);
 
   return idUser && token ? (
-    <div>
+    <div className='auth-log'>
       <Link to={`/users/${idUser}`} className='auth'>
         <img
           src={
@@ -21,7 +21,7 @@ export const Auth = () => {
       <button onClick={logout}>Cerrar Sesión</button>
     </div>
   ) : (
-    <ul className='auth'>
+    <ul className='auth-register'>
       <li>
         <Link to='/register'>Register</Link>
       </li>

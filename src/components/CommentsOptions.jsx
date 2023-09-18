@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 function CommentsOptions({ idComment, comment, idEntry, editComment, removeComment }) {
@@ -22,6 +22,7 @@ function CommentsOptions({ idComment, comment, idEntry, editComment, removeComme
   const changeComment = (idEntry, idComment, comment) => {
     editComment(idEntry, idComment, comment, token);
     closeOptions();
+    setNewComment("")
   };
 
   const handleChangeComment = (e) => {

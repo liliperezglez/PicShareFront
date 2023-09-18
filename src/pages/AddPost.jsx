@@ -55,7 +55,7 @@ export const AddPost = () => {
       navigate('/');
     } catch (error) {
       console.error('Hubo un error al subir el post.', error);
-      setError('Hubo un error al subir el post.');
+      setError('Hubo un error al subir el post.', error);
     } finally {
       setIsLoading(false);
     }
@@ -87,7 +87,7 @@ export const AddPost = () => {
         <button type='submit' disabled={isLoading}>
           {isLoading ? 'Cargando...' : 'Publicar'}
         </button>
-        {error ? <p>{error}</p> : null}
+        {error ? <p className='error-message'>{error}</p> : null}
       </form>
     </section>
   );

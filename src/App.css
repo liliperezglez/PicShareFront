@@ -10,14 +10,10 @@
   box-sizing: border-box;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header > nav {
-  display: flex;
+.app{
+      display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto 1fr;
 }
 
 body {
@@ -35,6 +31,17 @@ footer {
   text-align: center;
 }
 
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.auth-log{
+  float: right;
+}
 .auth {
   display: flex;
   align-items: center;

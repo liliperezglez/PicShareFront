@@ -27,7 +27,7 @@ export const AuthProviderComponent = ({ children }) => {
         setUserCreatedAt(userData.user.date);
       });
     }
-  }, [token, idUser, name, userName, avatar, userCreatedAt, calculateTimeDifference]);
+  }, [token, idUser, name, userName, avatar, userCreatedAt]);
 
   const logout = () => {
     setToken('');
@@ -40,26 +40,6 @@ export const AuthProviderComponent = ({ children }) => {
     navigate('/');
   };
 
-  function calculateTimeDifference(date) {
-    const currentDate = new Date();
-    const postDate = new Date(date);
-    const timeDifference = currentDate - postDate;
-
-    const seconds = Math.floor(timeDifference / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-
-    if (days > 0) {
-      return `Hace ${days} D.`;
-    } else if (hours > 0) {
-      return `Hace ${hours} h.`;
-    } else if (minutes > 0) {
-      return `Hace ${minutes} min.`;
-    } else {
-      return `Hace ${seconds} S.`;
-    }
-  }
 
   return (
     <AuthContext.Provider
@@ -76,7 +56,6 @@ export const AuthProviderComponent = ({ children }) => {
         setToken,
         setIdUser,
         logout,
-        calculateTimeDifference,
       }}
     >
       {children}

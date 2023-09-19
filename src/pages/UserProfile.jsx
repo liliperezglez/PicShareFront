@@ -17,7 +17,7 @@ export const UserProfile = () => {
   const [username,setUsername] =useState("");
   const [name,setName] =useState("");
   const [userLoaded, setUserLoaded] = useState(false);
-  const { setPhotos, photos, user, setUser, removePost, addComment, editComment, removeComment } = usePosts();
+  const { setPhotosUser,photosUser, user, setUser, removePost, addComment, editComment, removeComment } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -31,7 +31,7 @@ export const UserProfile = () => {
     const fetchUserData = async () => {
       try {
         const data = await getSingleUserService(actualUser);
-        setPhotos(data.photos);
+        setPhotosUser(data.photos)
         setUser(data.user);
         setAvatar(data.user.avatar);
         setUsername(data.user.username)
@@ -44,7 +44,7 @@ export const UserProfile = () => {
       }
     };
     fetchUserData();
-  }, [actualUser,user]);
+  }, [actualUser,userLoaded]);
 
   useEffect(() => {
     setEditProfileButton(parseInt(actualUser) === parseInt(idUser));
@@ -57,34 +57,36 @@ export const UserProfile = () => {
   } else if (user && user.avatar && actualUser) {
     avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`;
   } else {
-    avatarSrc = '../src/resources/userNoAvatar_icon.svg';
+    avatarSrc = '../../src/resources/userNoAvatar_icon.svg';
   }
 
-  const updatedPhotos = photos.map((photoNew) => {
+  const updatedPhotosUser = photosUser.map((photoNew) => {
     if (parseInt(photoNew.idUser) === parseInt(user.idUser)) {
       return { ...photoNew, avatar: user.avatar, username: user.username };
     }
     return photoNew;
   });
 
+
+
   return (
     <section>
       {
-        ( userLoaded) && (
+        ( userLoaded && updatedPhotosUser) && (
           <div>
             <div>
               <img src={avatarSrc} alt={user.username} />
               <h2>{name}</h2>
               <h3>{username}</h3>
               {`Miembro desde ${new Date(user.date).toLocaleDateString()}`}
-              <h4>Publicaciones: {photos.length}</h4>
+              <h4>Publicaciones: {photosUser.length}</h4>
             </div>
             {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
             {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
             <div>
               <p className='userRegister'></p>
               <PhotoList
-                photos={updatedPhotos}
+                photos={updatedPhotosUser}
                 addComment={addComment}
                 editComment={editComment}
                 removeComment={removeComment}

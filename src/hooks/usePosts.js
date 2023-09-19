@@ -1,66 +1,63 @@
 import { useState, useContext } from "react";
-import { addCommentService, deleteCommentService, editCommentService } from "../services";
+import { addCommentService, deleteCommentService, editCommentService, getAllPhotosService, getPhotosByDescService, getSingleUserService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { likePhotoService } from "../services";
 
+
 const usePosts = () => {
   const [photos, setPhotos] = useState([]);
+  const [photosDesc, setPhotosDesc] = useState([]);
+  const [photosUser, setPhotosUser] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const { idUser, userName, avatar } = useContext(AuthContext);
 
-const toggleLike = async (idEntry, token) => {
-  const photo = photos.find((photo) => photo.idEntry === idEntry);
-  if (!photo) return;
 
-  try {
-    const response = await likePhotoService({ token, idEntry });
-    const updatedPhotos = photos.map((photo) =>
-      photo.idEntry === idEntry ? { ...photo, likes: response.data.totalVotos,  } : photo
-    );
-    setPhotos(updatedPhotos);
+  const toggleLike = async (idEntry, token, setLikedByUser) => {
+    const photo = photos.find((photo) => photo.idEntry === idEntry);
+    if (!photo) return;
 
-  } catch (error) {
-    console.error("Error al procesar el like:", error);
-  }
-};
+    try {
+      const response = await likePhotoService({ token, idEntry });
+      const updatedPhotos = photos.map((photo) =>
+        photo.idEntry === idEntry ? { ...photo, likes: response.data.totalVotos,  } : photo
+      );
+      console.log(updatedPhotos,"upda")
+      setPhotos(updatedPhotos);
+
+      setLikedByUser(
+      Array.isArray(photo.likes)
+        ? photo.likes.some((like) => parseInt(like.idUser) === parseInt(idUser))
+        : false
+      );
+
+    } catch (error) {
+      console.error("Error al procesar el like:", error);
+    }
+  };
 
   const removePost = (id) => {
     setPhotos(photos.filter((photo) => photo.idEntry !== id));
+    setPhotosDesc(photosDesc.filter((photo) => photo.idEntry !== id));
+    setPhotosUser(photosUser.filter((photo) => photo.idEntry !== id));
   };
 
-  const addComment = async (idEntry, newComment) => {
+  const addComment = async ({idEntry, newComment, actualUser, description}) => {
     try {
-      const response = await addCommentService({
+       await addCommentService({
         comment: newComment.comment,
         id: idEntry,
         token: newComment.token,
       });
-      const updatedPhotos = photos.map((photo) => {
-        if (photo.idEntry === idEntry) {
-          const commentsOld =
-            photo.comments !== "No hay comentarios en esta publicación"
-              ? photo.comments
-              : "";
-          const updatedComments = [
-            {
-              ...response,
-              idUser,
-              avatar,
-              username: userName,
-              date: newComment.date,
-            },
-            ...commentsOld,
-          ];
-          return {
-            ...photo,
-            comments: updatedComments,
-          };
-        }
-        return photo;
-      });
+
+      const updatedPhotos = await getAllPhotosService();
+      const updatedPhotosUser = await getSingleUserService(actualUser);
+      const updatedPhotosDesc = await getPhotosByDescService(description);
+      
       setPhotos(updatedPhotos);
+      setPhotosDesc(updatedPhotosDesc)
+      setPhotosUser(updatedPhotosUser.photos)
     } catch (error) {
       setError(error.message);
     }
@@ -79,6 +76,22 @@ const toggleLike = async (idEntry, token) => {
         return photo;
       });
       setPhotos(updatedPhotos);
+
+      const updatedPhotosUser = photosUser.map((photo) => {
+        if (photo.idEntry === idEntry) {
+          photo.comments = photo.comments.filter((comment) => comment.idComment !== idComment);
+        }
+        return photo;
+      });
+      setPhotosUser(updatedPhotosUser);
+
+      const updatedPhotosDesc = photosDesc.map((photo) => {
+        if (photo.idEntry === idEntry) {
+          photo.comments = photo.comments.filter((comment) => comment.idComment !== idComment);
+        }
+        return photo;
+      });
+      setPhotosDesc(updatedPhotosDesc);
 
     } catch (error) {
       setError(error.message);
@@ -104,6 +117,32 @@ const toggleLike = async (idEntry, token) => {
       });
       setPhotos(updatedPhotos);
 
+      const updatedPhotosUser = photosUser.map((photo) => {
+        if(photo.idEntry === idEntry) {
+          photo.comments = photo.comments.map((existingComment) => {
+            if (existingComment.idComment === idComment) {
+              existingComment.comment = comment;
+            }
+            return existingComment;
+          });
+        }
+        return photo;
+      });
+      setPhotosUser(updatedPhotosUser);
+
+      const updatedPhotosDesc = photosDesc.map((photo) => {
+        if(photo.idEntry === idEntry) {
+          photo.comments = photo.comments.map((existingComment) => {
+            if (existingComment.idComment === idComment) {
+              existingComment.comment = comment;
+            }
+            return existingComment;
+          });
+        }
+        return photo;
+      });
+      setPhotosDesc(updatedPhotosDesc);
+
     } catch (error) {
       setError(error.message);
       alert("No se ha podido editar el comentario, prueba más tarde");
@@ -123,7 +162,11 @@ const toggleLike = async (idEntry, token) => {
     setLoading,
     removeComment,
     editComment,
-    toggleLike
+    toggleLike,
+    setPhotosDesc,
+    setPhotosUser,
+    photosUser,
+    photosDesc
   };
 };
 

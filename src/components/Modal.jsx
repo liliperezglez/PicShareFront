@@ -24,7 +24,7 @@ function Modal({ photo, closeModal, addComment, editComment,  toggleLike ,remove
           <UserDescription user={photo} />
         </div>
         <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
-        <CommentForm addComment={addComment} id={photo.idEntry} />
+        <CommentForm addComment={addComment} photo={photo} />
         <button onClick={closeModal}>Cerrar</button>
       </div>
     </div>

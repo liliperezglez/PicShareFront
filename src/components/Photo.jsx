@@ -1,15 +1,15 @@
-import { useContext, useState } from 'react';
+import {  useState } from 'react';
 import UserInfo from './UserInfo';
 import { useParams } from 'react-router-dom';
 import Modal from './Modal';
 import DeletePost from './DeletePost';
 import UserDescription from './UserDescription';
-import { AuthContext } from '../context/AuthContext';
 import LikeButton from './LikeButton';
+import { formatDate } from '../services/helpers/helpers';
 
 function Photo({ photo, removePost, addComment, editComment,  removeComment, toggleLike }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { calculateTimeDifference } = useContext(AuthContext);
+
 
   const { idUser } = useParams();
 
@@ -25,7 +25,7 @@ function Photo({ photo, removePost, addComment, editComment,  removeComment, tog
     <article className='photo'>
       <div className='userPostInfo'>{!idUser && <UserInfo user={photo} />}</div>
       <div className='photoDetails'>
-        <p className='photoDate'>{calculateTimeDifference(photo.date)} </p>
+        <p className='photoDate'>{formatDate(photo.date)} </p>
         <p className='photoPlace'>{photo.place && photo.place}</p>
 
         <div>

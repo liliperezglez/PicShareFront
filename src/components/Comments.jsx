@@ -1,10 +1,8 @@
-import { useContext } from "react";
 import UserInfo from "./UserInfo";
-import { AuthContext } from "../context/AuthContext";
 import CommentsOptions from "./CommentsOptions";
+import { formatDate } from "../services/helpers/helpers";
 
 function Comments({ photo, editComment, removeComment }) {
-  const { calculateTimeDifference } = useContext(AuthContext);
 
   return (
     <div className='comments'>
@@ -18,7 +16,7 @@ function Comments({ photo, editComment, removeComment }) {
               <li key={comment.idComment} className='comments-list'>
                 <UserInfo user={comment} />: {comment.comment}
                 <div className="comment-date">
-                  {calculateTimeDifference(
+                  {formatDate(
                     comment.edit_date ? comment.edit_date : comment.date
                   )}
                 </div>

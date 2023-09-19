@@ -44,7 +44,7 @@ export const logInUserService = async ({ email, pwd }) => {
 
 
 // Edit
-export const editUserData = async ({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd }) => {
+export const editUserDataService = async ({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/${idUser}`, {
     method: "PUT",
     body: JSON.stringify({ email, name, username, pwd, pwdNew, repeatpwd }),
@@ -65,7 +65,7 @@ export const editUserData = async ({ token, idUser, email, name, username, pwd, 
 
 
 // Borrar cuenta
-export const deleteAccount = async ({ token, idUser }) => {
+export const deleteAccountService = async ({ token, idUser }) => {
 
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/${idUser}`, {
     method: "DELETE",
@@ -86,7 +86,7 @@ export const deleteAccount = async ({ token, idUser }) => {
 
 
 // Cambiar avatar
-export const changeAvatar = async ({ token, avatar }) => {
+export const changeAvatarService = async ({ token, avatar }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/avatar`, {
     method: "POST",
     body: avatar,

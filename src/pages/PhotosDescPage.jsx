@@ -8,7 +8,7 @@ export default function PhotosDescPage() {
   const [searched, setSearched] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
-  const { setPhotos, photos, addComment, editComment, removeComment } = usePosts();
+  const { setPhotosDesc,photosDesc, addComment, editComment, removeComment } = usePosts();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ export default function PhotosDescPage() {
     try {
       setLoading(true);
       const data = await getPhotosByDescService(description);
-      setPhotos(data);
+      setPhotosDesc(data);
       setSearched(true);
       setError('');
     } catch (error) {
@@ -45,11 +45,11 @@ export default function PhotosDescPage() {
           </fieldset>
           <button type='submit'>Buscar fotos</button>
         </form>
-        {searched && photos.length > 0 && (
+        {searched && photosDesc.length > 0 && (
           <>
             <h3>Resultados de búsqueda:</h3>
             <div className='photosDesc-content'>
-              <PhotoList photos={photos} addComment={addComment} editComment={editComment} removeComment={removeComment} />
+              <PhotoList photos={photosDesc} addComment={addComment} editComment={editComment} removeComment={removeComment} />
             </div>
           </>
         )}

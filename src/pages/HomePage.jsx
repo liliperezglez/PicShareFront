@@ -4,7 +4,7 @@ import usePosts from '../hooks/usePosts';
 import { getAllPhotosService } from '../services';
 
 export const HomePage = () => {
-   const [error, setError] = useState("");
+  const [error, setError] = useState("");
   const [loading ,setLoading] = useState("")
   const {
     setPhotos,
@@ -30,7 +30,7 @@ export const HomePage = () => {
     };
 
     getPhotos();
-  }, [photos.length, setError, setLoading, setPhotos]);
+  }, [photos.length]);
 
   return (
     <section>

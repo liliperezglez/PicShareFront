@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import { editUserData, changeAvatar } from '../services/index';
+import { editUserDataService, changeAvatarService } from '../services/index';
 import { AuthContext } from '../context/AuthContext';
 import { DeleteProfile } from '../components/DeleteProfile';
 import { useNavigate } from 'react-router-dom';
@@ -36,35 +36,35 @@ export const EditProfile = ({ closeEditProfile }) => {
       return;
     }
     try {
-      const response = await editUserData({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd });
+      const response = await editUserDataService({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd });
       {response.status === 'OK' && setMessage(response.message)}
       if (response.status === 'OK' && pwdNew && repeatpwd) {
         logout();
       }
        e.target.reset();
        navigate(`/users/${idUser}`)
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
-    }
-  };
-
-  const handleNewAvatar = async (e) => {
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+    
+    const handleNewAvatar = async (e) => {
     e.preventDefault();
     setError('');
     try {
       const formData = new FormData();
       if (newAvatar) {
         formData.append('avatar', newAvatar);
-        await changeAvatar({ token, avatar: formData });
+        await changeAvatarService({ token, avatar: formData });
         setAvatar(newAvatar);
         setErrorAvatar("")
       }else{
         setErrorAvatar("Por favor, selecciona el archivo")
       }
       navigate(`/users/${idUser}`)
+      console.log("soy yo")
+      
     } catch (error) {
-      console.log(error.message);
       setError(error.message);
     }
   };

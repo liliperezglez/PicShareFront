@@ -2,7 +2,7 @@ import { getUserByUsernameService } from '../services';
 import { useState, useEffect } from 'react';
 import UserInfo from './UserInfo';
 
-function SearchUser({ closeUserSearch, closeSearch }) {
+function SearchUser({ closeUserSearch }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [searchUsername, setSearchUsername] = useState('');
@@ -55,7 +55,7 @@ function SearchUser({ closeUserSearch, closeSearch }) {
           <ul className='list-search-user'>
             {users.map((user) => (
               <li key={user.idUser} className='list-user'>
-                <UserInfo user={user} nombre={user.name} closeSearch={closeSearch} closeUserSearch={closeUserSearch} />
+                <UserInfo user={user} nombre={user.name} closeUserSearch={closeUserSearch} />
               </li>
             ))}
           </ul>

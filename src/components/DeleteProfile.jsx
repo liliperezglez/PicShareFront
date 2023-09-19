@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
-import { deleteAccount } from '../services';
+import { deleteAccountService } from '../services';
 
 export const DeleteProfile = ({ closeDeleteProfile }) => {
   const { token, idUser, avatar, userName, userCreatedAt, logout } = useContext(AuthContext);
@@ -16,7 +16,7 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
   const handleDeleteAccount = async (e) => {
     e.preventDefault();
     try {
-      await deleteAccount({ token, idUser });
+      await deleteAccountService({ token, idUser });
       alert(`Usuario borrado correctamente. Te echaremos de menos. 😢`);
       logout();
     } catch (error) {

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
-function CommentForm({ id, addComment }) {
+function CommentForm({ photo, addComment }) {
   const { token, idUser } = useContext(AuthContext);
   const [error, setError] = useState('');
   const [newComment, setNewComment] = useState('');
@@ -15,7 +15,7 @@ function CommentForm({ id, addComment }) {
         date: new Date().toISOString(),
         token,
       };
-      addComment(id, newCommentData);
+      addComment({idEntry:photo.idEntry, newComment:newCommentData, actualUser:photo.idUser, description:photo.description});
       setNewComment('');
     } catch (error) {
       setError(error.message);

@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
-function UserInfo({ user, nombre, closeUserSearch, closeSearch }) {
+function UserInfo({ user, nombre, closeUserSearch }) {
   const { idUser } = useParams();
 
   return (
@@ -8,7 +8,7 @@ function UserInfo({ user, nombre, closeUserSearch, closeSearch }) {
       <Link
         to={`/users/${user.idUser}`}
         onClick={() => {
-          closeSearch();
+          // closeSearch();
           closeUserSearch();
         }}
       >

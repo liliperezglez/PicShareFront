@@ -3,46 +3,50 @@ import { AuthContext } from "../context/AuthContext";
 
 function LikeButton({ photo, toggleLike }) {
   const { token,idUser } = useContext(AuthContext);
-  const [likesDe,setLikesDe]=useState(photo.likes)
-  const [liked, setLiked] = useState(false);
+  // const [likedByUser, setLikedByUser] = useState(false);
+  const [likedByUser, setLikedByUser] = useState(null);
 
-  // Recuperar el estado de "me gusta" del localStorage al cargar el componente
-//   useEffect(() => {
-//     const savedLike = localStorage.getItem('liked');
-//     if (savedLike) {
-//       setLiked(true);
-//     }
-//   }, [likesDe]);
+  // if(Array.isArray(photo.likes)){
+  //   if (photo.likes.some((like) => parseInt(like.idUser) === parseInt(idUser))){
+  //     console.log("❤️ 1", photo.likes.length)
+  //   }else{
+  //     console.log( "🤍 2", photo.likes.length)
+
+  //   }
+  // }else{
+  //   console.log( "🤍 3",photo.likes)
+  // }
+
+  
+  useEffect(() => {
+    // Aquí puedes colocar tu lógica condicional
+    if (Array.isArray(photo.likes)) {
+      if (photo.likes.some((like) => parseInt(like.idUser) === parseInt(idUser))) {
+        console.log("❤️ 1");
+        setLikedByUser("❤️");
+      } else {
+        console.log("🤍 2");
+        setLikedByUser("🤍");
+      }
+    } else {
+      console.log("🤍 3");
+      setLikedByUser("🤍");
+    }
+  }, [photo.likes, idUser]); 
+   
 
 
   const handleLikeClick = async (e) => {
     e.preventDefault();
-        console.log(liked,"soy liked default")
-        toggleLike(photo.idEntry, token);
-        // if (likesDe < photo.likes){
-        //      localStorage.removeItem('liked')
-        //     console.log(liked,"a")
-        //     console.log(likesDe,"b")
-        //     console.log(photo.likes,"c")
-        //     setLiked(false);
-        // }else{
-        //     localStorage.setItem('liked',"liked")
-        // }
-            setLiked(true);
-        setLikesDe(photo.likes)
-        // if (!liked) {
-        //   localStorage.setItem('liked',"liked"); // Almacenar el "me gusta"
-        // } else {
-        //   localStorage.removeItem('liked'); // Eliminar el "me gusta"
-        // }
-
+    toggleLike(photo.idEntry, token, setLikedByUser);
   };
+
 
   return (
     <>
       {token && (
         <button className={`likeButton`} onClick={handleLikeClick}>
-          { photo.likes <likesDe ? "❤️" : "🤍"} {photo.likes}
+         {likedByUser} {Array.isArray(photo.likes) ? photo.likes.length : photo.likes}
         </button>
       )}
     </>

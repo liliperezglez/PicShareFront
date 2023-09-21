@@ -9,7 +9,7 @@ export const EditProfile = ({ closeEditProfile }) => {
   const { token, idUser, avatar, userName, setAvatar, logout } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(userName);
   const [newAvatar, setNewAvatar] = useState('');
   const [pwd, setPwd] = useState('');
   const [pwdNew, setPwdNew] = useState('');
@@ -42,7 +42,6 @@ export const EditProfile = ({ closeEditProfile }) => {
         logout();
       }
        e.target.reset();
-       navigate(`/users/${idUser}`)
       } catch (error) {
         setError(error.message);
       }
@@ -61,8 +60,6 @@ export const EditProfile = ({ closeEditProfile }) => {
       }else{
         setErrorAvatar("Por favor, selecciona el archivo")
       }
-      navigate(`/users/${idUser}`)
-      console.log("soy yo")
       
     } catch (error) {
       setError(error.message);
@@ -119,7 +116,8 @@ export const EditProfile = ({ closeEditProfile }) => {
             </fieldset>
             <fieldset>
               <label htmlFor='username'>Nombre de usuario * </label>
-              <input type='username' id='username' name='username' required onChange={(e) => setUsername(e.target.value)} />
+              <input type='username' id='username' value={username} name='username' required onChange={(e) => setUsername(e.target.value)} />
+                {/* setUser({...user,username: e.target.value})} */}
             </fieldset>
             <fieldset>
               <label htmlFor='name'>Nombre * </label>

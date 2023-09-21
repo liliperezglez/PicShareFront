@@ -17,7 +17,7 @@ export const UserProfile = () => {
   const [username,setUsername] =useState("");
   const [name,setName] =useState("");
   const [userLoaded, setUserLoaded] = useState(false);
-  const { setPhotosUser,photosUser, user, setUser, removePost, addComment, editComment, removeComment } = usePosts();
+  const { setPhotosUser,photosUser, user, setUser, removePost, addComment, editComment, removeComment,toggleLike } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -62,7 +62,7 @@ export const UserProfile = () => {
 
   const updatedPhotosUser = photosUser.map((photoNew) => {
     if (parseInt(photoNew.idUser) === parseInt(user.idUser)) {
-      return { ...photoNew, avatar: user.avatar, username: user.username };
+      return { ...photoNew,avatar:user.avatar, username:user.username };
     }
     return photoNew;
   });
@@ -72,7 +72,7 @@ export const UserProfile = () => {
   return (
     <section>
       {
-        ( userLoaded && updatedPhotosUser) && (
+        ( userLoaded ) && (
           <div>
             <div>
               <img src={avatarSrc} alt={user.username} />
@@ -86,12 +86,13 @@ export const UserProfile = () => {
             <div>
               <p className='userRegister'></p>
               <PhotoList
-                photos={updatedPhotosUser}
+                photos={photosUser}
                 addComment={addComment}
                 editComment={editComment}
                 removeComment={removeComment}
                 username={username}
                 removePost={removePost}
+                toggleLike={toggleLike}
               />
             </div>
           </div>

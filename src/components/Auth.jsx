@@ -18,7 +18,6 @@ export const Auth = () => {
         />
         <p>{userName}</p>
       </Link>
-      <button onClick={logout}>Cerrar Sesión</button>
     </div>
   ) : (
     <ul className='auth-register'>

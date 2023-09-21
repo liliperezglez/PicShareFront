@@ -14,24 +14,23 @@ const usePosts = () => {
   const { idUser, userName, avatar } = useContext(AuthContext);
 
 
-  const toggleLike = async (idEntry, token, setLikedByUser) => {
-    const photo = photos.find((photo) => photo.idEntry === idEntry);
-    if (!photo) return;
-
+  const toggleLike = async ({token,idEntry, actualUser, description}) => {
+    console.log("soy toggle")
+    // const photo = photos.find((photo) => photo.idEntry === idEntry);
+    // if (!photo) return;
     try {
       const response = await likePhotoService({ token, idEntry });
-      const updatedPhotos = photos.map((photo) =>
-        photo.idEntry === idEntry ? { ...photo, likes: response.data.totalVotos,  } : photo
-      );
-      console.log(updatedPhotos,"upda")
+
+      const updatedPhotos = await getAllPhotosService();
       setPhotos(updatedPhotos);
 
-      setLikedByUser(
-      Array.isArray(photo.likes)
-        ? photo.likes.some((like) => parseInt(like.idUser) === parseInt(idUser))
-        : false
-      );
-
+      const updatedPhotosUser = await getSingleUserService(actualUser);
+      setPhotosUser(updatedPhotosUser.photos)
+      
+      const updatedPhotosDesc = await getPhotosByDescService(description);
+      setPhotosDesc(updatedPhotosDesc)
+    
+    
     } catch (error) {
       console.error("Error al procesar el like:", error);
     }

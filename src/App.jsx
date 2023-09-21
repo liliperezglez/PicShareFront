@@ -10,27 +10,36 @@ import { UserProfile } from './pages/UserProfile';
 import { AddPost } from './pages/AddPost';
 import { NotFoundPage } from './pages/NotFoundPage';
 import PhotosDescPage from './pages/PhotosDescPage';
+import { useTheme } from "./context/ThemeContext";
 
 import './App.css';
+import { Auth } from './components/Auth';
 
 function App() {
+  const { isLightMode } = useTheme();
   return (
-    <main className='app'>
-      <Header />
+    
+      <div className={`body-app ${isLightMode ? "light" : "dark"}`}>
+        <Header />
+        <Auth />
+        <main className='app'>
 
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/users/:idUser' element={<UserProfile />} />
-        <Route path='/entries/photos' element={<AddPost />} />
-        <Route path='/entries/photos/search' element={<PhotosDescPage />} />
+        <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/users/:idUser' element={<UserProfile />} />
+            <Route path='/entries/photos' element={<AddPost />} />
+            <Route path='/entries/photos/search' element={<PhotosDescPage />} />
 
-        <Route path='*' element={<NotFoundPage />} />
-      </Routes>
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
 
-      <Footer />
-    </main>
+        </main>
+        <Footer />
+      </div>
+
+    
   );
 }
 

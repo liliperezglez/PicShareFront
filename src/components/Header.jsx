@@ -1,17 +1,29 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Auth } from './Auth';
 import { AuthContext } from '../context/AuthContext';
 import UserOverlay from './UserOverlay';
 import SearchPhotos from './SearchPhotos';
+import Configuration from './Configuration';
 
 export const Header = () => {
   const { idUser , token, avatar} = useContext(AuthContext);
+  const [isConfigOpen, setIsConfigOpen] = useState(false);
+
+  const openConfig = () => {
+    setIsConfigOpen(true);
+  };
+
+  const closeConfig = () => {
+    setIsConfigOpen(false);
+  };
+  
 
   return (
-    <>
-   <nav className='nav-menu'>
+    <header>
+   <nav className='nav-header'>
+    <div className='nav-menu'>
       <h1>
         <Link to='/'>PicShare</Link>
       </h1>
@@ -42,9 +54,20 @@ export const Header = () => {
         <span>Perfil</span>
           </button>
       </Link>}
+    </div>
+    
+    <>
+      {isConfigOpen && <Configuration closeConfig={closeConfig} />}
+      <>
+      <button className='configButton' onClick={openConfig}>
+        ⚙🗜
+      <span>Más</span>
+      </button>
+      
+      </>
+    </>
 
     </nav>
-        <Auth />
-    </>
+    </header>
   );
 };

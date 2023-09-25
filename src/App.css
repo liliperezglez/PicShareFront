@@ -10,8 +10,8 @@
   box-sizing: border-box;
 }
 
-
 body {
+  font-family: Mulish, sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -19,12 +19,11 @@ body {
 }
 
 
-main{
+main {
   grid-column: 2 / 4;
-  grid-row: 2 /  3;
+  grid-row: 2 / 3;
   flex-grow: 1;
 }
-
 
 footer {
   grid-column: 2 / 4;
@@ -34,7 +33,7 @@ footer {
   margin: 15px;
 }
 
-.body-app{
+.body-app {
   display: grid;
   grid-template-columns: auto 4fr;
   grid-template-rows: auto 6fr auto;
@@ -43,67 +42,75 @@ footer {
 
 .light {
   background-color: white;
-  color: black;
+  color: #000000;
+}
+.light button {
+  color: #000000;
 }
 
 .dark {
   background-color: #242424;
-  color: white;
+  color: #f5f5f5;
+}
+.dark button {
+  color: #f5f5f5;
 }
 
-.nav-header{
+.nav-header {
   display: flex;
-    margin-left: 1rem;
-    border-right: 1px solid #7c7c7c;
-    width: auto;
-    flex-direction: column;
-    justify-content: space-between;
-
+  margin-left: 1rem;
+  border-right: 1px solid #7c7c7c;
+  width: auto;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.nav-menu{
-    gap: 2rem;
-    align-items: start;
-    display: flex;
-    flex-direction: column;
+.nav-menu {
+  gap: 2rem;
+  align-items: start;
+  display: flex;
+  flex-direction: column;
 }
 
-
-.nav-menu span{
+.nav-menu span {
   text-align: center;
 }
 
-.nav-menu h1{
-  margin: 1rem 0 1.5rem 0 ;
-
+.nav-menu h1 {
+  margin: 1rem 0 1.5rem 0;
 }
 
-.nav-menu a{
+.nav-menu a {
   text-decoration: none;
 }
 
 /*Nav menu buttons*/
-.searchUserButton, .addPhotosButton, .searchPhotosButton, .goPerfilButton, .configButton{
+.searchUserButton,
+.addPhotosButton,
+.searchPhotosButton,
+.goPerfilButton,
+.configButton {
   border: none;
   display: flex;
   gap: 0.5rem;
   align-items: center;
   background-color: transparent;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.configButton{
+.configButton {
   position: relative;
   align-self: center;
   bottom: 10px;
 }
 
-.auth-log, .auth-register{
+.auth-log,
+.auth-register {
   justify-self: end;
   margin: 10px;
 }
 
-.auth-register{
+.auth-register {
   text-decoration: none;
   display: flex;
   gap: 1rem;
@@ -173,27 +180,8 @@ footer {
   margin: 5px;
 }
 
-/* CSS para el modal overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1; /* Z-index alto para estar encima del contenido principal */
-}
 
-/* CSS para el contenido del modal */
-.modal-content {
-  background-color: var(--overlay-general-bg);
-  padding: var(--overlay-general-padding);
-  border-radius: var(--overlay-general-border-radius);
-  box-shadow: var(--overlay-general-box-shadow);
-}
+
 
 /* CSS para el user overlay */
 .user-overlay {
@@ -249,7 +237,6 @@ footer {
   margin: 0 0 0 15px;
 }
 
-
 /* overlay de config*/
 .config-overlay {
   position: fixed;
@@ -257,7 +244,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -277,10 +264,7 @@ footer {
   gap: 10px;
 }
 
-
-
 /*Para comentarios*/
-
 .comments > p {
   margin: 10px 5px;
 }
@@ -293,13 +277,13 @@ footer {
 .comment-date {
   margin-left: auto;
   font-size: 14px;
-  color: royalblue;
+  color: #4169e1;
 }
 
 .comments-list-container {
   max-height: 150px; /* Altura máxima deseada */
   overflow-y: auto; /* Muestra la barra de desplazamiento solo cuando es necesario */
-  background-color: aliceblue;
+  background-color: #f0f8ff;
   margin-bottom: 5px;
   padding: 10px;
 }

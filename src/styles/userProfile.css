@@ -1,0 +1,84 @@
+/* Perfil de usuario */
+.user {
+  display: flex;
+  width: 600px;
+  position: relative;
+  margin: auto;
+}
+
+/* Avatar */
+.user > img {
+  height: 125px;
+  width: 125px;
+  object-fit: cover;
+  border-radius: 100px;
+  margin: 25px 50px 70px 60px;
+}
+
+/* Datos del usuario */
+.user-data {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.user-data > * {
+  margin-top: 15px;
+}
+
+.user-data > div {
+  display: flex;
+  align-items: center;
+}
+
+/*Botón de editar*/
+.user-data > div > button {
+  margin-left: 75px;
+  border-radius: 8px;
+  background-color: #686868;
+  border: none;
+  height: 25px;
+  font-weight: bold;
+}
+.user-data > div > button:hover {
+  cursor: pointer;
+  background-color: #3f3f3f;
+  border: none;
+}
+.user-data > div > button:active {
+  background-color: #303030;
+  color: #8a8a8a;
+}
+
+/* Lista de fotos del perfil */
+.user-photo-list > .photo-list {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  gap: 35px;
+  margin: 30px 150px;
+  justify-content: center;
+  width: 1050px;
+  margin: auto;
+}
+.user-photo-list .photo .photoDate {
+  display: none;
+}
+.user-photo-list .photo .profile-posts {
+  height: 350px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.deletePostButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  padding: 5px 3px;
+  border: none;
+  background-color: transparent;
+}
+.deletePostButton:hover {
+  cursor: pointer;
+}

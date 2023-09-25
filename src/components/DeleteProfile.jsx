@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import { deleteAccountService } from '../services';
 
 export const DeleteProfile = ({ closeDeleteProfile }) => {
-  const { token, idUser, avatar, userName, userCreatedAt, logout } = useContext(AuthContext);
+  const { token, idUser, avatar, name, userName, userCreatedAt, logout } = useContext(AuthContext);
 
   const handleOverlayClick = (e) => {
     // Verificar si el clic ocurrió en el fondo del modal
@@ -37,7 +37,7 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
             }
             alt={`Avatar de ${userName}`}
           />
-          <p>Hola {userName}.</p>
+          <p>Hola {name}.</p>
           <p>{`Eres miembro desde ${new Date(userCreatedAt).toLocaleDateString()}`}</p>
         </div>
         <hr />

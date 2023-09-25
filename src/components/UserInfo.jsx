@@ -2,7 +2,6 @@ import { Link, useParams } from 'react-router-dom';
 
 function UserInfo({ user, nombre, closeUserSearch }) {
   const { idUser } = useParams();
-
   return (
     <div className='userInfo'>
       <Link

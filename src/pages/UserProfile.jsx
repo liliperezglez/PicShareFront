@@ -6,18 +6,20 @@ import PhotoList from '../components/PhotoList';
 import usePosts from '../hooks/usePosts';
 import { AuthContext } from '../context/AuthContext';
 import { EditProfile } from '../components/EditProfile';
+import { Header } from '../components/Header';
+import '../styles/userProfile.css';
 
 export const UserProfile = () => {
   const { idUser, avatar, setAvatar } = useContext(AuthContext);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
-  const [error, setError] = useState("");
-  const [loading ,setLoading] = useState("")
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState('');
   const actualUser = useParams().idUser;
-  const [username,setUsername] =useState("");
-  const [name,setName] =useState("");
+  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [userLoaded, setUserLoaded] = useState(false);
-  const { setPhotosUser,photosUser, user, setUser, removePost, addComment, editComment, removeComment,toggleLike } = usePosts();
+  const { setPhotosUser, photosUser, user, setUser, removePost, addComment, editComment, removeComment, toggleLike } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -31,12 +33,12 @@ export const UserProfile = () => {
     const fetchUserData = async () => {
       try {
         const data = await getSingleUserService(actualUser);
-        setPhotosUser(data.photos)
+        setPhotosUser(data.photos);
         setUser(data.user);
         setAvatar(data.user.avatar);
-        setUsername(data.user.username)
-        setName(data.user.name)
-        setUserLoaded(true)
+        setUsername(data.user.username);
+        setName(data.user.name);
+        setUserLoaded(true);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -44,7 +46,7 @@ export const UserProfile = () => {
       }
     };
     fetchUserData();
-  }, [actualUser,userLoaded]);
+  }, [actualUser, userLoaded]);
 
   useEffect(() => {
     setEditProfileButton(parseInt(actualUser) === parseInt(idUser));
@@ -62,44 +64,44 @@ export const UserProfile = () => {
 
   const updatedPhotosUser = photosUser.map((photoNew) => {
     if (parseInt(photoNew.idUser) === parseInt(user.idUser)) {
-      return { ...photoNew,avatar:user.avatar, username:user.username };
+      return { ...photoNew, avatar: user.avatar, username: user.username };
     }
     return photoNew;
   });
 
-
-
   return (
     <section>
-      {
-        ( userLoaded ) && (
-          <div>
-            <div>
-              <img src={avatarSrc} alt={user.username} />
-              <h2>{name}</h2>
-              <h3>{username}</h3>
-              {`Miembro desde ${new Date(user.date).toLocaleDateString()}`}
-              <h4>Publicaciones: {photosUser.length}</h4>
-            </div>
-            {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
-            {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
-            <div>
-              <p className='userRegister'></p>
-              <PhotoList
-                photos={photosUser}
-                addComment={addComment}
-                editComment={editComment}
-                removeComment={removeComment}
-                username={username}
-                removePost={removePost}
-                toggleLike={toggleLike}
-              />
+      {userLoaded && (
+        <div>
+          <Header showNavHeader={true} />
+          <div className='user'>
+            <img src={avatarSrc} alt={user.username} />
+            <div className='user-data'>
+              <div>
+                <h2>{username}</h2>
+                {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
+              </div>
+              <h3>{name}</h3>
+              <h4>{photosUser.length} Publicaciones </h4>
+              <p>{`Miembro desde ${new Date(user.date).toLocaleDateString()}`}</p>
             </div>
           </div>
-        )
-        }
-        {loading ? <Loading />:null}
-        {error ? <p className="error-message">{error}</p> : null}
+          {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
+          <div className='user-photo-list'>
+            <PhotoList
+              photos={photosUser}
+              addComment={addComment}
+              editComment={editComment}
+              removeComment={removeComment}
+              username={username}
+              removePost={removePost}
+              toggleLike={toggleLike}
+            />
+          </div>
+        </div>
+      )}
+      {loading ? <Loading /> : null}
+      {error ? <p className='error-message'>{error}</p> : null}
     </section>
   );
 };

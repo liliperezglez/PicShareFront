@@ -22,7 +22,6 @@ function LikeButton({ photo, toggleLike }) {
   const handleLikeClick = async (e) => {
     e.preventDefault();
     toggleLike({ token: token, idEntry:photo.idEntry, actualUser:photo.idUser, description:photo.description} );
-    console.log("pepe")
   };
 
 

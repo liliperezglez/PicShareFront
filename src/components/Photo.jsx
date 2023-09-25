@@ -29,7 +29,7 @@ function Photo({ photo, removePost, addComment, editComment,  removeComment, tog
         <p className='photoPlace'>{photo.place && photo.place}</p>
 
         <div>
-          <img
+          <img className='userPhoto'
             onClick={openModal}
             src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`}
             alt={photo.description}

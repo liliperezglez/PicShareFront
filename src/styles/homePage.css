@@ -1,0 +1,74 @@
+/* Dentro de homePage.css */
+.home {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Dos columnas: una para el nav-header y otra para el contenido */
+  grid-gap: 20px; /* Espacio entre las dos columnas */
+}
+
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid #7c7c7c;
+}
+
+.center-panel > h1 {
+  text-align: center;
+}
+
+.page-photo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center;
+  padding: 20px;
+}
+
+/*Clase foto de usuario*/
+.userPhoto {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/*Redondeo avatar*/
+.avatarPost {
+  border-radius: 100px;
+}
+
+/* BUTTONS */
+.deletePostButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+}
+.deletePostButton:hover {
+  cursor: pointer;
+}
+
+.commentButton {
+  border: none;
+  background-color: transparent;
+}
+
+.deleteCommentButton:hover {
+  cursor: pointer;
+}
+
+.likeButton {
+  border: none;
+  background-color: transparent;
+}
+
+.deleteLikeButton {
+  cursor: pointer; 
+}

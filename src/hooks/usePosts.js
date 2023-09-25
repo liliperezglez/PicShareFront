@@ -15,7 +15,6 @@ const usePosts = () => {
 
 
   const toggleLike = async ({token,idEntry, actualUser, description}) => {
-    console.log("soy toggle")
     // const photo = photos.find((photo) => photo.idEntry === idEntry);
     // if (!photo) return;
     try {

@@ -1,15 +1,16 @@
-import {  useState } from 'react';
-import UserInfo from './UserInfo';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import UserInfo from './UserInfo';
 import Modal from './Modal';
 import DeletePost from './DeletePost';
 import UserDescription from './UserDescription';
 import LikeButton from './LikeButton';
+
 import { formatDate } from '../services/helpers/helpers';
 
-function Photo({ photo, removePost, addComment, editComment,  removeComment, toggleLike }) {
+function Photo({ photo, removePost, addComment, editComment, removeComment, toggleLike }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   const { idUser } = useParams();
 
@@ -33,8 +34,9 @@ function Photo({ photo, removePost, addComment, editComment,  removeComment, tog
             onClick={openModal}
             src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`}
             alt={photo.description}
+            className='profile-posts'
           />
-        <DeletePost photo={photo} removePost={removePost} />
+          <DeletePost photo={photo} removePost={removePost} />
         </div>
         {isModalOpen && (
           <Modal

@@ -2,6 +2,9 @@ import { useContext, useState } from 'react';
 import { logInUserService } from '../services';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import '../styles/forms.css';
+import { Header } from '../components/Header';
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -25,26 +28,21 @@ export const Login = () => {
   };
 
   return (
-    <section>
-      <h1>Login</h1>
+    <section className='form'>
+      <Header showNavHeader={false} />
+      <h1>Login(aquí meteremos el logo con imagen)</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor='email'>Email</label>
           <input
-            type='email'
-            name='email'
-            id='email'
-            value={email}
-            required
-            autoComplete='current-email'
+            type='email'name='email'id='email'value={email} placeholder='Correo electrónico' required autoComplete='current-email'
             onChange={(e) => setEmail(e.target.value)}
           />
         </fieldset>
         <fieldset>
-          <label htmlFor='pwd'>Contraseña</label>
-          <input type='password' name='pwd' id='pwd' value={pwd} required onChange={(e) => setPwd(e.target.value)} />
+          <input type='password' name='pwd' id='pwd' value={pwd} placeholder='Contraseña' required onChange={(e) => setPwd(e.target.value)} />
         </fieldset>
-        <button>Login</button>
+        <button className='loginButton'>Entrar</button>
+        <p id="register-link">¿No tienes una cuenta? <a href='/register'>Regístrate</a></p>
         {error ? <p className='error-message'>{error}</p> : null}
       </form>
     </section>

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import PhotoList from '../components/PhotoList';
 import usePosts from '../hooks/usePosts';
 import { getAllPhotosService } from '../services';
+import '../styles/homePage.css';
+import { Header } from '../components/Header';
 
 export const HomePage = () => {
   const [error, setError] = useState("");
@@ -34,15 +36,22 @@ export const HomePage = () => {
 
   return (
     <section>
+      <div className='home'>
+      <Header showNavHeader={true} />
+          <div className='center-panel'>
           <h1>Posts</h1>
-          <PhotoList
-            photos={photos}
-            removePost={removePost}
-            addComment={addComment}
-            editComment={editComment}
-            removeComment={removeComment}
-            toggleLike={toggleLike}
-          />
+            <div className='page-photo-list'>
+              <PhotoList
+                photos={photos}
+                removePost={removePost}
+                addComment={addComment}
+                editComment={editComment}
+                removeComment={removeComment}
+                toggleLike={toggleLike}
+              />
+            </div>
+          </div>
+        </div>
           <aside>
             <p>
               😋😊 Estás al día en las últimas fotos subidas, Visita algún

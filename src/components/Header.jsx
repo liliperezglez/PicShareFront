@@ -7,7 +7,7 @@ import UserOverlay from './UserOverlay';
 import SearchPhotos from './SearchPhotos';
 import Configuration from './Configuration';
 
-export const Header = () => {
+export const Header = ({ showNavHeader }) => {
   const { idUser , token, avatar} = useContext(AuthContext);
   const [isConfigOpen, setIsConfigOpen] = useState(false);
 
@@ -22,7 +22,8 @@ export const Header = () => {
 
   return (
     <header>
-   <nav className='nav-header'>
+      {showNavHeader && (
+        <nav className='nav-header'>
     <div className='nav-menu'>
       <h1>
         <Link to='/'>PicShare</Link>
@@ -66,8 +67,8 @@ export const Header = () => {
       
       </>
     </>
-
     </nav>
+    )}
     </header>
   );
 };

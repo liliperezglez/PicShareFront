@@ -18,21 +18,11 @@ body {
   overflow-x: hidden;
 }
 
-header {
-  display: flex;
-  grid-row: 1 / 4;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  z-index: 1; 
-  
-}
 
 main{
   grid-column: 2 / 4;
   grid-row: 2 /  3;
   flex-grow: 1;
-  
 }
 
 
@@ -117,6 +107,7 @@ footer {
   text-decoration: none;
   display: flex;
   gap: 1rem;
+  list-style-type: none;
 }
 
 .auth {
@@ -138,18 +129,19 @@ footer {
 .photo .photoDetails {
   position: relative;
 }
+
 .photo .photoDetails .photoDate {
-  top: 10px;
+  top: 5px;
   position: absolute;
   left: 5px;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .photo .photoDetails .photoPlace {
   top: 30px;
   position: absolute;
   left: 5px;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .photo .likeANDcommentButtons {
@@ -171,9 +163,11 @@ footer {
   font-size: 20px;
 }
 
+
 .userInfo a {
   display: flex;
   align-items: center;
+  padding: 5px;
 }
 .userInfo p {
   margin: 5px;

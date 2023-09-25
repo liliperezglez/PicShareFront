@@ -12,7 +12,7 @@ function UserInfo({ user, nombre, closeUserSearch }) {
           closeUserSearch();
         }}
       >
-        <img
+        <img className='avatarPost'
           style={{ width: '50px' }}
           src={
             user.avatar

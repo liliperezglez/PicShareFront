@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+
 import PhotoList from '../components/PhotoList';
+import { Header } from '../components/Header';
 import usePosts from '../hooks/usePosts';
 import { getAllPhotosService } from '../services';
+
 import '../styles/homePage.css';
-import { Header } from '../components/Header';
 
 export const HomePage = () => {
   const [error, setError] = useState("");

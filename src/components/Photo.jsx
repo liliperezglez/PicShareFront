@@ -21,7 +21,6 @@ function Photo({ photo, removePost, addComment, editComment, removeComment, togg
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
   return (
     <article className='photo'>
       <div className='userPostInfo'>{!idUser && <UserInfo user={photo} />}</div>
@@ -30,11 +29,10 @@ function Photo({ photo, removePost, addComment, editComment, removeComment, togg
         <p className='photoPlace'>{photo.place && photo.place}</p>
 
         <div>
-          <img className='userPhoto'
+          <img className='userPhoto profile-posts'
             onClick={openModal}
             src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`}
             alt={photo.description}
-            className='profile-posts'
           />
           <DeletePost photo={photo} removePost={removePost} />
         </div>
@@ -53,7 +51,7 @@ function Photo({ photo, removePost, addComment, editComment, removeComment, togg
         <div className='likeANDcommentButtons'>
           <LikeButton toggleLike={toggleLike} photo={photo} />
           <button className='commentButton' onClick={openModal}>
-            💬🗯
+            💬
           </button>
         </div>
       )}

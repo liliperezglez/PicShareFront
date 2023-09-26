@@ -13,6 +13,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import PhotosDescPage from './pages/PhotosDescPage';
 import { useTheme } from './context/ThemeContext';
 
+import './styles/header.css'
 import './styles/modal.css'
 import './App.css';
 

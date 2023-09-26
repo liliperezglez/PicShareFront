@@ -5,18 +5,6 @@
   grid-gap: 20px; /* Espacio entre las dos columnas */
 }
 
-.nav-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  border-right: 1px solid #7c7c7c;
-}
-
 .center-panel > h1 {
   text-align: center;
 }
@@ -35,7 +23,6 @@
   border-radius: 10px;
 }
 
-
 /*Redondeo avatar*/
 .avatarPost {
   border-radius: 100px;
@@ -51,24 +38,11 @@
   border: none;
   background-color: transparent;
 }
-.deletePostButton:hover {
+.deletePostButton:hover, .commentButton:hover, .likeButton:hover {
   cursor: pointer;
 }
 
-.commentButton {
+.commentButton, .likeButton {
   border: none;
   background-color: transparent;
-}
-
-.deleteCommentButton:hover {
-  cursor: pointer;
-}
-
-.likeButton {
-  border: none;
-  background-color: transparent;
-}
-
-.deleteLikeButton {
-  cursor: pointer; 
 }

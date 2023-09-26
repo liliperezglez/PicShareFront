@@ -37,7 +37,6 @@ export const EditProfile = ({ closeEditProfile }) => {
     }
     try {
       const response = await editUserDataService({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd });
-      {response.status === 'OK' && setMessage(response.message)}
       if (response.status === 'OK' && pwdNew && repeatpwd) {
         logout();
       }
@@ -129,7 +128,6 @@ export const EditProfile = ({ closeEditProfile }) => {
             </fieldset>
           </div>
           {message ? <p>{message}</p> : null}
-          <p>/////////</p>
           <div>
             <fieldset>
               <label htmlFor='newPwd'>Nueva Contraseña: </label>

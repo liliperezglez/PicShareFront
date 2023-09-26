@@ -4,7 +4,7 @@ import CommentForm from './CommentForm';
 import UserDescription from './UserDescription';
 import LikeButton from './LikeButton';
 
-function Modal({ photo, closeModal, addComment, editComment,  toggleLike ,removeComment }) {
+function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeComment }) {
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
@@ -14,16 +14,18 @@ function Modal({ photo, closeModal, addComment, editComment,  toggleLike ,remove
   return (
     <div className='modal-overlay' onClick={handleOverlayClick}>
       <div className='modal-content'>
-        <img
-          src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`}
-          alt={photo.description}
-        />
-        <div>
-        <LikeButton photo={photo} toggleLike={toggleLike}/>
-          <UserDescription user={photo} />
+        <div className='modal-img'>
+          <img src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`} alt={photo.description} />
         </div>
-        <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
-        <CommentForm addComment={addComment} photo={photo} />
+        <div className='modal-data'>
+          <UserDescription user={photo} />
+          <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
+          <LikeButton photo={photo} toggleLike={toggleLike} />
+          <label className='commentButton' htmlFor='comment'>
+            💬
+          </label>
+          <CommentForm addComment={addComment} photo={photo} />
+        </div>
         <button onClick={closeModal}>Cerrar</button>
       </div>
     </div>

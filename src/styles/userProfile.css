@@ -4,6 +4,7 @@
   width: 600px;
   position: relative;
   margin: auto;
+
 }
 
 /* Avatar */
@@ -51,6 +52,9 @@
 }
 
 /* Lista de fotos del perfil */
+.user-photo-list {
+  display: flex;
+}
 .user-photo-list > .photo-list {
   display: grid;
   grid-template-columns: repeat(3, 33%);

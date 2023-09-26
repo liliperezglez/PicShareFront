@@ -18,7 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-
 main {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
@@ -38,6 +37,7 @@ footer {
   grid-template-columns: auto 4fr;
   grid-template-rows: auto 6fr auto;
   position: relative;
+  min-height: 100vh;
 }
 
 .light {
@@ -170,7 +170,6 @@ footer {
   font-size: 20px;
 }
 
-
 .userInfo a {
   display: flex;
   align-items: center;
@@ -179,9 +178,6 @@ footer {
 .userInfo p {
   margin: 5px;
 }
-
-
-
 
 /* CSS para el user overlay */
 .user-overlay {
@@ -264,36 +260,3 @@ footer {
   gap: 10px;
 }
 
-/*Para comentarios*/
-.comments > p {
-  margin: 10px 5px;
-}
-.comments-list {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.comment-date {
-  margin-left: auto;
-  font-size: 14px;
-  color: #4169e1;
-}
-
-.comments-list-container {
-  max-height: 150px; /* Altura máxima deseada */
-  overflow-y: auto; /* Muestra la barra de desplazamiento solo cuando es necesario */
-  background-color: #f0f8ff;
-  margin-bottom: 5px;
-  padding: 10px;
-}
-
-/*SCROLLBARS*/
-.comments-list-container::-webkit-scrollbar {
-  width: 6px; /* Ancho de la barra de desplazamiento en navegadores webkit */
-}
-
-.comments-list-container::-webkit-scrollbar-thumb {
-  background-color: #fa0000; /* Color de la barra de desplazamiento */
-  border-radius: 8px; /* Borde redondeado de la barra de desplazamiento */
-}

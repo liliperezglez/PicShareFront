@@ -28,10 +28,10 @@ export const Login = () => {
   };
 
   return (
-    <section className='form'>
+    <section className='form-pages'>
       <Header showNavHeader={false} />
       <h1>Login(aquí meteremos el logo con imagen)</h1>
-      <form onSubmit={handleForm}>
+      <form className='form' onSubmit={handleForm}>
         <fieldset>
           <input
             type='email'

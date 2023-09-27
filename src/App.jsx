@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { Auth } from './components/Auth';
-import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
 import { HomePage } from './pages/HomePage';
@@ -13,8 +12,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import PhotosDescPage from './pages/PhotosDescPage';
 import { useTheme } from './context/ThemeContext';
 
-import './styles/header.css';
-import './styles/modal.css';
+import './styles/modal.css'
 import './App.css';
 
 function App() {

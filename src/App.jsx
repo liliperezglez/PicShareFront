@@ -13,15 +13,14 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import PhotosDescPage from './pages/PhotosDescPage';
 import { useTheme } from './context/ThemeContext';
 
-import './styles/header.css'
-import './styles/modal.css'
+import './styles/header.css';
+import './styles/modal.css';
 import './App.css';
 
 function App() {
   const { isLightMode } = useTheme();
   return (
     <div className={`body-app ${isLightMode ? 'light' : 'dark'}`}>
-      <Header />
       <Auth />
       <main className='app'>
         <Routes>

@@ -10,7 +10,7 @@ import { Header } from '../components/Header';
 import '../styles/userProfile.css';
 
 export const UserProfile = () => {
-  const { idUser, avatar, setAvatar } = useContext(AuthContext);
+  const { idUser, avatar, setAvatar, logout } = useContext(AuthContext);
   const [editProfile, setEditProfile] = useState(false);
   const [editProfileButton, setEditProfileButton] = useState(false);
   const [error, setError] = useState('');
@@ -80,6 +80,7 @@ export const UserProfile = () => {
               <div>
                 <h2>{username}</h2>
                 {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
+                {editProfileButton && <button onClick={logout}>Cerrar Sesión</button>}
               </div>
               <h3>{name}</h3>
               <h3>{photosUser.length} Publicaciones </h3>

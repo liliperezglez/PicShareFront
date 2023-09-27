@@ -12,7 +12,7 @@
   height: 125px;
   width: 125px;
   object-fit: cover;
-  border-radius: 100px;
+  border-radius: 100%;
   margin: 25px 50px 70px 60px;
 }
 
@@ -30,11 +30,12 @@
 .user-data > div {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 /*Botón de editar*/
-.user-data > div > button {
-  margin-left: 75px;
+.user-data > div button {
+  /* margin-left: 75px; */
   border-radius: 8px;
   background-color: #686868;
   border: none;

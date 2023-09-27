@@ -47,16 +47,15 @@
 /* Imagen en el modal */
 .modal-content .modal-img {
   height: 100%;
-  width: 45vw;
+  width: 100%;
 }
 
 .modal-img > img {
   display: block;
   margin: auto;
-  max-height: 100%;
   width: 100%;
-  object-fit: contain;
-  justify-self: center;
+  object-fit: cover;
+  height: 100%;
 }
 
 .modal-content .modal-data {
@@ -115,9 +114,10 @@
 }
 
 .comments-list .comment {
-  width: 80%;
+  max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow-x: auto;
 }
 
 .date-and-delete {
@@ -128,6 +128,7 @@
 .date-and-delete > button {
   background-color: transparent;
   border: none;
+  font-weight: bold;
 }
 
 .comment-date {

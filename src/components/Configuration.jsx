@@ -26,8 +26,8 @@ function Configuration({ closeConfig }) {
     <>
       <div className='config-overlay' onClick={handleOverlayClick}>
         <div className='config-content'>
-          <button onClick={openEditProfile}>Editar Perfil</button>
-          {token && editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
+          {token && <button onClick={openEditProfile}>Editar Perfil</button>}
+          {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
           <button onClick={toggleTheme}>{isLightMode ? '🌖' : '🌒'}</button>
           {token && <button onClick={logout}>Cerrar Sesión</button>}
         </div>

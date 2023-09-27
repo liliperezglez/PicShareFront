@@ -4,17 +4,18 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 15vw;
+  /* width: 15vw; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px 35px 20px 20px;
   border-right: 1px solid #7c7c7c;
+  z-index: 1
   /* margin-left: 1rem; */
 }
 
 .center-panel, .footer {
-  width: calc(100vw - 15vw);
+  /* width: calc(100vw - 15vw); */
   margin-left: auto;
 }
 
@@ -34,6 +35,10 @@
   margin-bottom: 30px;
 }
 
+.page-photo-list .photo .photo-details img {
+  width: 550px;
+  height: 400px;
+}
 /*Clase foto de usuario*/
 .user-photo {
   object-fit: cover;
@@ -44,6 +49,10 @@
 /*Redondeo avatar*/
 .avatar-post {
   border-radius: 100px;
+  height: 45px;
+  object-fit: cover;
+  width: 45px;
+
 }
 
 /* BUTTONS */

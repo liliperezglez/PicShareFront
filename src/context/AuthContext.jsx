@@ -9,6 +9,7 @@ export const AuthProviderComponent = ({ children }) => {
   const [idUser, setIdUser] = useState(localStorage.getItem('idUser'));
   const [name, setName] = useState('');
   const [role, setRole] = useState(localStorage.getItem('role'));
+  const [emailAuth, setEmailAuth] = useState(localStorage.getItem('email'));
   const [userName, setUserName] = useState('');
   const [avatar, setAvatar] = useState('');
   const [userCreatedAt, setUserCreatedAt] = useState('');
@@ -18,6 +19,7 @@ export const AuthProviderComponent = ({ children }) => {
     localStorage.setItem('token', token);
     localStorage.setItem('idUser', idUser);
     localStorage.setItem('role', role);
+    localStorage.setItem('email', emailAuth);
 
     if (token && idUser) {
       getMyUserDataService(idUser).then((userData) => {
@@ -33,6 +35,7 @@ export const AuthProviderComponent = ({ children }) => {
     setToken('');
     setIdUser('');
     setRole('');
+    setEmailAuth('');
     setName('');
     setUserName('');
     setAvatar('');
@@ -40,13 +43,13 @@ export const AuthProviderComponent = ({ children }) => {
     navigate('/');
   };
 
-
   return (
     <AuthContext.Provider
       value={{
         token,
-        setRole,
         userCreatedAt,
+        setRole,
+        setEmailAuth,
         setAvatar,
         setToken,
         setIdUser,
@@ -56,6 +59,8 @@ export const AuthProviderComponent = ({ children }) => {
         name,
         userName,
         role,
+        emailAuth,
+
         // user:{
         //   idUser,
         //   avatar,

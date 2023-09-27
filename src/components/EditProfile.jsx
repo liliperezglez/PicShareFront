@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 export const EditProfile = ({ closeEditProfile }) => {
   const navigate = useNavigate();
-  const { token, idUser, avatar, userName, setAvatar, logout } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const { token, idUser, avatar, userName, setAvatar, logout, name, emailAuth } = useContext(AuthContext);
+  const [email, setEmail] = useState(emailAuth);
+  const [nameEdit, setNameEdit] = useState(name);
   const [username, setUsername] = useState(userName);
   const [newAvatar, setNewAvatar] = useState('');
   const [pwd, setPwd] = useState('');
@@ -16,8 +16,8 @@ export const EditProfile = ({ closeEditProfile }) => {
   const [repeatpwd, setRepeatPwd] = useState('');
   const [error, setError] = useState('');
   const [deleteProfile, setDeleteProfile] = useState(false);
-  const [errorAvatar,setErrorAvatar]=useState("")
-  const [message,setMessage]=useState("")
+  const [errorAvatar, setErrorAvatar] = useState('');
+  const [message, setMessage] = useState('');
 
   const openDeleteProfile = () => {
     setDeleteProfile(true);
@@ -36,17 +36,17 @@ export const EditProfile = ({ closeEditProfile }) => {
       return;
     }
     try {
-      const response = await editUserDataService({ token, idUser, email, name, username, pwd, pwdNew, repeatpwd });
+      const response = await editUserDataService({ token, idUser, email, name: nameEdit, username, pwd, pwdNew, repeatpwd });
       if (response.status === 'OK' && pwdNew && repeatpwd) {
         logout();
       }
-       e.target.reset();
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-    
-    const handleNewAvatar = async (e) => {
+      e.target.reset();
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const handleNewAvatar = async (e) => {
     e.preventDefault();
     setError('');
     try {
@@ -55,11 +55,10 @@ export const EditProfile = ({ closeEditProfile }) => {
         formData.append('avatar', newAvatar);
         await changeAvatarService({ token, avatar: formData });
         setAvatar(newAvatar);
-        setErrorAvatar("")
-      }else{
-        setErrorAvatar("Por favor, selecciona el archivo")
+        setErrorAvatar('');
+      } else {
+        setErrorAvatar('Por favor, selecciona el archivo');
       }
-      
     } catch (error) {
       setError(error.message);
     }
@@ -85,17 +84,19 @@ export const EditProfile = ({ closeEditProfile }) => {
             <label>Avatar</label>
             <div>
               <img
-                src={
-                  avatar
-                    ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}`
-                    : '../src/resources/userNoAvatar_icon.svg'
-                }
+                src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'}
                 alt={`Avatar de ${userName}`}
               />
-              <input type='file' id='avatar' name='avatar' accept={'image/*'} onChange={(e) => {
-                setNewAvatar(e.target.files[0]); 
-                setErrorAvatar("")
-                }} />
+              <input
+                type='file'
+                id='avatar'
+                name='avatar'
+                accept={'image/*'}
+                onChange={(e) => {
+                  setNewAvatar(e.target.files[0]);
+                  setErrorAvatar('');
+                }}
+              />
               {newAvatar ? (
                 <figure>
                   <img src={URL.createObjectURL(newAvatar)} style={{ width: '100px' }} alt='Preview' />
@@ -111,16 +112,16 @@ export const EditProfile = ({ closeEditProfile }) => {
           <div>
             <fieldset>
               <label htmlFor='email'>Email * </label>
-              <input type='email' id='email' name='email' required onChange={(e) => setEmail(e.target.value)} />
+              <input type='email' id='email' name='email' value={email} required onChange={(e) => setEmail(e.target.value)} />
             </fieldset>
             <fieldset>
               <label htmlFor='username'>Nombre de usuario * </label>
               <input type='username' id='username' value={username} name='username' required onChange={(e) => setUsername(e.target.value)} />
-                {/* setUser({...user,username: e.target.value})} */}
+              {/* setUser({...user,username: e.target.value})} */}
             </fieldset>
             <fieldset>
               <label htmlFor='name'>Nombre * </label>
-              <input type='name' id='name' name='name' required onChange={(e) => setName(e.target.value)} />
+              <input type='name' id='name' name='name' value={name} required onChange={(e) => setName(e.target.value)} />
             </fieldset>
             <fieldset>
               <label htmlFor='pwd'>Contraseña * </label>
@@ -139,14 +140,14 @@ export const EditProfile = ({ closeEditProfile }) => {
             </fieldset>
           </div>
           <div>
-            <div>  
-            <button type='submit'>Guardar cambios</button>
-            {deleteProfile && <DeleteProfile closeDeleteProfile={closeDeleteProfile} />}
-            <button type='button' onClick={openDeleteProfile}>
-              Eliminar cuenta
-            </button>
+            <div>
+              <button type='submit'>Guardar cambios</button>
+              {deleteProfile && <DeleteProfile closeDeleteProfile={closeDeleteProfile} />}
+              <button type='button' onClick={openDeleteProfile}>
+                Eliminar cuenta
+              </button>
             </div>
-          <button type='button' onClick={closeEditProfile}>
+            <button type='button' onClick={closeEditProfile}>
               Salir
             </button>
           </div>

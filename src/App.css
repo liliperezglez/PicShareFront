@@ -21,7 +21,7 @@ body {
 main {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 footer {

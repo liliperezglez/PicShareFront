@@ -6,6 +6,15 @@ import { useTheme } from '../context/ThemeContext';
 function Configuration({ closeConfig }) {
   const { logout, token } = useContext(AuthContext);
   const { isLightMode, toggleTheme } = useTheme();
+  const [editProfile, setEditProfile] = useState(false);
+
+  const openEditProfile = () => {
+    setEditProfile(true);
+  };
+
+  const closeEditProfile = () => {
+    setEditProfile(false);
+  };
 
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('config-overlay')) {
@@ -17,9 +26,8 @@ function Configuration({ closeConfig }) {
     <>
       <div className='config-overlay' onClick={handleOverlayClick}>
         <div className='config-content'>
-          {/* <button>
-               <EditProfile />
-            </button> */}
+          <button onClick={openEditProfile}>Editar Perfil</button>
+          {token && editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
           <button onClick={toggleTheme}>{isLightMode ? '🌖' : '🌒'}</button>
           {token && <button onClick={logout}>Cerrar Sesión</button>}
         </div>

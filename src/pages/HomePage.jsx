@@ -40,8 +40,6 @@ export const HomePage = () => {
     <section>
       <div className='home'>
       <Header showNavHeader={true} />
-          <div className='center-panel'>
-          <h1>Posts</h1>
             <div className='page-photo-list'>
               <PhotoList
                 photos={photos}
@@ -52,9 +50,8 @@ export const HomePage = () => {
                 toggleLike={toggleLike}
               />
             </div>
-          </div>
         </div>
-          <aside className='footer'>
+          <aside>
             <p>
               😋😊 Estás al día en las últimas fotos subidas, Visita algún
               usuario para ver sus fotos 🎉🎆

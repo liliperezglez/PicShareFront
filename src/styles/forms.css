@@ -1,4 +1,6 @@
-/* REGISTER, LOGIN y ADD POST */
+/* ======================= *\
+  REGISTER, LOGIN + ADDPOST
+\* ======================= */
 /*Los tamaños de letra, colores, bordes... ver de hacer variables y usar en todos lados lo mismo*/
 
 .form-pages {
@@ -6,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; 
+  min-height: 85vh; 
 }
 
 h1 {
@@ -19,14 +21,16 @@ p {
   text-align: center; 
 }
 
-/* Estilos para el formulario */
+/* ======================= *\
+       FORMS GENERICO
+\* ======================= */
 .form {
-  width: 100%; /* Ancho máximo del formulario */
-  max-width: 400px; /* Ancho máximo recomendado para la legibilidad */
-  padding: 30px; /* Espaciado interno del formulario */
-  border: 1px solid #ccc; /* Borde del formulario */
-  border-radius: 5px; /* Borde redondeado */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  width: 100%; 
+  max-width: 400px; 
+  padding: 35px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
   text-align: center;
 }
 
@@ -39,39 +43,57 @@ p {
   align-items: center;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%; /* Ancho completo para los campos de entrada */
-  padding: 15px; /* Espaciado interno de los campos de entrada */
-  margin-bottom: 15px; /* Espacio inferior entre campos */
+.form input[type="text"], .form input[type="email"], .form input[type="password"] {
+  width: 100%; 
+  padding: 15px; 
+  margin-bottom: 15px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
-/* BUTTONS */
+/* ======================= *\
+        FORM ADDPOST
+\* ======================= */
+
+.form.add-post-form div{
+  margin-top: 15px;
+}
+
+.form.add-post-form input[type="text"] {
+  width: 180px;
+  height: 30px;
+}
+
+.form.add-post-form textarea {
+  margin-top: -10px;
+}
+
+/* ======================= *\
+          BUTTONS
+\* ======================= */
+
 
 .login-button, .register-button, .add-post-button{
-  background-color: #007bff; /* Color de fondo del botón */
-  color: white; /* Color del texto del botón */
-  padding: 10px 20px; /* Espaciado interno del botón */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Borde redondeado */
-  cursor: pointer; /* Cursor de puntero al pasar por encima del botón */
+  background-color: #007bff; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
 .login-button:hover, .register-button:hover, .add-post-button:hover {
-  background-color: #0056b3; /* Cambio de color al pasar el puntero */
+  background-color: #0056b3; 
 }
 
 .error-message {
-  color: red; /* Color del mensaje de error */
-  margin-top: 10px; /* Espacio superior del mensaje de error */
+  color: red; 
+  margin-top: 10px; 
 }
 
 #login-link, #register-link {
-  margin-top: 20px; /* Puedes ajustar la cantidad de margen según tus preferencias */
+  margin-top: 20px;
 }

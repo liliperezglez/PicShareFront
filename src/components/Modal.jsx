@@ -20,10 +20,12 @@ function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeC
         <div className='modal-data'>
           <UserDescription user={photo} />
           <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
-          <LikeButton photo={photo} toggleLike={toggleLike} />
-          <label className='commentButton' htmlFor='comment'>
-            💬
-          </label>
+          <div className='like-and-comment'>
+            <LikeButton photo={photo} toggleLike={toggleLike} />
+            <label className='comment-button' htmlFor='comment'>
+              💬
+            </label>
+          </div>
           <CommentForm addComment={addComment} photo={photo} />
         </div>
         <button onClick={closeModal}>Cerrar</button>

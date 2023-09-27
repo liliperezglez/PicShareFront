@@ -23,13 +23,13 @@ function Photo({ photo, removePost, addComment, editComment, removeComment, togg
   };
   return (
     <article className='photo'>
-      <div className='userPostInfo'>{!idUser && <UserInfo user={photo} />}</div>
-      <div className='photoDetails'>
-        <p className='photoDate'>{formatDate(photo.date)} </p>
-        <p className='photoPlace'>{photo.place && photo.place}</p>
+      <div className='user-post-info'>{!idUser && <UserInfo user={photo} />}</div>
+      <div className='photo-details'>
+        <p className='photo-date'>{formatDate(photo.date)} </p>
+        <p className='photo-place'>{photo.place && photo.place}</p>
 
         <div>
-          <img className='userPhoto profile-posts'
+          <img className='user-photo profile-posts'
             onClick={openModal}
             src={`${import.meta.env.VITE_APP_BACKEND.replace(/\/+$/, '')}/uploads/photos/${photo.idUser}/${photo.photo}`}
             alt={photo.description}
@@ -48,9 +48,9 @@ function Photo({ photo, removePost, addComment, editComment, removeComment, togg
         )}
       </div>
       {!idUser && (
-        <div className='likeANDcommentButtons'>
+        <div className='like-and-comment-buttons'>
           <LikeButton toggleLike={toggleLike} photo={photo} />
-          <button className='commentButton' onClick={openModal}>
+          <button className='comment-button' onClick={openModal}>
             💬
           </button>
         </div>

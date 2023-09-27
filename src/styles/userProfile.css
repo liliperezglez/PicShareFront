@@ -64,7 +64,7 @@
   width: 1050px;
   margin: auto;
 }
-.user-photo-list .photo .photoDate {
+.user-photo-list .photo .photo-date {
   display: none;
 }
 .user-photo-list .photo .profile-posts {
@@ -74,7 +74,7 @@
   border-radius: 10px;
 }
 
-.deletePostButton {
+.delete-post-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -83,6 +83,6 @@
   border: none;
   background-color: transparent;
 }
-.deletePostButton:hover {
+.delete-post-button:hover {
   cursor: pointer;
 }

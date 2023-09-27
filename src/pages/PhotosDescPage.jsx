@@ -49,7 +49,7 @@ export default function PhotosDescPage() {
         {searched && photosDesc.length > 0 && (
           <>
             <h3>Resultados de búsqueda:</h3>
-            <div className='photosDesc-content'>
+            <div className='photos-desc-content'>
               <PhotoList photos={photosDesc} addComment={addComment} editComment={editComment} removeComment={removeComment}  toggleLike={toggleLike}/>
             </div>
           </>

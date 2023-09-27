@@ -89,7 +89,7 @@ export const UserProfile = () => {
           {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
           <div className='user-photo-list'>
             <PhotoList
-              photos={photosUser}
+              photos={updatedPhotosUser}
               addComment={addComment}
               editComment={editComment}
               removeComment={removeComment}

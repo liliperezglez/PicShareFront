@@ -34,7 +34,7 @@ function DeletePost({ photo, removePost }) {
     <>
       {(role === 'admin' || (token && parseInt(photo.idUser) === parseInt(idUser))) && (
         <button
-          className='deletePostButton'
+          className='delete-post-button'
           onClick={openDeletePhoto}
         >
           ❌
@@ -45,7 +45,7 @@ function DeletePost({ photo, removePost }) {
       <div className='modal-content'>
         <h2>Esto eliminará la publicación</h2>
         <p>¿Deseas continuar?</p>
-        <div className='buttonsDeletePost'>
+        <div className='buttons-delete-post'>
         <button type='button' onClick={()=> {
           deletePost(photo.idEntry);
           closeDeletePhoto()

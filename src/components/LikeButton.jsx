@@ -28,7 +28,7 @@ function LikeButton({ photo, toggleLike }) {
   return (
     <>
       {token && (
-        <button className={`likeButton`} onClick={handleLikeClick}>
+        <button className={`like-button`} onClick={handleLikeClick}>
          {likedByUser} {Array.isArray(photo.likes) ? photo.likes.length : photo.likes}
         </button>
       )}

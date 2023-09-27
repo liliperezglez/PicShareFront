@@ -14,7 +14,7 @@ function UserOverlay() {
   return (
     <>
       {isUserOpen && <SearchUser closeUserSearch={closeUserSearch} />}
-      <button className='searchUserButton' onClick={openUserSearch}>
+      <button className='search-user-button' onClick={openUserSearch}>
         <input type='image' src='../../src/resources/users_icon.svg' alt='Buscar usuario' height='35' width='35' />
         <span>Buscar usuario</span>
       </button>

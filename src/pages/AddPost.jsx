@@ -67,22 +67,24 @@ export const AddPost = () => {
   return (
     <section className='form-pages'>
       <Header showNavHeader={true} />
-      <h1>Añadir un Nuevo Post</h1>
-      <form className='form' onSubmit={handleSubmit}>
-        <fieldset className='add-post-form'>
+      <h1>Añade un Nuevo Post</h1>
+      <form className='form add-post-form' onSubmit={handleSubmit}>
+        <fieldset>
+          
           <div>
+            <input type='file' accept='image/*' onChange={handlePhotoChange} required />
+            {photo ? (
+              <>
+              <figure>
+                <img src={URL.createObjectURL(photo)} style={{ width: '300px' }} alt='Preview' />
+              </figure>
+            <div>
             <input type='text' value={place} placeholder='Añadir lugar' onChange={handlePlaceChange} />
           </div>
           <div>
             <textarea value={description} placeholder='Escribe un pie de foto...'onChange={handleDescriptionChange} required />
-          </div>
-          <div>
-            <input type='file' accept='image/*' onChange={handlePhotoChange} required />
-            {photo ? (
-              <figure>
-                <img src={URL.createObjectURL(photo)} style={{ width: '100px' }} alt='Preview' />
-              </figure>
-            ) : null}
+          </div> 
+          </> ) : null}
           </div>
         </fieldset>
         <button className='add-post-button' type='submit' disabled={isLoading}>

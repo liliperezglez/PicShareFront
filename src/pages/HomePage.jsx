@@ -54,7 +54,7 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-          <aside>
+          <aside className='footer'>
             <p>
               😋😊 Estás al día en las últimas fotos subidas, Visita algún
               usuario para ver sus fotos 🎉🎆

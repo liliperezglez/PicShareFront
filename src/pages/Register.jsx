@@ -36,11 +36,11 @@ export const Register = () => {
   };
 
   return (
-    <section className='form'> 
+    <section className='form-pages'> 
         <Header showNavHeader={false} />
         <h1>Register(aquí meteremos el logo con imagen)</h1>
         <p>Regístrate para ver y compartir fotos con tus amigos.</p>
-        <form onSubmit={handleForm}>
+        <form className='form' onSubmit={handleForm}>
           <fieldset>
             <input type='email' id='email' name='email' placeholder='Correo electrónico' required onChange={(e) => setEmail(e.target.value)} />
           </fieldset>

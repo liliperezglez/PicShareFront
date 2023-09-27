@@ -1,7 +1,7 @@
-/* REGISTER Y LOGIN */
+/* REGISTER, LOGIN y ADD POST */
 /*Los tamaños de letra, colores, bordes... ver de hacer variables y usar en todos lados lo mismo*/
 
-.form {
+.form-pages {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ p {
 }
 
 /* Estilos para el formulario */
-form {
+.form {
   width: 100%; /* Ancho máximo del formulario */
   max-width: 400px; /* Ancho máximo recomendado para la legibilidad */
   padding: 30px; /* Espaciado interno del formulario */
@@ -50,7 +50,9 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-.login-button, .register-button{
+/* BUTTONS */
+
+.login-button, .register-button, .add-post-button{
   background-color: #007bff; /* Color de fondo del botón */
   color: white; /* Color del texto del botón */
   padding: 10px 20px; /* Espaciado interno del botón */
@@ -61,11 +63,7 @@ input[type="password"] {
   margin-bottom: 5px;
 }
 
-.login-button:hover {
-  background-color: #0056b3; /* Cambio de color al pasar el puntero */
-}
-
-.register-button:hover {
+.login-button:hover, .register-button:hover, .add-post-button:hover {
   background-color: #0056b3; /* Cambio de color al pasar el puntero */
 }
 

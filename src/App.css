@@ -56,15 +56,6 @@ footer {
   color: #f5f5f5;
 }
 
-.nav-header {
-  display: flex;
-  margin-left: 1rem;
-  border-right: 1px solid #7c7c7c;
-  width: auto;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .nav-menu {
   gap: 2rem;
   align-items: start;
@@ -108,6 +99,8 @@ footer {
 .auth-register {
   justify-self: end;
   margin: 10px;
+  grid-column: 2 / 4;
+  grid-row: 1;
 }
 
 .auth-register {
@@ -160,7 +153,7 @@ footer {
   align-items: center;
   display: flex;
   height: 30px;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .disabled-link {

@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from 'react';
 import { addPhotoService } from '../services';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Header } from '../components/Header';
+
 
 export const AddPost = () => {
   const navigate = useNavigate();
@@ -63,20 +65,18 @@ export const AddPost = () => {
   };
 
   return (
-    <section>
+    <section className='form-pages'>
+      <Header showNavHeader={true} />
       <h1>Añadir un Nuevo Post</h1>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
+      <form className='form' onSubmit={handleSubmit}>
+        <fieldset className='add-post-form'>
           <div>
-            <label>Lugar:</label>
-            <input type='text' value={place} onChange={handlePlaceChange} />
+            <input type='text' value={place} placeholder='Añadir lugar' onChange={handlePlaceChange} />
           </div>
           <div>
-            <label>Descripción:</label>
-            <textarea value={description} onChange={handleDescriptionChange} required />
+            <textarea value={description} placeholder='Escribe un pie de foto...'onChange={handleDescriptionChange} required />
           </div>
           <div>
-            <label>Foto:</label>
             <input type='file' accept='image/*' onChange={handlePhotoChange} required />
             {photo ? (
               <figure>
@@ -85,7 +85,7 @@ export const AddPost = () => {
             ) : null}
           </div>
         </fieldset>
-        <button type='submit' disabled={isLoading}>
+        <button className='add-post-button' type='submit' disabled={isLoading}>
           {isLoading ? 'Cargando...' : 'Publicar'}
         </button>
         {error ? <p className='error-message'>{error}</p> : null}

@@ -56,7 +56,7 @@ export const Register = () => {
           <fieldset>
             <input type='password' id='repeatpwd' name='repeatpwd' placeholder='Confirmar contraseña' required onChange={(e) => setRepeatPwd(e.target.value)} />
           </fieldset>
-          <button className='registerButton'>Registrarse</button>
+          <button className='register-button'>Registrarse</button>
           <p id="login-link">¿Ya tienes una cuenta? <a href='/login'>Entrar</a></p>
           {error ? <p className='error-message'>{error}</p> : null}
         </form>

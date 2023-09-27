@@ -50,7 +50,7 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-.loginButton .registerButton{
+.login-button .register-button{
   background-color: #007bff; /* Color de fondo del botón */
   color: white; /* Color del texto del botón */
   padding: 10px 20px; /* Espaciado interno del botón */
@@ -61,11 +61,11 @@ input[type="password"] {
   margin-bottom: 5px;
 }
 
-.loginButton:hover {
+.login-button:hover {
   background-color: #0056b3; /* Cambio de color al pasar el puntero */
 }
 
-.registerButton:hover {
+.register-button:hover {
   background-color: #0056b3; /* Cambio de color al pasar el puntero */
 }
 

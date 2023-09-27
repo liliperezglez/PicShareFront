@@ -10,8 +10,8 @@ export default function SearchPhotos() {
 
   return (
     <>
-      <Link to='/entries/photos/search' className='searchPhotoButton'>
-        <button className='searchPhotosButton'>
+      <Link to='/entries/photos/search' className='search-photo-button'>
+        <button className='search-photos-button'>
           <input type='image' src='../../src/resources/photoGallery_icon.svg' alt='Buscar foto' height='35' width='35' />
           <span>Buscar fotos</span>
         </button>

@@ -10,7 +10,7 @@ export const AddPost = () => {
   const [photo, setPhoto] = useState(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { setToken } = useContext(AuthContext);
+  const { setToken, logout } = useContext(AuthContext);
 
   useEffect(() => {
     // Carga el token desde el localStorage
@@ -56,6 +56,7 @@ export const AddPost = () => {
     } catch (error) {
       console.error('Hubo un error al subir el post.', error);
       setError('Hubo un error al subir el post.', error);
+      logout();
     } finally {
       setIsLoading(false);
     }

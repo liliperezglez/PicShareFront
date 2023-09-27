@@ -34,7 +34,7 @@ export const Header = ({ showNavHeader }) => {
 
       {idUser && (
         <Link to='/entries/photos'>
-          <button className='addPhotosButton'>
+          <button className='add-photos-button'>
             <img type='image' src='../../src/resources/addNewPhoto_icon.svg' height='35' width='35' />  
             <span>Publicar</span>
           </button>
@@ -43,7 +43,7 @@ export const Header = ({ showNavHeader }) => {
 
       {(idUser && token) && 
       <Link to={`/users/${idUser}`} >
-        <button className='goPerfilButton'>
+        <button className='go-perfil-button'>
         <img
           src={
             avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'
@@ -60,7 +60,7 @@ export const Header = ({ showNavHeader }) => {
     <>
       {isConfigOpen && <Configuration closeConfig={closeConfig} />}
       <>
-      <button className='configButton' onClick={openConfig}>
+      <button className='configB-button' onClick={openConfig}>
         ⚙🗜
       <span>Más</span>
       </button>

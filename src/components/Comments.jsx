@@ -1,9 +1,8 @@
-import UserInfo from "./UserInfo";
-import CommentsOptions from "./CommentsOptions";
-import { formatDate } from "../services/helpers/helpers";
+import UserInfo from './UserInfo';
+import CommentsOptions from './CommentsOptions';
+import { formatDate } from '../services/helpers/helpers';
 
 function Comments({ photo, editComment, removeComment }) {
-
   return (
     <div className='comments'>
       {Array.isArray(photo.comments) && photo.comments.length > 0 ? (
@@ -13,13 +12,13 @@ function Comments({ photo, editComment, removeComment }) {
           </p>
           <ul className='comments-list-container'>
             {photo.comments.map((comment) => (
-              <li key={comment.idComment} className='comments-list'>
-                <UserInfo user={comment} />: {comment.comment}
-                <div className="comment-date">
-                  {formatDate(
-                    comment.edit_date ? comment.edit_date : comment.date
-                  )}
-                </div>
+              <div key={comment.idComment} className='user-comment'>
+                <li className='comments-list'>
+                  <UserInfo user={comment} />
+                  <span className='comment'>{comment.comment}</span>
+                </li>
+                <div className='date-and-delete'>
+                  <div className='comment-date'>{formatDate(comment.edit_date ? comment.edit_date : comment.date)}</div>
                   <CommentsOptions
                     editComment={editComment}
                     removeComment={removeComment}
@@ -27,7 +26,8 @@ function Comments({ photo, editComment, removeComment }) {
                     idComment={comment.idComment}
                     comment={comment}
                   />
-              </li>
+                </div>
+              </div>
             ))}
           </ul>
         </>

@@ -7,7 +7,7 @@ function LinkToUserProfile({ idUser, user }) {
   // Verificar si la ruta actual coincide con la del usuario
   const isCurrent = currentUserId === parseInt(idUser);
   return (
-    <div className='userInfo'>
+    <div className='user-info'>
       <Link to={`/users/${idUser}`} className={isCurrent ? 'disabled-link' : ''}>
         <>
           {user.avatar && (

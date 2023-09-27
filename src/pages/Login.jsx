@@ -41,7 +41,7 @@ export const Login = () => {
         <fieldset>
           <input type='password' name='pwd' id='pwd' value={pwd} placeholder='Contraseña' required onChange={(e) => setPwd(e.target.value)} />
         </fieldset>
-        <button className='loginButton'>Entrar</button>
+        <button className='login-button'>Entrar</button>
         <p id="register-link">¿No tienes una cuenta? <a href='/register'>Regístrate</a></p>
         {error ? <p className='error-message'>{error}</p> : null}
       </form>

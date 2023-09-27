@@ -18,18 +18,18 @@
 }
 
 /*Clase foto de usuario*/
-.userPhoto {
+.user-photo {
   object-fit: cover;
   border-radius: 10px;
 }
 
 /*Redondeo avatar*/
-.avatarPost {
+.avatar-post {
   border-radius: 100px;
 }
 
 /* BUTTONS */
-.deletePostButton {
+.delete-post-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -38,11 +38,11 @@
   border: none;
   background-color: transparent;
 }
-.deletePostButton:hover, .commentButton:hover, .likeButton:hover {
+.delete-post-button:hover, .comment-button:hover, .like-button:hover {
   cursor: pointer;
 }
 
-.commentButton, .likeButton {
+.comment-button, .like-button {
   border: none;
   background-color: transparent;
 }

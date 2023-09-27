@@ -2,7 +2,7 @@ import UserInfo from './UserInfo';
 
 function UserDescription({ user }) {
   return (
-    <div className='userDescription'>
+    <div className='user-description'>
       <UserInfo user={user} />
       <p> {user.description}</p>
     </div>

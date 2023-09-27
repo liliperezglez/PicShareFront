@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 function UserInfo({ user, nombre, closeUserSearch }) {
   const { idUser } = useParams();
   return (
-    <div className='userInfo'>
+    <div className='user-info'>
       <Link
         to={`/users/${user.idUser}`}
         onClick={() => {
@@ -11,7 +11,7 @@ function UserInfo({ user, nombre, closeUserSearch }) {
           closeUserSearch();
         }}
       >
-        <img className='avatarPost'
+        <img className='avatar-post'
           style={{ width: '50px' }}
           src={
             user.avatar

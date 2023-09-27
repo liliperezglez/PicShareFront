@@ -19,8 +19,8 @@ body {
 }
 
 main {
-  grid-column: 2 / 4;
-  grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
   /* flex-grow: 1; */
 }
 
@@ -114,6 +114,12 @@ footer {
   display: flex;
   align-items: center;
   list-style-type: none;
+  gap: 5px;
+}
+
+.auth .avatar-post{
+  width: 65px;
+  height: 65px;
 }
 
 .auth > li {

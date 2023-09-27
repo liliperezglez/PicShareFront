@@ -11,8 +11,8 @@ function UserInfo({ user, nombre, closeUserSearch }) {
           closeUserSearch();
         }}
       >
-        <img className='avatar-post'
-          style={{ width: '50px' }}
+        <img
+          className='avatar-post'
           src={
             user.avatar
               ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${user.idUser || idUser}/${user.avatar}`

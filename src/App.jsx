@@ -12,8 +12,12 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import PhotosDescPage from './pages/PhotosDescPage';
 import { useTheme } from './context/ThemeContext';
 
-import './styles/modal.css'
+import './styles/modal.css';
 import './App.css';
+import './styles/homePage.css';
+import './styles/userProfile.css';
+import './styles/photoDesc.css';
+import './styles/forms.css';
 
 function App() {
   const { isLightMode } = useTheme();

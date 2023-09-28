@@ -68,6 +68,7 @@
 .modal-content .modal-data .user-description {
   border-bottom: 1px solid #000;
   padding-bottom: 15px;
+  width: 34vw;
 }
 
 /* Comentarios */
@@ -149,4 +150,47 @@
 
 .comment-form button {
   width: 3vw;
+}
+
+
+.comments .edit-comment{
+  max-width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments .edit-comment-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.comments .edit-comment p{
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.comments .edit-comment {
+  padding: 5px; 
+}
+
+.comments .edit-comment input{
+  padding: 0 5px;
+  height: 2.5vh;
+  border-radius: 5px;
+  border: none;
+}
+
+.comments .edit-comment button{
+  width: fit-content;
+}
+
+.comments .edit-comment .buttons-comment-options{
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
 }

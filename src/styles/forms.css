@@ -77,6 +77,12 @@ p {
 
 .form.add-post-form textarea {
   margin-top: -10px;
+  max-width: 255px;
+  max-height: 119px;
+  width: 437px;
+  height: 75px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /* ======================= *\
@@ -84,7 +90,7 @@ p {
 \* ======================= */
 
 
-.login-button, .register-button, .add-post-button{
+.login-button, .register-button, .add-post-button, .photos-button, .go-home-button{
   background-color: #007bff; 
   color: white; 
   padding: 10px 20px; 
@@ -95,7 +101,7 @@ p {
   margin-bottom: 5px;
 }
 
-.login-button:hover, .register-button:hover, .add-post-button:hover {
+.login-button:hover, .register-button:hover, .add-post-button:hover , .photos-button:hover, .go-home-button:hover{
   background-color: #0056b3; 
 }
 

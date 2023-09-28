@@ -7,7 +7,6 @@ import usePosts from '../hooks/usePosts';
 import { AuthContext } from '../context/AuthContext';
 import { EditProfile } from '../components/EditProfile';
 import { Header } from '../components/Header';
-import '../styles/userProfile.css';
 
 export const UserProfile = () => {
   const { idUser, avatar, setAvatar, logout } = useContext(AuthContext);

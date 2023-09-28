@@ -36,15 +36,20 @@ function CommentsOptions({ idComment, comment, idEntry, editComment, removeComme
           <div className='modal-content' key={idComment}>
             <div className='edit-comment'>
               <p>{comment.comment}</p>
-              <button onClick={() => deleteComment(idComment, idEntry)}>Eliminar comentario</button>
-              <div>
-                <form>
-                  {' '}
-                  <input type='text' value={newComment} onChange={handleChangeComment} required />
-                  <button onClick={() => changeComment(idEntry, idComment, newComment)}>Editar comentario</button>
-                </form>
+              <form className='edit-comment-form'>
+                <input type='text' placeholder='Comentario Editado' value={newComment} onChange={handleChangeComment} required />
+                <button className='edit-comment-button' onClick={() => changeComment(idEntry, idComment, newComment)}>
+                  Editar comentario
+                </button>
+              </form>
+              <div className='buttons-comment-options'>
+                <button className='delete-comment-button' onClick={() => deleteComment(idComment, idEntry)}>
+                  Eliminar comentario
+                </button>
+                <button className='close-comment-button' onClick={closeOptions}>
+                  Salir
+                </button>
               </div>
-              <button onClick={closeOptions}>Salir</button>
             </div>
           </div>
         </div>

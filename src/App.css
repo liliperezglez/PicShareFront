@@ -117,8 +117,8 @@ footer {
 }
 
 .auth .avatar-post{
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 58px;
 }
 
 .auth > li {
@@ -159,6 +159,13 @@ footer {
   display: flex;
   height: 30px;
   margin: 30px 0;
+  max-width: 550px;
+}
+
+.photo .user-description > p{
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  text-align: left;
 }
 
 .disabled-link {
@@ -194,7 +201,6 @@ footer {
   top: 10vh;
   left: 0;
   float: left;
-  /* width: 15%;*/
   height: 50%;
   background-color: var(--overlay-general-bg);
   padding: var(--overlay-general-padding);

@@ -121,7 +121,7 @@ export const EditProfile = ({ closeEditProfile }) => {
             </fieldset>
             <fieldset>
               <label htmlFor='name'>Nombre * </label>
-              <input type='name' id='name' name='name' value={name} required onChange={(e) => setName(e.target.value)} />
+              <input type='name' id='name' name='name' value={nameEdit} required onChange={(e) => setNameEdit(e.target.value)} />
             </fieldset>
             <fieldset>
               <label htmlFor='pwd'>Contraseña * </label>

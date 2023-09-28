@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
 
-
 export const AddPost = () => {
   const navigate = useNavigate();
   const [place, setPlace] = useState('');
@@ -70,21 +69,21 @@ export const AddPost = () => {
       <h1>Añade un Nuevo Post</h1>
       <form className='form add-post-form' onSubmit={handleSubmit}>
         <fieldset>
-          
           <div>
             <input type='file' accept='image/*' onChange={handlePhotoChange} required />
             {photo ? (
               <>
-              <figure>
-                <img src={URL.createObjectURL(photo)} style={{ width: '300px' }} alt='Preview' />
-              </figure>
-            <div>
-            <input type='text' value={place} placeholder='Añadir lugar' onChange={handlePlaceChange} />
-          </div>
-          <div>
-            <textarea value={description} placeholder='Escribe un pie de foto...'onChange={handleDescriptionChange} required />
-          </div> 
-          </> ) : null}
+                <figure>
+                  <img src={URL.createObjectURL(photo)} style={{ width: '300px' }} alt='Preview' />
+                </figure>
+                <div>
+                  <input type='text' value={place} placeholder='Añade lugar' onChange={handlePlaceChange} />
+                </div>
+                <div>
+                  <textarea value={description} maxLength='60' placeholder='Añade un pequeña descripción...' onChange={handleDescriptionChange} required />
+                </div>
+              </>
+            ) : null}
           </div>
         </fieldset>
         <button className='add-post-button' type='submit' disabled={isLoading}>

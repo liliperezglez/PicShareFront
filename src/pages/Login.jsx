@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
 import { logInUserService } from '../services';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import '../styles/forms.css';
 import { Header } from '../components/Header';
 import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 
@@ -55,10 +54,13 @@ export const Login = () => {
         </fieldset>
         <button className='login-button'>Entrar</button>
         <p id='register-link'>
-          ¿No tienes una cuenta? <a href='/register'>Regístrate</a>
+          ¿No tienes una cuenta? <Link to='/register'>Regístrate</Link>
         </p>
         {error ? <p className='error-message'>{error}</p> : null}
       </form>
+      <Link to={'/'}>
+        <button className='go-home-button'>Página principal</button>
+      </Link>
     </section>
   );
 };

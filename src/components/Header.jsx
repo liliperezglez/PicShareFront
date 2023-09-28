@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 import UserOverlay from './UserOverlay';
 import SearchPhotos from './SearchPhotos';
 import Configuration from './Configuration';
+import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 
 export const Header = ({ showNavHeader }) => {
   const { idUser, token, avatar } = useContext(AuthContext);
@@ -25,7 +26,7 @@ export const Header = ({ showNavHeader }) => {
         <nav className='nav-header'>
           <div className='nav-menu'>
             <h1>
-              <Link to='/'>PicShare</Link>
+              <Link to='/'><img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='logo-dark-mode' /></Link>
             </h1>
 
             <UserOverlay />

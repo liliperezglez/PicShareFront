@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '../styles/forms.css';
 import { Header } from '../components/Header';
+import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -27,10 +28,15 @@ export const Login = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    navigate('/'); 
+  };
+
   return (
     <section className='form-pages'>
       <Header showNavHeader={false} />
-      <h1>Login(aquí meteremos el logo con imagen)</h1>
+      <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='logo-dark-mode' 
+      onClick={handleLogoClick}/>
       <form className='form' onSubmit={handleForm}>
         <fieldset>
           <input

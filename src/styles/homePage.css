@@ -13,11 +13,6 @@
   /* margin-left: 1rem; */
 }
 
-.footer {
-  width: calc(100vw - 15vw);
-  margin-left: auto;
-}
-
 
 .page-photo-list {
   display: flex;

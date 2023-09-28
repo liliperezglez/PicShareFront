@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { registerUserService } from '../services';
 import '../styles/forms.css';
 import { Header } from '../components/Header';
+import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -35,10 +36,15 @@ export const Register = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    navigate('/'); 
+  };
+
   return (
     <section className='form-pages'> 
         <Header showNavHeader={false} />
-        <h1>Register(aquí meteremos el logo con imagen)</h1>
+        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='logo-dark-mode' 
+      onClick={handleLogoClick}/>
         <p>Regístrate para ver y compartir fotos con tus amigos.</p>
         <form className='form' onSubmit={handleForm}>
           <fieldset>

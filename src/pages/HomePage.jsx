@@ -5,6 +5,7 @@ import { Header } from '../components/Header';
 import usePosts from '../hooks/usePosts';
 import { getAllPhotosService } from '../services';
 
+
 import '../styles/homePage.css';
 
 export const HomePage = () => {

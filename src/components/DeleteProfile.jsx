@@ -25,7 +25,7 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
   };
 
   return (
-    <section className='modal-overlay' onClick={handleOverlayClick}>
+    <section className='modal-overlay delete-profile' onClick={handleOverlayClick}>
       <div className='modal-content'>
         <h1>Eliminar cuenta</h1>
         <div>
@@ -40,15 +40,13 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
           <p>Hola {name}.</p>
           <p>{`Eres miembro desde ${new Date(userCreatedAt).toLocaleDateString()}`}</p>
         </div>
-        <hr />
         <div>
           <h2>Esto eliminará tu cuenta</h2>
-          <p>Vas a comenzar el proceso de eliminar tu cuenta de PicShare.</p>
+          <p>Vas a eliminar tu cuenta de PicShare.</p>
           <p>Tu perfil dejará de ser accesible y tus acciones serán eliminadas.</p>
         </div>
-        <hr />
         <div>
-          <h1>¿Qué debes saber?</h1>
+          <h2>¿Qué debes saber?</h2>
           <p>Podrás recuperar la cuenta registrándote de nuevo con los mismos datos.</p>
           <p></p>
         </div>

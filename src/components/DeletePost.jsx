@@ -7,15 +7,13 @@ function DeletePost({ photo, removePost }) {
   const [error, setError] = useState('');
   const [deletePhoto, setDeletePhoto] = useState(false);
 
-
-   const openDeletePhoto = () => {
+  const openDeletePhoto = () => {
     setDeletePhoto(true);
   };
 
   const closeDeletePhoto = () => {
     setDeletePhoto(false);
   };
-
 
   const deletePost = async (id) => {
     try {
@@ -29,38 +27,40 @@ function DeletePost({ photo, removePost }) {
     }
   };
 
-
   return (
     <>
       {(role === 'admin' || (token && parseInt(photo.idUser) === parseInt(idUser))) && (
-        <button
-          className='delete-post-button'
-          onClick={openDeletePhoto}
-        >
+        <button className='delete-post-button' onClick={openDeletePhoto}>
           ❌
         </button>
       )}
-       { (deletePhoto && (
-    <section className='modal-overlay'>
-      <div className='modal-content'>
-        <h2>Esto eliminará la publicación</h2>
-        <p>¿Deseas continuar?</p>
-        <div className='buttons-delete-post'>
-        <button type='button' onClick={()=> {
-          deletePost(photo.idEntry);
-          closeDeletePhoto()
-          }}>
-          Aceptar
-        </button>
-        <button type='button' onClick={()=> {
-          closeDeletePhoto()
-          }}>
-         Cancelar
-        </button>
-        </div>
-        </div>
-    </section>
-        ))}
+      {deletePhoto && (
+        <section className='modal-overlay'>
+          <div className='modal-content'>
+            <h2>Esto eliminará la publicación</h2>
+            <p>¿Deseas continuar?</p>
+            <div className='buttons-delete-post'>
+              <button
+                type='button'
+                onClick={() => {
+                  deletePost(photo.idEntry);
+                  closeDeletePhoto();
+                }}
+              >
+                Aceptar
+              </button>
+              <button
+                type='button'
+                onClick={() => {
+                  closeDeletePhoto();
+                }}
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
       {error ? <p className='error-message'>{error}</p> : null}
     </>
   );

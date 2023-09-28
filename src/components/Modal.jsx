@@ -28,8 +28,8 @@ function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeC
           </div>
           <CommentForm addComment={addComment} photo={photo} />
         </div>
-        <button onClick={closeModal}>Cerrar</button>
       </div>
+        <button onClick={closeModal}>X</button>
     </div>
   );
 }

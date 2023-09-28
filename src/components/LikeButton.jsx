@@ -1,35 +1,33 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 function LikeButton({ photo, toggleLike }) {
-  const { token,idUser } = useContext(AuthContext);
+  const { token, idUser } = useContext(AuthContext);
   const [likedByUser, setLikedByUser] = useState(null);
   // const actualUser = useParams().idUser;
-  
+
   useEffect(() => {
     if (Array.isArray(photo.likes)) {
       if (photo.likes.some((like) => parseInt(like.idUser) === parseInt(idUser))) {
-        setLikedByUser("❤️");
+        setLikedByUser('❤️');
       } else {
-        setLikedByUser("🤍");
+        setLikedByUser('🤍');
       }
     } else {
-      setLikedByUser("🤍");
+      setLikedByUser('🤍');
     }
-  }, [photo.likes, idUser]); 
-   
-  
+  }, [photo.likes, idUser]);
+
   const handleLikeClick = async (e) => {
     e.preventDefault();
-    toggleLike({ token: token, idEntry:photo.idEntry, actualUser:photo.idUser, description:photo.description} );
+    toggleLike({ token: token, idEntry: photo.idEntry, actualUser: photo.idUser, description: photo.description });
   };
-
 
   return (
     <>
       {token && (
         <button className={`like-button`} onClick={handleLikeClick}>
-         {likedByUser} {Array.isArray(photo.likes) ? photo.likes.length : photo.likes}
+          {likedByUser} {Array.isArray(photo.likes) ? photo.likes.length : photo.likes}
         </button>
       )}
     </>

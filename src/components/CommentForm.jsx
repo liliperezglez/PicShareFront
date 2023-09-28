@@ -15,7 +15,7 @@ function CommentForm({ photo, addComment }) {
         date: new Date().toISOString(),
         token,
       };
-      addComment({idEntry:photo.idEntry, newComment:newCommentData, actualUser:photo.idUser, description:photo.description});
+      addComment({ idEntry: photo.idEntry, newComment: newCommentData, actualUser: photo.idUser, description: photo.description });
       setNewComment('');
     } catch (error) {
       setError(error.message);

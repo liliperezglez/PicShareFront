@@ -78,12 +78,14 @@ export const UserProfile = () => {
             <div className='user-data'>
               <div>
                 <h2>{username}</h2>
-                {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
-                {editProfileButton && <button onClick={logout}>Cerrar Sesión</button>}
               </div>
               <h3>{name}</h3>
               <h3>{photosUser.length} Publicaciones </h3>
               <h3>{`Miembro desde ${new Date(user.date).toLocaleDateString()}`}</h3>
+            </div>
+            <div className='user-buttons'>
+              {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
+              {editProfileButton && <button onClick={logout}>Cerrar Sesión</button>}
             </div>
           </div>
           {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}

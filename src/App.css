@@ -1,9 +1,11 @@
 :root {
-  --overlay-general-bg: rgb(151, 151, 151);
+  --overlay-general-bg: #181818;
   --overlay-general-padding: 20px;
   --overlay-general-border-radius: 8px;
   --overlay-general-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+/* overlay general modo claro #c8c8c8 */
+
 
 * {
   margin: 0;
@@ -31,6 +33,11 @@ footer {
   margin: 15px;
 }
 
+a {
+  text-decoration: none;
+  color:#000;
+}
+
 .body-app {
   display: grid;
   grid-template-columns: auto 4fr;
@@ -52,7 +59,11 @@ footer {
   color: #f5f5f5;
 }
 .dark button {
-  color: #000000;
+  color: #fff;
+}
+
+.dark a {
+  color: #fff;
 }
 
 .nav-menu {

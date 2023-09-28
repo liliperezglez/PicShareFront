@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 0px;
+  min-width: 12vw;
 }
 
 .user-data > * {
@@ -33,21 +34,29 @@
   gap: 20px;
 }
 
-/*Botón de editar*/
-.user-data > div button {
-  /* margin-left: 75px; */
+/*Botón de editar y cerrar sesión*/
+.user-buttons {
+display: flex;
+flex-direction: row;
+min-width: 12vw;
+justify-content: space-evenly;
+}
+
+.user-buttons button {
   border-radius: 8px;
   background-color: #686868;
   border: none;
   height: 25px;
+  width: 100px;
+  margin-top: 20px;
   font-weight: bold;
 }
-.user-data > div > button:hover {
+.user-buttons > button:hover {
   cursor: pointer;
   background-color: #3f3f3f;
   border: none;
 }
-.user-data > div > button:active {
+.user-buttons > button:active {
   background-color: #303030;
   color: #8a8a8a;
 }
@@ -66,10 +75,10 @@
   margin: auto;
 }
 
-
 .user-photo-list .photo .photo-date {
   display: none;
 }
+
 .user-photo-list .photo .profile-posts {
   height: 350px;
   width: 350px;
@@ -82,7 +91,7 @@
   top: 0;
   right: 0;
   z-index: 0;
-  padding: 5px 3px;
+  padding: 9px 0px;
   border: none;
   background-color: transparent;
 }

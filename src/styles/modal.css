@@ -55,7 +55,7 @@
   margin: auto;
   width: 100%;
   object-fit: cover;
-  height: 100%;
+  max-height: 70vh;
 }
 
 .modal-content .modal-data {
@@ -63,12 +63,28 @@
   flex-direction: column;
   margin-left: 20px;
   width: 30vw;
+  line-height: 18px;
+  font-size: 16px;
 }
 
 .modal-content .modal-data .user-description {
   border-bottom: 1px solid #000;
   padding-bottom: 15px;
+  margin-bottom: 10px;
   width: 34vw;
+
+}
+
+.user-details > p {
+  font-size: 16px;
+}
+
+.modal-content .modal-data .user-description {
+  padding-bottom: 35px;
+}
+
+.user-description > p {
+  font-size: 16px;
 }
 
 /* Comentarios */
@@ -79,7 +95,9 @@
 }
 
 .comments > p {
-  height: 4vh;
+  height: 1.5vh;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .comments-list-container {
@@ -96,12 +114,12 @@
 .user-comment {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #0000001e;
 }
 
 .comments-list {
   display: flex;
   align-items: center;
-  margin: 5px 0px 5px;
   width: 28vw;
 }
 
@@ -118,7 +136,8 @@
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  overflow-x: auto;
+  overflow-x: none;
+  margin-top: 5px;
 }
 
 .date-and-delete {
@@ -130,28 +149,57 @@
   background-color: transparent;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .comment-date {
   margin-left: auto;
   font-size: 14px;
   color: #c7c7c7;
+  cursor: default;
+}
+
+.like-and-comment {
+  border-top: 1px solid #0000001e;
+  padding: 10px 0px;
+  text-align: left;
 }
 
 .comment-form {
-  box-shadow: none;
+  border-top: 1px solid #0000001e;
   display: flex;
-  margin: 0;
 }
 
-.comment-form input {
+.comment-form > fieldset {
+  border: none;
+}
+
+.comment-form > fieldset > input {
+  padding: 7px;
+  border-radius: 5px;
   width: 25vw;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.comment-form > fieldset > input::placeholder {
+  color: #fff;
+}
+
+.comment-form > fieldset > input:focus {
+  outline: none;
 }
 
 .comment-form button {
-  width: 3vw;
+  width: 4vw;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
 }
-
 
 .comments .edit-comment{
   max-width: 20vw;
@@ -194,3 +242,133 @@
   gap: 10px;
   justify-content: center;
 }
+
+.modal-overlay > button {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+/*---------------------*\
+   MODAL EDITAR PERFIL
+\*---------------------*/
+
+.edit-profile > .modal-content {
+  flex-direction: column;
+}
+
+.edit-profile > .modal-content > .user-data {
+  flex-direction: row;
+  text-align: center;
+}
+
+.edit-profile > .modal-content button {
+  color: black;
+}
+
+.edit-profile > .modal-content fieldset {
+  border: none;
+}
+
+.edit-profile > .modal-content > .change-avatar {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.edit-profile > .modal-content > .change-avatar > button {
+  text-align: center;
+}
+
+.change-avatar label {
+  margin-bottom: 10px;
+}
+
+.change-avatar > fieldset > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.change-avatar > fieldset > div > img {
+  height: 125px;
+  width: 125px;
+  object-fit: cover;
+  border-radius: 100%;
+  align-self: center;
+  margin: 15px 0px;
+}
+
+.change-avatar > fieldset > div > figure > img {
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100%;
+  align-self: center;
+}
+
+.change-avatar > fieldset > div > p {
+  color: #999999;
+  font-size: 16px;
+  margin: 7px;
+}
+
+.user-data > .edit-user-data > div > fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  text-align: left;
+}
+
+.user-data > .edit-user-data > div > fieldset > label {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.user-data > .edit-user-data > div > fieldset > input {
+  border-radius: 8px;
+  height: 3vh;
+  font-size: 14px;
+}
+
+.user-data > .edit-user-data > :first-child {
+  margin-bottom: 20px;
+}
+
+.user-data > .edit-user-data > :nth-child(2) {
+  margin-bottom: 10px;
+}
+
+.user-data > .edit-user-data > :nth-child(3) > div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.edit-profile > .modal-content > button {
+  width: 100px;
+  margin-top: 30px;
+}
+
+/*---------------------*\
+  MODAL ELIMINAR PERFIL
+\*---------------------*/
+
+.delete-profile .modal-content {
+  flex-direction: column;
+}
+
+.delete-profile .modal-content > :first-child {
+  margin-bottom: 20px;
+}
+
+.delete-profile > .modal-content > div {
+  margin: 0px 0px 25px;
+}
+
+.delete-profile .modal-content > :nth-child(2) > img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}
+

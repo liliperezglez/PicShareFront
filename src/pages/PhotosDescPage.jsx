@@ -44,7 +44,7 @@ export default function PhotosDescPage() {
             required
           />
         </fieldset>
-        <button className='photos-button' type='submit'>
+        <button className='main-button' type='submit'>
           Buscar fotos
         </button>
       </form>

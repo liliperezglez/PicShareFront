@@ -38,27 +38,8 @@
 .user-buttons {
 display: flex;
 flex-direction: row;
-min-width: 12vw;
-justify-content: space-evenly;
-}
-
-.user-buttons button {
-  border-radius: 8px;
-  background-color: #686868;
-  border: none;
-  height: 25px;
-  width: 100px;
-  margin-top: 20px;
-  font-weight: bold;
-}
-.user-buttons > button:hover {
-  cursor: pointer;
-  background-color: #3f3f3f;
-  border: none;
-}
-.user-buttons > button:active {
-  background-color: #303030;
-  color: #8a8a8a;
+min-width: 22vw;
+gap: 1vw;
 }
 
 /* Lista de fotos del perfil */
@@ -88,8 +69,8 @@ justify-content: space-evenly;
 
 .delete-post-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: -2px;
   z-index: 0;
   padding: 9px 0px;
   border: none;

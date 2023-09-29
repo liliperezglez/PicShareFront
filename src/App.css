@@ -6,7 +6,6 @@
 }
 /* overlay general modo claro #c8c8c8 */
 
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -35,7 +34,7 @@ footer {
 
 a {
   text-decoration: none;
-  color:#000;
+  color: #000;
 }
 
 input:focus-visible{
@@ -72,8 +71,6 @@ input:focus-visible{
 .nav-menu {
   gap: 2rem;
   align-items: start;
-  display: flex;
-  flex-direction: column;
 }
 
 .nav-menu span {
@@ -100,12 +97,18 @@ input:focus-visible{
   align-items: center;
   background-color: transparent;
   cursor: pointer;
-}
+  width: 12vw;
+  border-radius: 8px;
+  padding: 20px 20px;
+  transition: background 0.1s ease-in-out;}
 
-.config-button {
-  position: relative;
-  align-self: center;
-  bottom: 10px;
+.search-user-button:hover,
+.add-photos-button:hover,
+.search-photos-button:hover,
+.go-perfil-button:hover,
+.config-button:hover {
+  background-color: #ffffff09;
+  transition: background 0s ease-in-out;
 }
 
 .auth-log,
@@ -113,7 +116,7 @@ input:focus-visible{
   justify-self: end;
   margin: 10px;
   grid-column: 2 / 4;
-  grid-row: 1;
+  grid-row: 1; 
 }
 
 .auth-register {
@@ -121,6 +124,10 @@ input:focus-visible{
   display: flex;
   gap: 1rem;
   list-style-type: none;
+  color: #999;
+  line-height: 30px;
+  padding: 0 15px;
+  font-weight: 700;
 }
 
 .auth {
@@ -128,6 +135,14 @@ input:focus-visible{
   align-items: center;
   list-style-type: none;
   gap: 5px;
+  border-radius: 50px;
+  padding: 0 15px 0 0;
+  transition: background 0.1s ease-in-out;
+}
+
+.auth:hover {
+  transition: background 0s ease-in-out;
+  background-color: #ffffff09;
 }
 
 .auth .avatar-post{
@@ -137,6 +152,10 @@ input:focus-visible{
 
 .auth > li {
   margin-right: 20px;
+}
+
+.photo {
+  cursor: pointer;
 }
 
 .photo-list {
@@ -175,7 +194,7 @@ input:focus-visible{
   max-width: 550px;
 }
 
-.photo .user-description > p{
+.photo .user-description > p {
   overflow-wrap: break-word;
   overflow-x: auto;
   overflow-y: clip;
@@ -348,4 +367,69 @@ input:focus-visible{
   height: 100%;
   object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
   z-index: 1; /* Coloca la imagen detrás del contenido */
+}
+/* Botón principal */
+.main-button {
+  background-color: #007bff;
+  color: white !important;
+  font-size: 16px !important;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.main-button:hover{
+  background-color: #0056b3 !important;
+}
+
+.main-button:active{
+  background-color: #003975 !important;
+  color: #a0a0a0 !important;
+}
+
+/* Botón secundario */
+.secondary-button{
+  background-color: transparent;
+  color: #007bff !important;
+  font-size: 16px !important;
+  font-weight: 700;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.secondary-button:hover{
+  color: #0056b3 !important;
+}
+
+.secondary-button:active{
+  color: #003975 !important;
+  
+}
+
+/* Botones de usuario */
+.user-button {
+  border-radius: 8px;
+  background-color: #686868;
+  border: none;
+  height: 25px;
+  width: 100px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.user-button:hover {
+  cursor: pointer;
+  background-color: #3f3f3f;
+  border: none;
+}
+.user-button:active {
+  background-color: #303030;
+  color: #8a8a8a;
 }

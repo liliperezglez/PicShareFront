@@ -60,14 +60,14 @@ export const Register = () => {
         <fieldset>
           <input type='password' id='repeatpwd' name='repeatpwd' placeholder='Confirmar contraseña' required onChange={(e) => setRepeatPwd(e.target.value)} />
         </fieldset>
-        <button className='register-button'>Registrarse</button>
+        <button className='main-button'>Registrarse</button>
         <p id='login-link'>
           ¿Ya tienes una cuenta? <Link to='/login'>Entrar</Link>
         </p>
         {error ? <p className='error-message'>{error}</p> : null}
       </form>
       <Link to={'/'}>
-        <button className='go-home-button'>Página principal</button>
+        <button className='main-button'>Página principal</button>
       </Link>
     </section>
   );

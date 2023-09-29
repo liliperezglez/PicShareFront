@@ -52,14 +52,14 @@ export const Login = () => {
         <fieldset>
           <input type='password' name='pwd' id='pwd' value={pwd} placeholder='Contraseña' required onChange={(e) => setPwd(e.target.value)} />
         </fieldset>
-        <button className='login-button'>Entrar</button>
+        <button className='main-button'>Entrar</button>
         <p id='register-link'>
           ¿No tienes una cuenta? <Link to='/register'>Regístrate</Link>
         </p>
         {error ? <p className='error-message'>{error}</p> : null}
       </form>
       <Link to={'/'}>
-        <button className='go-home-button'>Página principal</button>
+        <button className='main-button'>Página principal</button>
       </Link>
     </section>
   );

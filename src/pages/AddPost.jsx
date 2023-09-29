@@ -86,7 +86,7 @@ export const AddPost = () => {
             ) : null}
           </div>
         </fieldset>
-        <button className='add-post-button' type='submit' disabled={isLoading}>
+        <button className='main-button' type='submit' disabled={isLoading}>
           {isLoading ? 'Cargando...' : 'Publicar'}
         </button>
         {error ? <p className='error-message'>{error}</p> : null}

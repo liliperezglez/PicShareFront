@@ -31,7 +31,7 @@
   text-align: center;
 }
 
-.page-photo-list .photo-list li:not(:last-child), .search-page .photos-desc-content li:not(:last-child){
+.page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content > li:not(:last-child){
   border-bottom: 1px solid gray;
   margin-bottom: 30px;
 }

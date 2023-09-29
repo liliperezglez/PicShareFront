@@ -71,7 +71,8 @@
   border-bottom: 1px solid #000;
   padding-bottom: 15px;
   margin-bottom: 10px;
-  width: 34vw;
+  margin:  30px 0 10px 0;;
+  width: auto;
 
 }
 
@@ -121,6 +122,7 @@
   display: flex;
   align-items: center;
   width: 28vw;
+  margin-top: 5px;
 }
 
 .comments-list > .user-info {
@@ -136,8 +138,8 @@
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  overflow-x: none;
-  margin-top: 5px;
+  overflow-x: clip;
+  text-align: left;
 }
 
 .date-and-delete {
@@ -198,6 +200,7 @@
   background-color: transparent;
   font-weight: bold;
   color: #fff;
+  cursor: pointer;
   font-size: 16px;
 }
 
@@ -218,8 +221,9 @@
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  overflow-x: auto;
   margin-bottom: 10px;
+  text-align: left;
+
 }
 
 .comments .edit-comment {
@@ -227,14 +231,26 @@
 }
 
 .comments .edit-comment input{
-  padding: 0 5px;
-  height: 2.5vh;
-  border-radius: 5px;
+ padding: 7px 0;
+  width: 20vw;
+  background-color: transparent;
   border: none;
+  color: #fff;
+  font-size: 16px;
+  border-bottom: 1px solid #505050;
 }
+
 
 .comments .edit-comment button{
   width: fit-content;
+}
+
+.comments .edit-comment .edit-comment-button{
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
 }
 
 .comments .edit-comment .buttons-comment-options{

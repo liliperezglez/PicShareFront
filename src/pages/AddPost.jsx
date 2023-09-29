@@ -80,7 +80,7 @@ export const AddPost = () => {
                   <input type='text' value={place} placeholder='Añade lugar' onChange={handlePlaceChange} />
                 </div>
                 <div>
-                  <textarea value={description} maxLength='60' placeholder='Añade un pequeña descripción...' onChange={handleDescriptionChange} required />
+                  <textarea value={description} maxLength='70' placeholder='Añade un pequeña descripción...' onChange={handleDescriptionChange} required />
                 </div>
               </>
             ) : null}

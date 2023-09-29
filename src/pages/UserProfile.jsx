@@ -84,8 +84,8 @@ export const UserProfile = () => {
               <h3>{`Miembro desde ${new Date(user.date).toLocaleDateString()}`}</h3>
             </div>
             <div className='user-buttons'>
-              {editProfileButton && <button onClick={openEditProfile}>Editar perfil</button>}
-              {editProfileButton && <button onClick={logout}>Cerrar Sesión</button>}
+              {editProfileButton && <button className='user-button' onClick={openEditProfile}>Editar perfil</button>}
+              {editProfileButton && <button className='user-button' onClick={logout}>Cerrar Sesión</button>}
             </div>
           </div>
           {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}

@@ -111,7 +111,7 @@ export const EditProfile = ({ closeEditProfile }) => {
                 <p>JPG, JPEG o PNG.</p>
               </div>
             </fieldset>
-            <button>Cambiar avatar</button>
+            <button className='main-button' >Cambiar avatar</button>
             {errorAvatar ? <p className='error-message'>{errorAvatar}</p> : null}
           </form>
           <form className='edit-user-data' onSubmit={handleEditForm}>
@@ -147,9 +147,9 @@ export const EditProfile = ({ closeEditProfile }) => {
             </div>
             <div>
               <div>
-                <button type='submit'>Guardar cambios</button>
+                <button type='submit' className='main-button' >Guardar cambios</button>
                 {deleteProfile && <DeleteProfile closeDeleteProfile={closeDeleteProfile} />}
-                <button type='button' onClick={openDeleteProfile}>
+                <button type='button' className='secondary-button' onClick={openDeleteProfile}>
                   Eliminar cuenta
                 </button>
               </div>
@@ -157,7 +157,7 @@ export const EditProfile = ({ closeEditProfile }) => {
           </form>
         </div>
         {error ? <p className='error-message'>{error}</p> : null}
-        <button type='button' onClick={closeEditProfile}>
+        <button type='button' className='secondary-button' onClick={closeEditProfile}>
           Salir
         </button>
       </div>

@@ -39,7 +39,7 @@ function CommentsOptions({ idComment, comment, idEntry, editComment, removeComme
               <form className='edit-comment-form'>
                 <input type='text' placeholder='Comentario Editado' value={newComment} onChange={handleChangeComment} required />
                 <button className='edit-comment-button' onClick={() => changeComment(idEntry, idComment, newComment)}>
-                  Editar comentario
+                  Editar
                 </button>
               </form>
               <div className='buttons-comment-options'>

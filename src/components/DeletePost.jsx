@@ -56,20 +56,22 @@ function DeletePost({ photo, removePost }) {
             <div className='buttons-delete-post'>
               <button
                 type='button'
+                className='delete-button'
                 onClick={() => {
                   deletePost(photo.idEntry);
                   closeDeletePhoto();
                 }}
               >
-                Aceptar
+                Eliminar
               </button>
               <button
                 type='button'
+                className='secondary-button'
                 onClick={() => {
                   closeDeletePhoto();
                 }}
               >
-                Cancelar
+                Salir
               </button>
             </div>
           </div>

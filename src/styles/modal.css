@@ -40,6 +40,23 @@
   border-radius: 8px; /* Borde redondeado de la barra de desplazamiento */
 }
 
+/*-----------------------*\
+    MODAL ELIMINAR POST
+\*-----------------------*/
+
+/*Modal de borrar publicacion*/
+.modal-content.delete-post-content{
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+}
+.modal-content.delete-post-content .buttons-delete-post{
+  display: flex;
+  gap: 10px;
+}
+
+
+
 /*---------------------*\
     MODAL BOTÓN "MÁS"
 \*---------------------*/
@@ -110,7 +127,7 @@
   padding-bottom: 35px;
 }
 
-.user-description > p {
+.modal-content .user-description > p {
   font-size: 16px;
 }
 
@@ -191,6 +208,8 @@
   border-top: 1px solid #0000001e;
   padding: 10px 0px;
   text-align: left;
+  display: flex;
+  gap: 5px;
 }
 
 .comment-form {

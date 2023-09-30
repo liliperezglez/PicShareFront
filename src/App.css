@@ -32,14 +32,38 @@ footer {
   margin: 15px;
 }
 
+h1 {
+  font-size: 2rem; 
+  margin-bottom: 10px; 
+}
+
+p {
+  font-size: 1.1rem; 
+  text-align: center; 
+  cursor: default;
+}
+
+span{
+  cursor: default;
+}
+
 a {
   text-decoration: none;
   color: #000;
 }
 
+a p{
+  cursor: pointer;
+}
+
 input:focus-visible{
   outline: none;
 }
+
+button{
+  cursor: pointer;
+}
+
 .body-app {
   display: grid;
   grid-template-columns: auto 4fr;
@@ -154,7 +178,7 @@ input:focus-visible{
   margin-right: 20px;
 }
 
-.photo {
+.photo img{
   cursor: pointer;
 }
 
@@ -183,7 +207,14 @@ input:focus-visible{
 
 .photo .like-and-comment-buttons {
   display: flex;
-  gap: 10px;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.photo .like-button{
+  display: flex;
+  gap:5px;
+  align-items: center;
 }
 
 .photo .user-description {

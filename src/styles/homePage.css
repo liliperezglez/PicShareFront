@@ -55,16 +55,17 @@
 }
 
 /* BUTTONS */
-.delete-post-button {
+.delete-post-button-home-page {
   position: absolute;
-  top: 40px;
-  right: 80px;
+  top: -23px;
+  right: 0px;
   z-index: 0;
-  padding: 5px;
+  padding: 9px 0px;
   border: none;
   background-color: transparent;
 }
-.delete-post-button:hover, .comment-button:hover, .like-button:hover {
+
+.delete-post-button-home-page:hover, .comment-button:hover, .like-button:hover {
   cursor: pointer;
 }
 

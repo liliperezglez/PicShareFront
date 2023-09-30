@@ -17,18 +17,8 @@
   margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 2rem; 
-  margin-bottom: 10px; 
-}
-
-p {
-  font-size: 1.2rem; 
-  text-align: center; 
-}
-
 .logo-dark-mode {
-  cursor: pointer;
+  /* cursor: pointer; */
   margin-bottom: 10px;
 }
 /* ======================= *\

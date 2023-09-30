@@ -36,10 +36,10 @@
 
 /*Botón de editar y cerrar sesión*/
 .user-buttons {
-display: flex;
-flex-direction: row;
-min-width: 22vw;
-gap: 1vw;
+  display: flex;
+  flex-direction: row;
+  min-width: 22vw;
+  gap: 1vw;
 }
 
 /* Lista de fotos del perfil */
@@ -71,7 +71,7 @@ gap: 1vw;
   border-radius: 10px;
 }
 
-.delete-post-button {
+.delete-post-button-user-profile {
   position: absolute;
   top: 5px;
   right: -2px;
@@ -80,6 +80,7 @@ gap: 1vw;
   border: none;
   background-color: transparent;
 }
-.delete-post-button:hover {
+
+.delete-post-button-user-profile:hover {
   cursor: pointer;
 }

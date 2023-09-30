@@ -45,15 +45,19 @@ gap: 1vw;
 /* Lista de fotos del perfil */
 .user-photo-list {
   display: flex;
+  border-top: 1px solid gray;
+  margin: 0px 20vw;
 }
+
+
 .user-photo-list > .photo-list, .p-photo-list {
   display: grid;
   grid-template-columns: repeat(3, 33%);
   gap: 35px;
-  margin: 30px 150px;
   justify-content: center;
   width: 1050px;
   margin: auto;
+  margin-top: 5px;
 }
 
 .user-photo-list .photo .photo-date {

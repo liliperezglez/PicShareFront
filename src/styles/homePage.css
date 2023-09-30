@@ -9,9 +9,8 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 20px 35px 20px 20px;
-  border-right: 1px solid #00000025;
+  border-right: 1px solid gray;;
   z-index: 1;
-  /* margin-left: 1rem; */
 }
 
 .nav-header span {

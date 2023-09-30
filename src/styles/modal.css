@@ -43,12 +43,29 @@
 /*---------------------*\
     MODAL BOTÓN "MÁS"
 \*---------------------*/
-/* Menú de "Más" */
+
+.nav-header > .config-overlay {
+background: none;
+}
+
+.nav-header > .config-overlay .config-content {
+  padding: 10px;
+  position: absolute;
+  left: 4vh;
+  bottom: 10vh;
+}
+
+.nav-header > .config-overlay > .config-content > .edit-profile > .modal-content {
+  display: block;
+  margin: auto;
+}
+
 .nav-header > .config-overlay > .config-content > button {
   border: none;
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+  font-size: 16.5px;
+
   background-color: transparent;
   cursor: pointer;
   width: 8vw;
@@ -62,8 +79,14 @@
   transition: background 0s ease-in-out;
 }
 
-.nav-header > .config-overlay > .config-content {
- padding: 10px; 
+.nav-header > .config-overlay > .config-content > :first-child {
+  justify-content: left;
+}
+
+.toggle-mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /*---------------------*\
@@ -97,9 +120,8 @@
   border-bottom: 1px solid #000;
   padding-bottom: 15px;
   margin-bottom: 10px;
-  margin:  30px 0 10px 0;;
+  margin: 30px 0 10px 0;
   width: auto;
-
 }
 
 .user-details > p {
@@ -230,7 +252,7 @@
   font-size: 16px;
 }
 
-.comments .edit-comment{
+.comments .edit-comment {
   max-width: 20vw;
   display: flex;
   flex-direction: column;
@@ -243,21 +265,20 @@
   gap: 5px;
   margin-bottom: 10px;
 }
-.comments .edit-comment p{
+.comments .edit-comment p {
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
   margin-bottom: 10px;
   text-align: left;
-
 }
 
 .comments .edit-comment {
-  padding: 5px; 
+  padding: 5px;
 }
 
-.comments .edit-comment input{
- padding: 7px 0;
+.comments .edit-comment input {
+  padding: 7px 0;
   width: 20vw;
   background-color: transparent;
   border: none;
@@ -266,12 +287,11 @@
   border-bottom: 1px solid #505050;
 }
 
-
-.comments .edit-comment button{
+.comments .edit-comment button {
   width: fit-content;
 }
 
-.comments .edit-comment .edit-comment-button{
+.comments .edit-comment .edit-comment-button {
   border: none;
   background-color: transparent;
   font-weight: bold;
@@ -279,7 +299,7 @@
   cursor: pointer;
 }
 
-.comments .edit-comment .buttons-comment-options{
+.comments .edit-comment .buttons-comment-options {
   display: inline-flex;
   gap: 10px;
   justify-content: center;
@@ -297,7 +317,6 @@
   border: none;
   font-weight: bold;
   cursor: pointer;
-
 }
 
 /*---------------------*\
@@ -329,6 +348,7 @@
 .change-avatar > fieldset > div {
   display: flex;
   flex-direction: column;
+  margin-right: 25px;
 }
 
 .change-avatar > fieldset > div > img {
@@ -408,4 +428,3 @@
   border-radius: 100%;
   margin-bottom: 10px;
 }
-

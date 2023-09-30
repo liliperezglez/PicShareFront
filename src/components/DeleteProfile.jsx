@@ -50,7 +50,7 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
           <p>Podrás recuperar la cuenta registrándote de nuevo con los mismos datos.</p>
           <p></p>
         </div>
-        <button type='button' className='secondary-button' onClick={handleDeleteAccount}>
+        <button type='button' className='delete-button' onClick={handleDeleteAccount}>
           Eliminar cuenta
         </button>
       </div>

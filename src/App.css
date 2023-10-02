@@ -3,8 +3,8 @@
   --overlay-general-padding: 20px;
   --overlay-general-border-radius: 8px;
   --overlay-general-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  --overlay-light-bg: #fff;
 }
-/* overlay general modo claro #c8c8c8 */
 
 * {
   margin: 0;
@@ -85,13 +85,6 @@ button{
   z-index: 1;
 }
 
-/*dark*/
-.dark .nav-header{
-  border-right: 1px solid gray;
-}
-/*light*/
-
-
 .nav-header span {
   padding-left: 10px;
   font-size: 16.5px;
@@ -100,33 +93,6 @@ button{
 .footer {
   width: calc(100vw - 15vw);
   margin-left: auto;
-}
-
-/*light*/
-.light {
-  background-color: white;
-  color: #000000;
-}
-.light button {
-  color: #000000;
-}
-
-.light a{
-  color: #000;
-}
-
-
-/*dark*/
-.dark {
-  background-color: #242424;
-  color: #f5f5f5;
-}
-.dark button {
-  color: #fff;
-}
-
-.dark a {
-  color: #fff;
 }
 
 .nav-menu {
@@ -190,13 +156,6 @@ button{
   font-weight: 700;
 }
 
-/*dark*/
-.dark .auth-register {
-  color: #999;
-}
-/*light*/
-
-
 .auth {
   display: flex;
   align-items: center;
@@ -211,13 +170,6 @@ button{
   transition: background 0s ease-in-out;
 }
 
-/*dark*/
-.dark .auth:hover{
-  background-color: #ffffff09;
-}
-/*light*/
-
-
 .auth .avatar-post{
   width: 50px;
   height: 50px;
@@ -227,15 +179,9 @@ button{
   margin-right: 20px;
 }
 
-
 .page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content .photo-list > li:not(:last-child){
   margin-bottom: 30px;
 }
-/*dark*/
-.dark .page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content .photo-list > li:not(:last-child){
-  border-bottom: 1px solid gray;
-}
-/*light*/
 
 .photo img{
   cursor: pointer;
@@ -247,7 +193,6 @@ button{
   padding: 0;
 }
 
-
 .photo .photo-details {
   position: relative;
 }
@@ -258,15 +203,6 @@ button{
   position: absolute;
   left: 55px;
   gap: 8px;
-}
-/*dark*/
-.dark .photo .photo-details .photo-date-place {
-  color: #c7c7c7;
-}
-
-/*light*/
-.photo .photo-details .photo-date-place p {
-  font-size: 10px;
 }
 
 .photo .like-and-comment-buttons {
@@ -337,13 +273,13 @@ button{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 80%; /* Ajusta según sea necesario */
+  max-width: 80%; 
 }
 
 .not-found-title {
   font-size: 2rem;
   color: #000;
-  margin-bottom: 20px; /* Mayor margen inferior para separar el título del párrafo */
+  margin-bottom: 20px; 
 }
 
 .not-found-message {
@@ -358,8 +294,8 @@ button{
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
-  z-index: 1; /* Coloca la imagen detrás del contenido */
+  object-fit: cover; 
+  z-index: 1; 
 }
 
 /* Botón principal */
@@ -429,22 +365,4 @@ button{
   color: #8a0000 !important;
 }
 
-/* Botones de usuario */
-.user-button {
-  border-radius: 8px;
-  background-color: #686868;
-  border: none;
-  height: 25px;
-  width: 100px;
-  margin-top: 20px;
-  font-weight: bold;
-}
-.user-button:hover {
-  cursor: pointer;
-  background-color: #3f3f3f;
-  border: none;
-}
-.user-button:active {
-  background-color: #303030;
-  color: #8a8a8a;
-}
+

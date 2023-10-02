@@ -7,11 +7,14 @@ import UserOverlay from './UserOverlay';
 import SearchPhotos from './SearchPhotos';
 import Configuration from './Configuration';
 import LogoModoOscuro from '../resources/LogoModoOscuro.png';
+import LogoModoClaro from '../resources/LogoModoClaro.png';
+import { useTheme } from '../context/ThemeContext';
 
 export const Header = ({ showNavHeader }) => {
   const { idUser, token, avatar } = useContext(AuthContext);
   const [isConfigOpen, setIsConfigOpen] = useState(false);
-
+  const { isLightMode } = useTheme();
+  
   const openConfig = () => {
     setIsConfigOpen(true);
   };
@@ -19,17 +22,21 @@ export const Header = ({ showNavHeader }) => {
   const closeConfig = () => {
     setIsConfigOpen(false);
   };
-
+  
   return (
     <>
       {showNavHeader && (
         <nav className='nav-header'>
           <div className='nav-menu'>
-            <h1>
-              <Link to='/'>
-                <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='logo-dark-mode' />
-              </Link>
-            </h1>
+          <h1>
+            <Link to='/'>
+              {isLightMode ? (
+                <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo' />
+              ) : (
+                <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo' />
+              )}
+            </Link>
+          </h1>
 
             <UserOverlay />
             <SearchPhotos />

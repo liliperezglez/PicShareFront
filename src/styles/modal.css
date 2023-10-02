@@ -10,16 +10,6 @@
   align-items: center;
 }
 
-/*dark*/
-
-.dark .modal-content{
-  background-color: var(--overlay-general-bg);
-  padding: var(--overlay-general-padding);
-  border-radius: var(--overlay-general-border-radius);
-  box-shadow: var(--overlay-general-box-shadow);
-}
-/*light*/
-
 /* CSS para el modal overlay */
 .modal-overlay {
   position: fixed;
@@ -32,14 +22,6 @@
   align-items: center;
   z-index: 1; /* Z-index alto para estar encima del contenido principal */
 }
-
-/*dark*/
-.dark .modal-overlay{
-  background: rgba(0, 0, 0, 0.65); /* Fondo semi-transparente */
-
-}
-/*light*/
-
 
 /*SCROLLBARS*/
 .comments-list-container::-webkit-scrollbar,
@@ -67,14 +49,6 @@
   z-index: 2;
 }
 
-/*dark*/
-.dark .search-user .user-overlay{
-  background: rgba(0, 0, 0, 0.5);
-}
-/*light*/
-
-
-
 /* CSS para el contenido del userContent */
 .search-user .user-content {
   position: absolute;
@@ -86,18 +60,6 @@
   border-radius: 5px;
   height: 100%;
 }
-
-/*dark*/
-.dark .search-user .user-content{
-  padding: var(--overlay-general-padding);
-  background-color: var(--overlay-general-bg);
-  border-radius: var(--overlay-general-border-radius);
-  box-shadow: var(--overlay-general-box-shadow);
-
-}
-/*light*/
-
-
 
 .search-user .user-content label{
   text-align: center;
@@ -115,11 +77,6 @@
   border-radius: 5px;
   padding: 15px;
 }
-/*dark*/
-.dark .search-user .user-content fieldset {
-  border: 1px solid #81818161;
-}
-/*light*/
 
 .search-user .user-content .name-user{
   font-size: 12px;
@@ -166,13 +123,6 @@
   z-index: 1;
 }
 
-/*dark*/
-.dark .config-overlay{
-  background: rgba(0, 0, 0, 0.5);
-  
-}
-/*light*/
-
 .config-content {
   position: absolute;
   bottom: 3%;
@@ -181,15 +131,6 @@
   flex-direction: column;
   gap: 10px;
 }
-/*dark*/
-.dark .config-content{
-  background-color: var(--overlay-general-bg);
-  padding: var(--overlay-general-padding);
-  border-radius: var(--overlay-general-border-radius);
-  box-shadow: var(--overlay-general-box-shadow);
-}
-/*light
-
 
 /*-----------------------*\
     MODAL ELIMINAR POST
@@ -246,19 +187,6 @@ background: none;
   transition: background 0s ease-in-out;
 }
 
-/*dark*/
-.dark .nav-header > .config-overlay > .config-content > button:hover {
-  background-color: #ffffff09;
-}
-/*light*/
-
-
-/*dark*/
-.dark .nav-header > .config-overlay > .config-content > button:hover {
-  background-color: #ffffff09;
-}
-/*light*/
-
 
 .nav-header > .config-overlay > .config-content > :first-child {
   justify-content: left;
@@ -303,12 +231,6 @@ background: none;
   margin: 30px 0 10px 0;
   width: auto;
 }
-/*dark*/
-.dark .modal-content .modal-data .user-description{
-  border-bottom: 1px solid #000;
-}
-
-/*light*/
 
 .user-details > p {
   font-size: 16px;
@@ -345,25 +267,10 @@ background: none;
   overflow-y: auto;
 }
 
-/*dark*/
-.dark .comments-list-container {
-  background-color: var(--overlay-general-bg);
-}
-/*light*/
-
-
 .user-comment {
   display: flex;
   flex-direction: column;
 }
-
-/*dark*/
-.dark .user-comment {
-  border-bottom: 1px solid #0000001e;
-}
-/*light*/
-
-
 
 .comments-list {
   display: flex;
@@ -407,14 +314,6 @@ background: none;
   cursor: default;
 }
 
-/*dark*/
-.dark .comment-date {
-  color: #c7c7c7;
-}
-/*light*/
-
-
-
 .like-and-comment {
   padding: 10px 0px;
   text-align: left;
@@ -422,18 +321,9 @@ background: none;
   gap: 5px;
 }
 
-/*dark*/
-.dark .like-and-comment, .dark .comment-form{
-  border-top: 1px solid #0000001e;
-}
-/*light*/
-
-
-
 .comment-form {
   display: flex;
 }
-
 
 .comment-form > fieldset {
   border: none;
@@ -448,15 +338,6 @@ background: none;
   font-size: 16px;
 }
 
-/*dark*/
-.dark .comment-form > fieldset > input,.dark .comment-form > fieldset > input::placeholder,.dark .comment-form button  {
-  color: #fff;
-  
-}
-/*light*/
-
-
-
 .comment-form > fieldset > input:focus {
   outline: none;
 }
@@ -469,7 +350,6 @@ background: none;
   cursor: pointer;
   font-size: 16px;
 }
-
 
 .comments .edit-comment {
   max-width: 20vw;
@@ -504,13 +384,6 @@ background: none;
   font-size: 16px;
 }
 
-/*dark*/
-.dark .comments .edit-comment input{
-  color: #fff;
-  border-bottom: 1px solid #505050;
-}
-/*light*/
-
 .comments .edit-comment button {
   width: fit-content;
 }
@@ -522,15 +395,6 @@ background: none;
   color: #fff;
   cursor: pointer;
 }
-
-/*dark*/
-.dark .comments .edit-comment .edit-comment-button{
-  color: #fff;
-}
-/*light*/
-
-
-
 
 .comments .edit-comment .buttons-comment-options {
   display: inline-flex;
@@ -604,11 +468,6 @@ background: none;
 .change-avatar > fieldset > div > p {
   font-size: 16px;
   margin: 7px;
-}
-
-.dark .change-avatar > fieldset > div > p {
-  color: #999999;
-  
 }
 
 .user-data > .edit-user-data > div > fieldset {

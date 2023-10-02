@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Header } from '../components/Header';
 import LogoModoOscuro from '../resources/LogoModoOscuro.png';
+import LogoModoClaro from '../resources/LogoModoClaro.png';
+import { useTheme } from '../context/ThemeContext';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +13,7 @@ export const Login = () => {
   const [pwd, setPwd] = useState('');
   const [error, setError] = useState('');
   const { setToken, setIdUser, setRole, setEmailAuth } = useContext(AuthContext);
+  const { isLightMode } = useTheme();
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -34,8 +37,11 @@ export const Login = () => {
   return (
     <section className='form-pages'>
       <Header showNavHeader={false} />
-      <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='logo-dark-mode' 
-      onClick={handleLogoClick}/>
+      {isLightMode ? (
+        <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo' onClick={handleLogoClick} />
+      ) : (
+        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo' onClick={handleLogoClick} />
+      )}
       <form className='form' onSubmit={handleForm}>
         <fieldset>
           <input

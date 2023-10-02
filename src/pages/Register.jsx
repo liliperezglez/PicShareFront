@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { registerUserService } from '../services';
 import { Header } from '../components/Header';
 import LogoModoOscuro from '../resources/LogoModoOscuro.png';
+import LogoModoClaro from '../resources/LogoModoClaro.png';
+import { useTheme } from '../context/ThemeContext';
+
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -12,6 +15,7 @@ export const Register = () => {
   const [pwd, setPwd] = useState('');
   const [repeatpwd, setRepeatPwd] = useState('');
   const [error, setError] = useState('');
+  const { isLightMode } = useTheme();
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -42,7 +46,11 @@ export const Register = () => {
   return (
     <section className='form-pages'>
       <Header showNavHeader={false} />
-      <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='logo-dark-mode' onClick={handleLogoClick} />
+      {isLightMode ? (
+        <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo' onClick={handleLogoClick} />
+      ) : (
+        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo' onClick={handleLogoClick} />
+      )}
       <p>Regístrate para ver y compartir fotos con tus amigos.</p>
       <form className='form' onSubmit={handleForm}>
         <fieldset>

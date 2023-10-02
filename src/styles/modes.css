@@ -1,0 +1,332 @@
+/* DARK MODE */
+.dark {
+    background-color: #141414;
+    color: #f5f5f5;
+}
+
+.dark-logo {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.dark .nav-header{
+    border-right: 1px solid gray;
+}
+
+.dark button {
+    color: #fff;
+}  
+
+.dark a {
+    color: #fff;
+}
+
+.dark .auth-register {
+    color: #999;
+}
+
+.dark .auth:hover{
+    background-color: #ffffff09;
+}
+
+.dark .page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content .photo-list > li:not(:last-child){
+    border-bottom: 1px solid gray;
+}
+
+.dark .photo .photo-details .photo-date-place {
+    color: #c7c7c7;
+}
+
+.dark .photo .photo-details .photo-date-place p {
+    font-size: 10px;
+}
+
+/* photoDesc */
+.dark .search-page .search-photos-form fieldset{
+    border: 1px solid #81818161;
+}
+
+/* forms */
+.dark .form{
+    border: 1px solid #ccc; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+.dark .form input[type="text"],.dark .form input[type="email"],.dark .form input[type="password"]{
+    border: 1px solid #ccc;
+}
+
+/* modal */
+
+.dark .modal-content{
+    background-color: var(--overlay-general-bg);
+    padding: var(--overlay-general-padding);
+    border-radius: var(--overlay-general-border-radius);
+    box-shadow: var(--overlay-general-box-shadow);
+}
+
+.dark .modal-overlay{
+    background: rgba(0, 0, 0, 0.65); /* Fondo semi-transparente */
+
+}
+
+.dark .search-user .user-overlay{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dark .search-user .user-content{
+    padding: var(--overlay-general-padding);
+    background-color: var(--overlay-general-bg);
+    border-radius: var(--overlay-general-border-radius);
+    box-shadow: var(--overlay-general-box-shadow);
+  
+}
+
+.dark .search-user .user-content fieldset {
+    border: 1px solid #81818161;
+}
+
+.dark .config-overlay{
+    background: rgba(0, 0, 0, 0.5);
+    
+}
+
+.dark .config-content{
+    background-color: var(--overlay-general-bg);
+    padding: var(--overlay-general-padding);
+    border-radius: var(--overlay-general-border-radius);
+    box-shadow: var(--overlay-general-box-shadow);
+}
+
+.dark .nav-header > .config-overlay > .config-content > button:hover {
+    background-color: #ffffff09;
+}
+
+.dark .nav-header > .config-overlay > .config-content > button:hover {
+    background-color: #ffffff09;
+}
+
+.dark .comments-list-container {
+    background-color: var(--overlay-general-bg);
+}
+
+.dark .user-comment {
+    border-bottom: 1px solid #0000001e;
+}
+
+.dark .modal-content .modal-data .user-description{
+    border-bottom: 1px solid #000;
+}
+
+.dark .comment-date {
+    color: #c7c7c7;
+}
+
+.dark .like-and-comment, .dark .comment-form{
+    border-top: 1px solid #0000001e;
+}
+
+.dark .comment-form > fieldset > input,.dark .comment-form > fieldset > input::placeholder,.dark .comment-form button  {
+    color: #fff;   
+}
+
+.dark .comments .edit-comment input{
+    color: #fff;
+    border-bottom: 1px solid #505050;
+}
+
+.dark .comments .edit-comment .edit-comment-button{
+    color: #fff;
+}
+
+.dark .change-avatar > fieldset > div > p {
+    color: #999999;
+    
+}
+
+/* Botones de usuario */
+.dark .user-button {
+    border-radius: 8px;
+    background-color: #686868;
+    border: none;
+    height: 25px;
+    width: 100px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .dark .user-button:hover {
+    cursor: pointer;
+    background-color: #3f3f3f;
+    border: none;
+  }
+  .dark .user-button:active {
+    background-color: #303030;
+    color: #8a8a8a;
+  }
+
+/* LIGHT MODE */
+
+.light {
+    background-color: white;
+    color: #000000;
+}
+
+.light-logo {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.light .nav-header{
+    border-right: 1px solid gray;
+}
+
+.light button {
+    color: #000000;
+}
+
+.light a{
+    color: #000;
+}
+
+.light .auth-register {
+    color: #999;
+}
+
+.light .auth:hover{
+    background-color: #ffffff09;
+}
+
+.light .page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content .photo-list > li:not(:last-child){
+    border-bottom: 1px solid gray;
+}
+
+.light .photo .photo-details .photo-date-place {
+   color: #000000;
+}
+
+.light .photo .photo-details .photo-date-place p {
+    font-size: 10px;
+}
+
+/* photoDesc */
+.light .search-page .search-photos-form fieldset{
+    border: 1px solid #81818161;
+}
+
+
+/* forms */
+.light .form{
+    border: 1px solid #ccc; 
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); 
+}
+
+.light .form input[type="text"],.light .form input[type="email"],.light .form input[type="password"]{
+    border: 1px solid #ccc;
+}
+
+/* modal */
+.light .modal-content{
+    background-color: var(--overlay-light-bg);
+    padding: var(--overlay-general-padding);
+    border-radius: var(--overlay-general-border-radius);
+    box-shadow: var(--overlay-general-box-shadow);
+  }
+
+.light .modal-overlay{
+    background: rgba(0, 0, 0, 0.65); /* Fondo semi-transparente */
+}
+
+.light .search-user .user-overlay{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.light .search-user .user-content{
+    padding: var(--overlay-general-padding);
+    background-color: var(--overlay-light-bg);
+    border-radius: var(--overlay-general-border-radius);
+    box-shadow: var(--overlay-general-box-shadow);
+  
+}
+
+.light .search-user .user-content fieldset {
+    border: 1px solid #81818161;
+}
+
+.light .config-overlay{
+    background: rgba(0, 0, 0, 0.5);  
+}
+
+.light .config-content{
+    background-color: var(--overlay-light-bg);
+    padding: var(--overlay-general-padding);
+    border-radius: var(--overlay-general-border-radius);
+    box-shadow: var(--overlay-general-box-shadow);
+}
+
+.light .nav-header > .config-overlay > .config-content > button:hover {
+    background-color: #ffffff09;
+}
+
+.light .nav-header > .config-overlay > .config-content > button:hover {
+    background-color: #ffffff09;
+}
+
+.light .comments-list-container {
+    background-color: var(--overlay-light-bg);
+}
+
+.light .user-comment {
+    border-bottom: 1px solid #0000001e;
+}
+
+.light .modal-content .modal-data .user-description{
+    border-bottom: 1px solid #000;
+}
+
+.light .comment-date {
+    color: #000000;;
+}
+
+.light .like-and-comment, .light .comment-form{
+    border-top: 1px solid #0000001e;
+}
+
+.light .comment-form > fieldset > input,.light .comment-form > fieldset > input::placeholder,.light .comment-form button  {
+    color: #000;;   
+}
+
+.light .comments .edit-comment input{
+    color: #000;;
+    border-bottom: 1px solid #505050;
+}
+
+.light .comments .edit-comment .edit-comment-button{
+    color: #000;
+}
+
+.light .change-avatar > fieldset > div > p {
+    color: #999999;
+    
+}
+
+/* Botones de usuario */
+.light .user-button {
+    border-radius: 8px;
+    background-color: #EFEFEF;
+    border: none;
+    height: 25px;
+    width: 100px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.light .user-button:hover {
+    cursor: pointer;
+    background-color: #DCDCDC;
+    border: none;
+}
+
+.light .user-button:active {
+    background-color: #5A5A5A;
+    color: #000;
+}

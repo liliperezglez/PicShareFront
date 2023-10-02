@@ -18,6 +18,7 @@ import './styles/homePage.css';
 import './styles/userProfile.css';
 import './styles/photoDesc.css';
 import './styles/forms.css';
+import './styles/modes.css';
 
 function App() {
   const { isLightMode } = useTheme();

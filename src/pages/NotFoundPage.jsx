@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import '../App.css';
 import NotFoundImage from '../resources/NotFoundImage.jpg';
 
 export const NotFoundPage = () => {
@@ -11,7 +10,7 @@ export const NotFoundPage = () => {
           La página que buscas está más escondida que Wally en una foto.</p>
         <p className='not-found-message'>Pero podemos llevarte de vuelta a la diversión.
         </p>
-        <Link to={'/'} className='login-button'>
+        <Link to={'/'} className='main-button'>
           Ir a la Página de Inicio
         </Link>
       </div>

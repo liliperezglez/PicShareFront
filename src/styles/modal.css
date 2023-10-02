@@ -325,6 +325,7 @@ background: none;
 }
 
 /* Botón cerrar modal publicación */
+/* Botón cerrar modal publicación */
 .modal-overlay > button {
   position: absolute;
   top: 10px;
@@ -408,6 +409,7 @@ background: none;
   border-radius: 8px;
   height: 3vh;
   font-size: 14px;
+  padding: 0 10px;
   padding: 0 10px;
 }
 

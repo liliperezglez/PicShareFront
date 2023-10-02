@@ -1,39 +1,9 @@
 /* Dentro de homePage.css */
-.nav-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 14vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px 35px 20px 20px;
-  border-right: 1px solid gray;;
-  z-index: 1;
-}
-
-.nav-header span {
-  padding-left: 10px;
-  font-size: 16.5px;
-  font-size: 16.5px;
-}
-
-.footer {
-  width: calc(100vw - 15vw);
-  margin-left: auto;
-}
-
 .page-photo-list {
   display: flex;
   flex-direction: column;
   align-items: center; 
   text-align: center;
-}
-
-.page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content > li:not(:last-child){
-  border-bottom: 1px solid gray;
-  margin-bottom: 30px;
 }
 
 .page-photo-list .photo .photo-details .user-photo {
@@ -55,7 +25,7 @@
   width: 40px;
 }
 
-/* BUTTONS */
+/* Delete button */
 .delete-post-button-home-page {
   position: absolute;
   top: -23px;

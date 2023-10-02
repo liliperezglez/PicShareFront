@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import { useContext } from 'react';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
 import UserDescription from './UserDescription';
 import LikeButton from './LikeButton';
+import { AuthContext } from '../context/AuthContext';
 
 function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeComment }) {
+  const { token } = useContext(AuthContext);
+
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
@@ -20,14 +23,17 @@ function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeC
         <div className='modal-data'>
           <UserDescription user={photo} />
           <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
-          <div className='like-and-comment'>
-            <LikeButton photo={photo} toggleLike={toggleLike} />
-            <label className='comment-button' htmlFor='comment'>
-              <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='currentColor' className='bi bi-chat-dots-fill' viewBox='0 0 16 16'>
-                <path d='M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z' />
-              </svg>
-            </label>
-          </div>
+          {token && (
+            <div className='like-and-comment'>
+              <LikeButton photo={photo} toggleLike={toggleLike} />
+
+              <label className='comment-button' htmlFor='comment'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='currentColor' className='bi bi-chat-dots-fill' viewBox='0 0 16 16'>
+                  <path d='M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z' />
+                </svg>
+              </label>
+            </div>
+          )}
           <CommentForm addComment={addComment} photo={photo} />
         </div>
       </div>

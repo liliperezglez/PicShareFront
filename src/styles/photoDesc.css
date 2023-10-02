@@ -14,10 +14,15 @@
 }
 
 .search-page .search-photos-form fieldset{
-    border: 1px solid #81818161;
     border-radius: 5px;
     padding: 8px;
 }
+/*dark*/
+.dark .search-page .search-photos-form fieldset{
+    border: 1px solid #81818161;
+}
+/*light*/
+
 
 .search-page .search-photos-form label{
     margin-right: 10px;

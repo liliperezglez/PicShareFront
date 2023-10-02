@@ -24,15 +24,22 @@
 /* ======================= *\
        FORMS GENERICO
 \* ======================= */
+/*dark*/
+.dark .form{
+  border: 1px solid #ccc; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+/*light*/
+
+
 .form {
   width: 100%; 
   max-width: 400px; 
   padding: 35px; 
-  border: 1px solid #ccc; 
   border-radius: 5px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
   text-align: center;
 }
+
 
 .form fieldset {
   border: none;
@@ -47,10 +54,16 @@
   width: 100%; 
   padding: 15px; 
   margin-bottom: 15px; 
-  border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
 }
+
+/*dark*/
+.dark .form input[type="text"],.dark .form input[type="email"],.dark .form input[type="password"]{
+  border: 1px solid #ccc;
+}
+/*light*/
+
 
 /* ======================= *\
         FORM ADDPOST

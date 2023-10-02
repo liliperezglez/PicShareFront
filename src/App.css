@@ -49,8 +49,8 @@ span{
 
 a {
   text-decoration: none;
-  color: #000;
 }
+
 
 a p{
   cursor: pointer;
@@ -72,6 +72,37 @@ button{
   min-height: 100vh;
 }
 
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 14vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 35px 20px 20px;
+  z-index: 1;
+}
+
+/*dark*/
+.dark .nav-header{
+  border-right: 1px solid gray;
+}
+/*light*/
+
+
+.nav-header span {
+  padding-left: 10px;
+  font-size: 16.5px;
+}
+
+.footer {
+  width: calc(100vw - 15vw);
+  margin-left: auto;
+}
+
+/*light*/
 .light {
   background-color: white;
   color: #000000;
@@ -80,6 +111,12 @@ button{
   color: #000000;
 }
 
+.light a{
+  color: #000;
+}
+
+
+/*dark*/
 .dark {
   background-color: #242424;
   color: #f5f5f5;
@@ -148,11 +185,17 @@ button{
   display: flex;
   gap: 1rem;
   list-style-type: none;
-  color: #999;
   line-height: 30px;
   padding: 0 15px;
   font-weight: 700;
 }
+
+/*dark*/
+.dark .auth-register {
+  color: #999;
+}
+/*light*/
+
 
 .auth {
   display: flex;
@@ -166,8 +209,14 @@ button{
 
 .auth:hover {
   transition: background 0s ease-in-out;
+}
+
+/*dark*/
+.dark .auth:hover{
   background-color: #ffffff09;
 }
+/*light*/
+
 
 .auth .avatar-post{
   width: 50px;
@@ -177,6 +226,16 @@ button{
 .auth > li {
   margin-right: 20px;
 }
+
+
+.page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content .photo-list > li:not(:last-child){
+  margin-bottom: 30px;
+}
+/*dark*/
+.dark .page-photo-list .photo-list > li:not(:last-child), .search-page .photos-desc-content .photo-list > li:not(:last-child){
+  border-bottom: 1px solid gray;
+}
+/*light*/
 
 .photo img{
   cursor: pointer;
@@ -188,19 +247,24 @@ button{
   padding: 0;
 }
 
+
 .photo .photo-details {
   position: relative;
 }
 
 .photo .photo-details .photo-date-place {
-  top: -11px;
+  top: -13px;
   display: flex;
   position: absolute;
-  left: 50px;
+  left: 55px;
   gap: 8px;
+}
+/*dark*/
+.dark .photo .photo-details .photo-date-place {
   color: #c7c7c7;
 }
 
+/*light*/
 .photo .photo-details .photo-date-place p {
   font-size: 10px;
 }
@@ -234,7 +298,7 @@ button{
 
 .disabled-link {
   pointer-events: none; /* Deshabilita eventos de puntero */
-  background-color: #fff;
+  background-color: transparent;
   text-decoration: none;
   font-size: 20px;
 }
@@ -248,108 +312,6 @@ button{
   margin: 5px;
 }
 
-/* CSS para el user overlay */
-.search-user .user-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-/* CSS para el contenido del userContent */
-.search-user .user-content {
-  position: absolute;
-  top: 11vh;
-  left: 0;
-  float: left;
-  height: 100%;
-  background-color: var(--overlay-general-bg);
-  padding: var(--overlay-general-padding);
-  border-radius: var(--overlay-general-border-radius);
-  box-shadow: var(--overlay-general-box-shadow);
-  gap: 20px;
-  overflow: hidden;
-  border-radius: 5px;
-}
-.search-user .user-content label{
-  text-align: center;
-}
-
-.search-user .user-content input{
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.search-user .user-content fieldset {
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  border: 1px solid #81818161;
-  border-radius: 5px;
-  padding: 15px;
-}
-
-.search-user .user-content .name-user{
-  font-size: 12px;
-  padding-left: 5px;
-}
-
-/*list-search-user*/
-.search-user .user-content .list-search-user {
-  margin: 10px 0;
-  padding: 0;
-  max-height: 90%;
-  overflow-y: auto;
-  max-width: 300px;
-}
-
-.search-user .user-content .list-user {
-  display: flex;
-  align-items: center;
-}
-
-.search-user .user-content .list-user .user-info {
-  overflow-x: hidden;
-  max-width: 300px;
-}
-.search-user .user-content .userInfo a {
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-.search-user .user-content .userInfo .name-user {
-  font-size: 14px;
-  margin: 0 0 0 15px;
-}
-
-/* overlay de config*/
-.config-overlay {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1; /* Z-index alto para estar encima del contenido principal */
-}
-
-.config-content {
-  background-color: var(--overlay-general-bg);
-  padding: var(--overlay-general-padding);
-  border-radius: var(--overlay-general-border-radius);
-  box-shadow: var(--overlay-general-box-shadow);
-  position: absolute;
-  bottom: 3%;
-  left: 10%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
 /* NotFoundPage */
 
@@ -399,6 +361,7 @@ button{
   object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
   z-index: 1; /* Coloca la imagen detrás del contenido */
 }
+
 /* Botón principal */
 .main-button {
   background-color: #007bff;

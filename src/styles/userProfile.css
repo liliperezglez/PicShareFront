@@ -45,10 +45,14 @@
 /* Lista de fotos del perfil */
 .user-photo-list {
   display: flex;
-  border-top: 1px solid gray;
   margin: 0px 20vw;
 }
 
+/*dark*/
+.dark .user-photo-list{
+  border-top: 1px solid gray;
+}
+/*light*/
 
 .user-photo-list > .photo-list, .p-photo-list {
   display: grid;
@@ -71,6 +75,7 @@
   border-radius: 10px;
 }
 
+/* Delete button */
 .delete-post-button-user-profile {
   position: absolute;
   top: 5px;

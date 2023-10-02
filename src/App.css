@@ -442,7 +442,28 @@ button{
 
 .secondary-button:active{
   color: #003975 !important;
-  
+}
+
+/* Botón eliminar */
+.delete-button{
+  background-color: transparent;
+  color: #ff0000 !important;
+  font-size: 16px !important;
+  font-weight: 700;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.delete-button:hover{
+  color: #be0000 !important;
+}
+
+.delete-button:active{
+  color: #8a0000 !important;
 }
 
 /* Botones de usuario */

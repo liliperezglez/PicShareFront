@@ -1,9 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import TokenCaducado from './TokenCaducado';
+import usePosts from '../hooks/usePosts';
 
-function LikeButton({ photo, toggleLike }) {
+function LikeButton({ photo, toggleLike, tokenCaducadoVisible }) {
   const { token, idUser } = useContext(AuthContext);
   const [likedByUser, setLikedByUser] = useState(null);
+  const [error, setError] = useState('');
+
   // const actualUser = useParams().idUser;
 
   useEffect(() => {
@@ -32,7 +36,11 @@ function LikeButton({ photo, toggleLike }) {
 
   const handleLikeClick = async (e) => {
     e.preventDefault();
-    toggleLike({ token: token, idEntry: photo.idEntry, actualUser: photo.idUser, description: photo.description });
+    try {
+      await toggleLike({ token: token, idEntry: photo.idEntry, actualUser: photo.idUser, description: photo.description });
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -42,6 +50,8 @@ function LikeButton({ photo, toggleLike }) {
           {likedByUser} {Array.isArray(photo.likes) ? photo.likes.length : photo.likes}
         </button>
       )}
+      {error ? <p className='error-message'>{error}</p> : null}
+      {tokenCaducadoVisible && <TokenCaducado />}
     </>
   );
 }

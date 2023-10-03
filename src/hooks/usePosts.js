@@ -1,8 +1,7 @@
-import { useState, useContext } from "react";
-import { addCommentService, deleteCommentService, editCommentService, getAllPhotosService, getPhotosByDescService, getSingleUserService } from "../services";
-import { AuthContext } from "../context/AuthContext";
-import { likePhotoService } from "../services";
-
+import { useState, useContext } from 'react';
+import { addCommentService, deleteCommentService, editCommentService, getAllPhotosService, getPhotosByDescService, getSingleUserService } from '../services';
+import { AuthContext } from '../context/AuthContext';
+import { likePhotoService } from '../services';
 
 const usePosts = () => {
   const [photos, setPhotos] = useState([]);
@@ -10,13 +9,11 @@ const usePosts = () => {
   const [photosUser, setPhotosUser] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
-  const { idUser, userName, avatar } = useContext(AuthContext);
+  const [error, setError] = useState('');
 
+  const [tokenCaducadoVisible, setTokenCaducadoVisible] = useState(false);
 
-  const toggleLike = async ({token,idEntry, actualUser, description}) => {
-    // const photo = photos.find((photo) => photo.idEntry === idEntry);
-    // if (!photo) return;
+  const toggleLike = async ({ token, idEntry, actualUser, description }) => {
     try {
       const response = await likePhotoService({ token, idEntry });
 
@@ -24,14 +21,15 @@ const usePosts = () => {
       setPhotos(updatedPhotos);
 
       const updatedPhotosUser = await getSingleUserService(actualUser);
-      setPhotosUser(updatedPhotosUser.photos)
-      
+      setPhotosUser(updatedPhotosUser.photos);
+
       const updatedPhotosDesc = await getPhotosByDescService(description);
-      setPhotosDesc(updatedPhotosDesc)
-    
-    
+      setPhotosDesc(updatedPhotosDesc);
     } catch (error) {
-      console.error("Error al procesar el like:", error);
+      setError(error.message);
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
     }
   };
 
@@ -41,9 +39,9 @@ const usePosts = () => {
     setPhotosUser(photosUser.filter((photo) => photo.idEntry !== id));
   };
 
-  const addComment = async ({idEntry, newComment, actualUser, description}) => {
+  const addComment = async ({ idEntry, newComment, actualUser, description }) => {
     try {
-       await addCommentService({
+      await addCommentService({
         comment: newComment.comment,
         id: idEntry,
         token: newComment.token,
@@ -52,16 +50,18 @@ const usePosts = () => {
       const updatedPhotos = await getAllPhotosService();
       const updatedPhotosUser = await getSingleUserService(actualUser);
       const updatedPhotosDesc = await getPhotosByDescService(description);
-      
+
       setPhotos(updatedPhotos);
-      setPhotosDesc(updatedPhotosDesc)
-      setPhotosUser(updatedPhotosUser.photos)
+      setPhotosDesc(updatedPhotosDesc);
+      setPhotosUser(updatedPhotosUser.photos);
     } catch (error) {
       setError(error.message);
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
     }
   };
 
-  
   const removeComment = async (idEntry, idComment, token) => {
     try {
       await deleteCommentService({ id: idEntry, idComment, token });
@@ -90,10 +90,12 @@ const usePosts = () => {
         return photo;
       });
       setPhotosDesc(updatedPhotosDesc);
-
     } catch (error) {
       setError(error.message);
-      alert("No se ha podido borrar el comentario, prueba más tarde");
+      alert('No se ha podido borrar el comentario, prueba más tarde');
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
     }
   };
 
@@ -102,7 +104,7 @@ const usePosts = () => {
       await editCommentService({ id: idEntry, idComment, comment, token });
 
       const updatedPhotos = photos.map((photo) => {
-        if(photo.idEntry === idEntry) {
+        if (photo.idEntry === idEntry) {
           photo.comments = photo.comments.map((existingComment) => {
             if (existingComment.idComment === idComment) {
               //Actualiza comentario
@@ -116,7 +118,7 @@ const usePosts = () => {
       setPhotos(updatedPhotos);
 
       const updatedPhotosUser = photosUser.map((photo) => {
-        if(photo.idEntry === idEntry) {
+        if (photo.idEntry === idEntry) {
           photo.comments = photo.comments.map((existingComment) => {
             if (existingComment.idComment === idComment) {
               existingComment.comment = comment;
@@ -129,7 +131,7 @@ const usePosts = () => {
       setPhotosUser(updatedPhotosUser);
 
       const updatedPhotosDesc = photosDesc.map((photo) => {
-        if(photo.idEntry === idEntry) {
+        if (photo.idEntry === idEntry) {
           photo.comments = photo.comments.map((existingComment) => {
             if (existingComment.idComment === idComment) {
               existingComment.comment = comment;
@@ -140,10 +142,12 @@ const usePosts = () => {
         return photo;
       });
       setPhotosDesc(updatedPhotosDesc);
-
     } catch (error) {
       setError(error.message);
-      alert("No se ha podido editar el comentario, prueba más tarde");
+      alert('No se ha podido editar el comentario, prueba más tarde');
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
     }
   };
 
@@ -164,7 +168,9 @@ const usePosts = () => {
     setPhotosDesc,
     setPhotosUser,
     photosUser,
-    photosDesc
+    photosDesc,
+    tokenCaducadoVisible,
+    setTokenCaducadoVisible,
   };
 };
 

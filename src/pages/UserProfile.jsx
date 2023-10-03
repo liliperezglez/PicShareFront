@@ -19,7 +19,19 @@ export const UserProfile = () => {
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [userLoaded, setUserLoaded] = useState(false);
-  const { setPhotosUser, photosUser, user, setUser, removePost, addComment, editComment, removeComment, toggleLike } = usePosts();
+  const {
+    setPhotosUser,
+    photosUser,
+    user,
+    setUser,
+    removePost,
+    addComment,
+    editComment,
+    tokenCaducadoVisible,
+    setTokenCaducadoVisible,
+    removeComment,
+    toggleLike,
+  } = usePosts();
 
   const openEditProfile = () => {
     setEditProfile(true);
@@ -85,13 +97,25 @@ export const UserProfile = () => {
               <h3>{`Miembro desde ${new Date(user.date).toLocaleDateString()}`}</h3>
             </div>
             <div className='user-buttons'>
-              {editProfileButton && <button className='user-button' onClick={openEditProfile}>Editar perfil</button>}
-              {editProfileButton && <button className='user-button' onClick={logout}>Cerrar Sesión</button>}
+              {editProfileButton && (
+                <button className='user-button' onClick={openEditProfile}>
+                  Editar perfil
+                </button>
+              )}
+              {editProfileButton && (
+                <button className='user-button' onClick={logout}>
+                  Cerrar Sesión
+                </button>
+              )}
             </div>
           </div>
-          {editProfile && <EditProfile closeEditProfile={closeEditProfile} />}
+          {editProfile && (
+            <EditProfile tokenCaducadoVisible={tokenCaducadoVisible} setTokenCaducadoVisible={setTokenCaducadoVisible} closeEditProfile={closeEditProfile} />
+          )}
           <div className='user-photo-list'>
             <PhotoList
+              tokenCaducadoVisible={tokenCaducadoVisible}
+              setTokenCaducadoVisible={setTokenCaducadoVisible}
               photos={updatedPhotosUser}
               addComment={addComment}
               editComment={editComment}

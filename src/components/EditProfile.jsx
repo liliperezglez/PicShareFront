@@ -2,10 +2,9 @@ import { useState, useContext, useEffect } from 'react';
 import { editUserDataService, changeAvatarService } from '../services/index';
 import { AuthContext } from '../context/AuthContext';
 import { DeleteProfile } from '../components/DeleteProfile';
-import { useNavigate } from 'react-router-dom';
+import TokenCaducado from './TokenCaducado';
 
-export const EditProfile = ({ closeEditProfile }) => {
-  const navigate = useNavigate();
+export const EditProfile = ({ closeEditProfile, tokenCaducadoVisible, setTokenCaducadoVisible }) => {
   const { token, idUser, avatar, userName, setAvatar, logout, name, emailAuth } = useContext(AuthContext);
   const [email, setEmail] = useState(emailAuth);
   const [nameEdit, setNameEdit] = useState(name);
@@ -17,7 +16,6 @@ export const EditProfile = ({ closeEditProfile }) => {
   const [error, setError] = useState('');
   const [deleteProfile, setDeleteProfile] = useState(false);
   const [errorAvatar, setErrorAvatar] = useState('');
-  const [message, setMessage] = useState('');
 
   const openDeleteProfile = () => {
     setDeleteProfile(true);
@@ -47,6 +45,9 @@ export const EditProfile = ({ closeEditProfile }) => {
       }
       e.target.reset();
     } catch (error) {
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
       setError(error.message);
     }
   };
@@ -65,6 +66,9 @@ export const EditProfile = ({ closeEditProfile }) => {
         setErrorAvatar('Por favor, selecciona el archivo');
       }
     } catch (error) {
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
       setError(error.message);
     }
   };
@@ -111,7 +115,7 @@ export const EditProfile = ({ closeEditProfile }) => {
                 <p>JPG, JPEG o PNG.</p>
               </div>
             </fieldset>
-            <button className='main-button' >Cambiar avatar</button>
+            <button className='main-button'>Cambiar avatar</button>
             {errorAvatar ? <p className='error-message'>{errorAvatar}</p> : null}
           </form>
           <form className='edit-user-data' onSubmit={handleEditForm}>
@@ -123,7 +127,6 @@ export const EditProfile = ({ closeEditProfile }) => {
               <fieldset>
                 <label htmlFor='username'>Nombre de usuario * </label>
                 <input type='username' id='username' value={username} name='username' maxLength='12' required onChange={(e) => setUsername(e.target.value)} />
-                {/* setUser({...user,username: e.target.value})} */}
               </fieldset>
               <fieldset>
                 <label htmlFor='name'>Nombre * </label>
@@ -134,7 +137,6 @@ export const EditProfile = ({ closeEditProfile }) => {
                 <input type='password' id='pwd' name='pwd' required onChange={(e) => setPwd(e.target.value)} />
               </fieldset>
             </div>
-            {message ? <p>{message}</p> : null}
             <div>
               <fieldset>
                 <label htmlFor='newPwd'>Nueva Contraseña: </label>
@@ -147,8 +149,16 @@ export const EditProfile = ({ closeEditProfile }) => {
             </div>
             <div>
               <div>
-                <button type='submit' className='main-button' >Guardar cambios</button>
-                {deleteProfile && <DeleteProfile closeDeleteProfile={closeDeleteProfile} />}
+                <button type='submit' className='main-button'>
+                  Guardar cambios
+                </button>
+                {deleteProfile && (
+                  <DeleteProfile
+                    closeDeleteProfile={closeDeleteProfile}
+                    setTokenCaducadoVisible={setTokenCaducadoVisible}
+                    tokenCaducadoVisible={tokenCaducadoVisible}
+                  />
+                )}
                 <button type='button' className='secondary-button' onClick={openDeleteProfile}>
                   Eliminar cuenta
                 </button>
@@ -161,6 +171,7 @@ export const EditProfile = ({ closeEditProfile }) => {
           Salir
         </button>
       </div>
+      {tokenCaducadoVisible && <TokenCaducado />}
     </section>
   );
 };

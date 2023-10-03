@@ -5,7 +5,7 @@ import UserDescription from './UserDescription';
 import LikeButton from './LikeButton';
 import { AuthContext } from '../context/AuthContext';
 
-function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeComment }) {
+function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeComment, tokenCaducadoVisible, setTokenCaducadoVisible }) {
   const { token } = useContext(AuthContext);
 
   const handleOverlayClick = (e) => {
@@ -22,10 +22,16 @@ function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeC
         </div>
         <div className='modal-data'>
           <UserDescription user={photo} />
-          <Comments photo={photo} removeComment={removeComment} editComment={editComment} />
+          <Comments
+            photo={photo}
+            removeComment={removeComment}
+            editComment={editComment}
+            setTokenCaducadoVisible={setTokenCaducadoVisible}
+            tokenCaducadoVisible={tokenCaducadoVisible}
+          />
           {token && (
             <div className='like-and-comment'>
-              <LikeButton photo={photo} toggleLike={toggleLike} />
+              <LikeButton photo={photo} toggleLike={toggleLike} tokenCaducadoVisible={tokenCaducadoVisible} />
 
               <label className='comment-button' htmlFor='comment'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='currentColor' className='bi bi-chat-dots-fill' viewBox='0 0 16 16'>
@@ -34,7 +40,7 @@ function Modal({ photo, closeModal, addComment, editComment, toggleLike, removeC
               </label>
             </div>
           )}
-          <CommentForm addComment={addComment} photo={photo} />
+          <CommentForm addComment={addComment} photo={photo} tokenCaducadoVisible={tokenCaducadoVisible} />
         </div>
       </div>
       <button onClick={closeModal}>

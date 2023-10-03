@@ -2,7 +2,7 @@ import UserInfo from './UserInfo';
 import CommentsOptions from './CommentsOptions';
 import { formatDate } from '../services/helpers/helpers';
 
-function Comments({ photo, editComment, removeComment }) {
+function Comments({ photo, editComment, removeComment, tokenCaducadoVisible }) {
   return (
     <div className='comments'>
       {Array.isArray(photo.comments) && photo.comments.length > 0 ? (
@@ -25,6 +25,7 @@ function Comments({ photo, editComment, removeComment }) {
                     {formatDate(comment.edit_date ? comment.edit_date : comment.date)}
                   </div>
                   <CommentsOptions
+                    tokenCaducadoVisible={tokenCaducadoVisible}
                     editComment={editComment}
                     removeComment={removeComment}
                     idEntry={photo.idEntry}

@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import TokenCaducado from './TokenCaducado';
 
-function CommentsOptions({ idComment, comment, idEntry, editComment, removeComment }) {
+function CommentsOptions({ idComment, comment, idEntry, editComment, removeComment, tokenCaducadoVisible }) {
   const { token, idUser, role } = useContext(AuthContext);
   const [isOpenOption, setIsOpenOption] = useState(false);
   const [newComment, setNewComment] = useState('');
@@ -61,6 +62,7 @@ function CommentsOptions({ idComment, comment, idEntry, editComment, removeComme
           </svg>
         </button>
       )}
+      {tokenCaducadoVisible && <TokenCaducado />}
     </>
   );
 }

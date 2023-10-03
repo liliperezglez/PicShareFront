@@ -7,7 +7,6 @@ function UserInfo({ user, nombre, closeUserSearch }) {
       <Link
         to={`/users/${user.idUser}`}
         onClick={() => {
-          // closeSearch();
           closeUserSearch();
         }}
       >

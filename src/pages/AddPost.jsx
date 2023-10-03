@@ -3,6 +3,8 @@ import { addPhotoService } from '../services';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
+import usePosts from '../hooks/usePosts';
+import TokenCaducado from '../components/TokenCaducado';
 
 export const AddPost = () => {
   const navigate = useNavigate();
@@ -11,15 +13,18 @@ export const AddPost = () => {
   const [photo, setPhoto] = useState(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { setToken, logout } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
+  const { tokenCaducadoVisible, setTokenCaducadoVisible } = usePosts();
 
   useEffect(() => {
     // Carga el token desde el localStorage
     const token = localStorage.getItem('token');
-    console.log('Token cargado:', token);
 
     if (token) {
       setToken(token);
+    } else {
+      setError('Token Caducado');
+      setTokenCaducadoVisible(true);
     }
   }, []);
 
@@ -52,12 +57,12 @@ export const AddPost = () => {
       const response = await addPhotoService({ token, formData });
 
       // Verifica la respuesta y toma medidas en consecuencia
-      console.log('Respuesta del servicio:', response);
       navigate('/');
     } catch (error) {
-      console.error('Hubo un error al subir el post.', error);
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
       setError('Hubo un error al subir el post.', error);
-      logout();
     } finally {
       setIsLoading(false);
     }
@@ -80,7 +85,7 @@ export const AddPost = () => {
                   <input type='text' value={place} placeholder='Añade lugar' onChange={handlePlaceChange} />
                 </div>
                 <div>
-                  <textarea value={description} maxLength='70' placeholder='Añade un pequeña descripción...' onChange={handleDescriptionChange} required />
+                  <textarea value={description} maxLength='120' placeholder='Añade un pequeña descripción...' onChange={handleDescriptionChange} required />
                 </div>
               </>
             ) : null}
@@ -90,6 +95,7 @@ export const AddPost = () => {
           {isLoading ? 'Cargando...' : 'Publicar'}
         </button>
         {error ? <p className='error-message'>{error}</p> : null}
+        {tokenCaducadoVisible && <TokenCaducado />}
       </form>
     </section>
   );

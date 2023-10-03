@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export const Auth = () => {
-  const { token, idUser, avatar, userName, logout } = useContext(AuthContext);
+  const { token, idUser, avatar, userName } = useContext(AuthContext);
 
   return idUser && token ? (
     <div className='auth-log'>

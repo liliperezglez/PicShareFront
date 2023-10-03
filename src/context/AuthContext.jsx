@@ -23,15 +23,15 @@ export const AuthProviderComponent = ({ children }) => {
 
     if (token && idUser) {
       getMyUserDataService(idUser).then((userData) => {
-        setName(userData.user.name);
-        setUserName(userData.user.username);
-        setAvatar(userData.user.avatar);
-        setUserCreatedAt(userData.user.date);
+        setName(userData.name);
+        setUserName(userData.username);
+        setAvatar(userData.avatar);
+        setUserCreatedAt(userData.date);
       });
     }
   }, [token, idUser, name, userName, avatar, userCreatedAt]);
 
-  const logout = () => {
+  function logout() {
     setToken('');
     setIdUser('');
     setRole('');
@@ -41,7 +41,7 @@ export const AuthProviderComponent = ({ children }) => {
     setAvatar('');
     setUserCreatedAt('');
     navigate('/');
-  };
+  }
 
   return (
     <AuthContext.Provider
@@ -60,14 +60,6 @@ export const AuthProviderComponent = ({ children }) => {
         userName,
         role,
         emailAuth,
-
-        // user:{
-        //   idUser,
-        //   avatar,
-        //   name,
-        //   userName,
-        //   role,
-        // }
       }}
     >
       {children}

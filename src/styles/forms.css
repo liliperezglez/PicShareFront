@@ -17,6 +17,10 @@
   margin-bottom: 20px;
 }
 
+.logo-dark-mode {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
 /* ======================= *\
        FORMS GENERICO
 \* ======================= */

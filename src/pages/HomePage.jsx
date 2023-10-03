@@ -4,11 +4,12 @@ import PhotoList from '../components/PhotoList';
 import { Header } from '../components/Header';
 import usePosts from '../hooks/usePosts';
 import { getAllPhotosService } from '../services';
+import AnimationSayGoodBye from '../components/AnimationSayGoodBye';
 
 export const HomePage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
-  const { setPhotos, photos, removePost, removeComment, editComment, addComment, toggleLike } = usePosts();
+  const { setPhotos, photos, removePost, removeComment, editComment, addComment, tokenCaducadoVisible, setTokenCaducadoVisible, toggleLike } = usePosts();
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -33,6 +34,8 @@ export const HomePage = () => {
         <div className='page-photo-list'>
           <PhotoList
             photos={photos}
+            tokenCaducadoVisible={tokenCaducadoVisible}
+            setTokenCaducadoVisible={setTokenCaducadoVisible}
             removePost={removePost}
             addComment={addComment}
             editComment={editComment}
@@ -41,8 +44,12 @@ export const HomePage = () => {
           />
         </div>
       </div>
-      <aside>
-        <p>😋😊 Estás al día en las últimas fotos subidas, Visita algún usuario para ver sus fotos 🎉🎆</p>
+      <aside className='no-more-photos'>
+        <p>
+          <AnimationSayGoodBye />
+          Estás al día en las últimas fotos subidas. Visita algún usuario para ver sus fotos.
+          <AnimationSayGoodBye />
+        </p>
       </aside>
       {loading ? <p>{loading}</p> : null}
       {error ? <p className='error-message'>{error}</p> : null}

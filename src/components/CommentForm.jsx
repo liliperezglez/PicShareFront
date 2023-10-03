@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import TokenCaducado from './TokenCaducado';
 
-function CommentForm({ photo, addComment }) {
+function CommentForm({ photo, addComment, tokenCaducadoVisible }) {
   const { token, idUser } = useContext(AuthContext);
   const [error, setError] = useState('');
   const [newComment, setNewComment] = useState('');
@@ -39,6 +40,7 @@ function CommentForm({ photo, addComment }) {
           </fieldset>
           <button type='submit'>Comentar</button>
           {error ? <p className='error-message'>{error}</p> : null}
+          {tokenCaducadoVisible && <TokenCaducado />}
         </form>
       )}
     </>

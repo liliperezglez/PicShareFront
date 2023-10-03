@@ -2,8 +2,9 @@ import { useContext, useState } from 'react';
 import { deletePhotosService } from '../services';
 import { AuthContext } from '../context/AuthContext';
 import { useParams } from 'react-router-dom';
+import TokenCaducado from './TokenCaducado';
 
-function DeletePost({ photo, removePost }) {
+function DeletePost({ photo, removePost, tokenCaducadoVisible, setTokenCaducadoVisible }) {
   const { token, idUser, role } = useContext(AuthContext);
   const [error, setError] = useState('');
   const [deletePhoto, setDeletePhoto] = useState(false);
@@ -25,6 +26,9 @@ function DeletePost({ photo, removePost }) {
         removePost(id);
       }
     } catch (error) {
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
       setError(error.message);
     }
   };
@@ -77,6 +81,7 @@ function DeletePost({ photo, removePost }) {
         </section>
       )}
       {error ? <p className='error-message'>{error}</p> : null}
+      {tokenCaducadoVisible && <TokenCaducado />}
     </>
   );
 }

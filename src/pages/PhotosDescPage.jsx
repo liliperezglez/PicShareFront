@@ -9,7 +9,7 @@ export default function PhotosDescPage() {
   const [searched, setSearched] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
-  const { setPhotosDesc, photosDesc, addComment, editComment, removeComment, toggleLike } = usePosts();
+  const { setPhotosDesc, photosDesc, addComment, editComment, removeComment, toggleLike, tokenCaducadoVisible, setTokenCaducadoVisible } = usePosts();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -52,7 +52,15 @@ export default function PhotosDescPage() {
         <>
           <h3>Resultados de búsqueda:</h3>
           <div className='photos-desc-content'>
-            <PhotoList photos={photosDesc} addComment={addComment} editComment={editComment} removeComment={removeComment} toggleLike={toggleLike} />
+            <PhotoList
+              photos={photosDesc}
+              tokenCaducadoVisible={tokenCaducadoVisible}
+              setTokenCaducadoVisible={setTokenCaducadoVisible}
+              addComment={addComment}
+              editComment={editComment}
+              removeComment={removeComment}
+              toggleLike={toggleLike}
+            />
           </div>
         </>
       )}

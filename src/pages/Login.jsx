@@ -31,7 +31,7 @@ export const Login = () => {
   };
 
   const handleLogoClick = () => {
-    navigate('/'); 
+    navigate('/');
   };
 
   return (

@@ -1,10 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 import { deleteAccountService } from '../services';
+import TokenCaducado from './TokenCaducado';
 
-export const DeleteProfile = ({ closeDeleteProfile }) => {
+export const DeleteProfile = ({ closeDeleteProfile, setTokenCaducadoVisible, tokenCaducadoVisible }) => {
   const { token, idUser, avatar, name, userName, userCreatedAt, logout } = useContext(AuthContext);
+  const [error, setError] = useState('');
 
   const handleOverlayClick = (e) => {
     // Verificar si el clic ocurrió en el fondo del modal
@@ -20,7 +22,10 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
       alert(`Usuario borrado correctamente. Te echaremos de menos. 😢`);
       logout();
     } catch (error) {
-      console.log(error.message);
+      if (error.message === 'Token Caducado') {
+        setTokenCaducadoVisible(true);
+      }
+      setError(error.message);
     }
   };
 
@@ -30,11 +35,7 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
         <h1>Eliminar cuenta</h1>
         <div>
           <img
-            src={
-              avatar
-                ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}`
-                : '../src/resources/userNoAvatar_icon.svg'
-            }
+            src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'}
             alt={`Avatar de ${userName}`}
           />
           <p>Hola {name}.</p>
@@ -54,6 +55,8 @@ export const DeleteProfile = ({ closeDeleteProfile }) => {
           Eliminar cuenta
         </button>
       </div>
+      {error ? <p className='error-message'>{error}</p> : null}
+      {tokenCaducadoVisible && <TokenCaducado />}
     </section>
   );
 };

@@ -230,6 +230,7 @@ button{
   overflow-x: auto;
   overflow-y: clip;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 .disabled-link {

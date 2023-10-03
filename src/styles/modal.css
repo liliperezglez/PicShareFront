@@ -148,6 +148,20 @@
 }
 
 
+/*----------------------------*\
+    MODAL Token caducado POST
+\*----------------------------*/
+.modal-content.token-caducado{
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px;
+}
+.modal-content.token-caducado .buttons-logout-modal .secondary-button{
+  margin-top: 5px;
+}
+
+
+
 
 /*---------------------*\
     MODAL BOTÓN "MÁS"

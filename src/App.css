@@ -209,6 +209,10 @@ button {
   fill: transparent;
 }
 
+.photo .like-button svg{
+  fill: #9b9b9b;
+}
+
 .photo .like-button > .like {
   fill: #ff0000; 
 }
@@ -369,3 +373,4 @@ button {
     display: none;
   }
 }
+

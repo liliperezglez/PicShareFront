@@ -1,7 +1,6 @@
 /* ======================= *\
   REGISTER, LOGIN + ADDPOST
 \* ======================= */
-/*Los tamaños de letra, colores, bordes... ver de hacer variables y usar en todos lados lo mismo*/
 
 .form-pages {
   display: flex;
@@ -83,4 +82,28 @@
 
 #login-link, #register-link {
   margin-top: 20px;
+}
+
+/* ======================= *\
+        RESPONSIVE
+\* ======================= */
+@media screen and (max-width: 450px) {
+  .form-pages {
+    width: 100%;
+    padding: 20px;
+    
+  }
+
+  .form input[type="text"], 
+  .form input[type="email"], 
+  .form input[type="password"],
+  .form.add-post-form input[type="text"],
+  .form.add-post-form textarea {
+    width: 100%;
+  }
+
+  .form.add-post-form textarea {
+    max-width: 100%;
+    width: auto; 
+  }
 }

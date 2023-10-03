@@ -4,7 +4,6 @@
   width: 600px;
   position: relative;
   margin: auto;
-
 }
 
 /* Avatar */
@@ -45,10 +44,12 @@
 /* Lista de fotos del perfil */
 .user-photo-list {
   display: flex;
-  margin: 0px 20vw;
+  width: calc(100vw - 15vw);
+  margin-left: auto;
 }
 
-.user-photo-list > .photo-list, .p-photo-list {
+.user-photo-list > .photo-list,
+.p-photo-list {
   display: grid;
   grid-template-columns: repeat(3, 33%);
   gap: 35px;
@@ -84,17 +85,227 @@
   cursor: pointer;
 }
 
-.delete-post-button-user-profile svg{
+.delete-post-button-user-profile svg {
   filter: drop-shadow(0px 0px 2px gray);
 }
 
+/*--------------------*\
+      MEDIA QUERIES
+\*--------------------*/
 
-@media (min-width: 720px) and (max-width: 1024px){
-  .user-photo-list{
+/* PANTALLAS w1400px  */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 200px;
+    height: 200px;
+  }
+  .user-photo-list > .photo-list > li > .photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 600px;
+  }
+
+  /* Info del perfil del usuario */
+  .user {
+    display: flex;
+    width: 300px;
+    position: relative;
+    width: calc(100vw - 75vw);
+  }
+
+  .user .user-buttons {
+    flex-direction: column;
+    margin: auto;
+    min-width: 8vw;
+  }
+
+  .user .user-buttons .user-button {
+    margin-top: 0;
+  }
+
+  /* Avatar */
+  .user > img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: auto 20px;
+  }
+
+  /* Datos del usuario */
+  .user-data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    width: 10vw;
+    min-width: 18vw;
+  }
+
+  .user-data > * {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .user-data > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 15vw);
+    margin-left: auto;
+  }
+}
+
+/* PANTALLAS w1024px  */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 200px;
+    height: 200px;
+  }
+  .user-photo-list > .photo-list > li > .photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 620px;
+    gap: 20px;
+  }
+
+  .user-photo-list {
     margin: auto;
   }
-  .user-photo-list > ul{
-    width: calc(100vw - 19vw);
+
+  .user {
+    display: flex;
+    width: 300px;
+    position: relative;
+    margin-bottom: 50px;
+    width: calc(100vw - 70vw);
+  }
+
+  .user .user-buttons {
+    flex-direction: column;
+    margin: auto;
+    min-width: 8vw;
+  }
+
+  .user .user-buttons .user-button {
+    margin-top: 0;
+  }
+
+  /* Avatar */
+  .user > img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: auto 20px;
+  }
+
+  /* Datos del usuario */
+  .user-data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    width: 10vw;
+    min-width: 18vw;
+  }
+
+  .user-data > * {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .user-data > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 52vw);
+    margin-left: auto;
+  }
+}
+
+/* PANTALLAS w768px  */
+@media (min-width: 425px) and (max-width: 768px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 175px;
+    height: 175px;
+  }
+  .user-photo-list > .photo-list > li > .photo img {
+    width: 175px;
+    height: 175px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 550px;
+    gap: 10px;
+  }
+
+  .user-photo-list {
+    margin: auto;
+  }
+
+  .user {
+    display: flex;
+    width: 300px;
+    position: relative;
+    margin-bottom: 50px;
+    width: calc(100vw - 70vw);
+  }
+
+  .user .user-buttons {
+    flex-direction: column;
+    margin: auto;
+    min-width: 8vw;
+  }
+
+  .user .user-buttons .user-button {
+    margin-top: 0;
+  }
+
+  /* Avatar */
+  .user > img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: auto 20px;
+  }
+
+  /* Datos del usuario */
+  .user-data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    width: 10vw;
+    min-width: 18vw;
+  }
+
+  .user-data > * {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .user-data > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 41vw);
     margin-left: auto;
   }
 }

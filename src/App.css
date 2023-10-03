@@ -207,6 +207,7 @@ button {
   gap: 5px;
   align-items: center;
   fill: transparent;
+  user-select: none;
 }
 
 .photo .like-button svg{

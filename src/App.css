@@ -361,4 +361,11 @@ button {
   color: #8a0000 !important;
 }
 
-
+/* ======================= *\
+        RESPONSIVE
+\* ======================= */
+@media screen and (max-width: 450px) {
+  .nav-header span {
+    display: none;
+  }
+}

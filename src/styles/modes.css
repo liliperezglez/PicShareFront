@@ -122,6 +122,7 @@
 
 .dark .user-comment:hover {
   background-color: #ffffff09;
+  border-radius: 8px;
 }
 
 .dark .modal-content .modal-data .user-description {
@@ -297,6 +298,7 @@
 
 .light .user-comment:hover {
     background-color: #00000010;
+    border-radius: 8px;
   }
 
 .light .modal-content .modal-data .user-description {

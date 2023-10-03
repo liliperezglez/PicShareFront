@@ -336,7 +336,7 @@ background: none;
   padding: 10px 0px;
   text-align: left;
   display: flex;
-  gap: 5px;
+  gap: 15px;
 }
 
 .comment-form {

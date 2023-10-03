@@ -33,17 +33,17 @@ footer {
 }
 
 h1 {
-  font-size: 2rem; 
-  margin-bottom: 10px; 
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 p {
-  font-size: 1.1rem; 
-  text-align: center; 
+  font-size: 1.1rem;
+  text-align: center;
   cursor: default;
 }
 
-span{
+span {
   cursor: default;
 }
 
@@ -51,16 +51,15 @@ a {
   text-decoration: none;
 }
 
-
-a p{
+a p {
   cursor: pointer;
 }
 
-input:focus-visible{
+input:focus-visible {
   outline: none;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
@@ -127,15 +126,7 @@ button{
   width: 12vw;
   border-radius: 8px;
   padding: 20px 20px;
-  transition: background 0.1s ease-in-out;}
-
-.search-user-button:hover,
-.add-photos-button:hover,
-.search-photos-button:hover,
-.go-perfil-button:hover,
-.config-button:hover {
-  background-color: #ffffff09;
-  transition: background 0s ease-in-out;
+  transition: background 0.1s ease-in-out;
 }
 
 .auth-log,
@@ -143,7 +134,7 @@ button{
   justify-self: end;
   margin: 10px;
   grid-column: 2 / 4;
-  grid-row: 1; 
+  grid-row: 1;
 }
 
 .auth-register {
@@ -183,7 +174,7 @@ button{
   margin-bottom: 30px;
 }
 
-.photo img{
+.photo img {
   cursor: pointer;
 }
 
@@ -207,21 +198,26 @@ button{
 
 .photo .like-and-comment-buttons {
   display: flex;
-  gap: 5px;
-  margin-top: 5px;
+  gap: 15px;
+  margin: 5px 0 0 10px;
 }
 
-.photo .like-button{
+.photo .like-button {
   display: flex;
-  gap:5px;
+  gap: 5px;
   align-items: center;
+  fill: transparent;
+}
+
+.photo .like-button > .like {
+  fill: #ff0000; 
 }
 
 .photo .user-description {
   align-items: center;
   display: flex;
   height: 30px;
-  margin:  15px 0 20px 0;
+  margin: 15px 0 20px 0;
   max-width: 550px;
 }
 
@@ -248,7 +244,6 @@ button{
 .user-info p {
   margin: 5px;
 }
-
 
 /* NotFoundPage */
 
@@ -313,17 +308,17 @@ button{
   margin-bottom: 5px;
 }
 
-.main-button:hover{
+.main-button:hover {
   background-color: #0056b3 !important;
 }
 
-.main-button:active{
+.main-button:active {
   background-color: #003975 !important;
   color: #a0a0a0 !important;
 }
 
 /* Botón secundario */
-.secondary-button{
+.secondary-button {
   background-color: transparent;
   color: #007bff !important;
   font-size: 16px !important;
@@ -336,16 +331,16 @@ button{
   margin-bottom: 5px;
 }
 
-.secondary-button:hover{
+.secondary-button:hover {
   color: #0056b3 !important;
 }
 
-.secondary-button:active{
+.secondary-button:active {
   color: #003975 !important;
 }
 
 /* Botón eliminar */
-.delete-button{
+.delete-button {
   background-color: transparent;
   color: #ff0000 !important;
   font-size: 16px !important;
@@ -358,11 +353,11 @@ button{
   margin-bottom: 5px;
 }
 
-.delete-button:hover{
+.delete-button:hover {
   color: #be0000 !important;
 }
 
-.delete-button:active{
+.delete-button:active {
   color: #8a0000 !important;
 }
 

@@ -352,3 +352,36 @@
   background-color: #5a5a5a;
   color: #000;
 }
+
+
+
+@media (min-width: 1030px) and (max-width:1440px) {
+  .light-logo, .dark-logo{
+    margin-left: -20px;
+    width: 13vw;
+  }
+}
+
+@media screen and (min-width:1030px){
+  .logo-icono{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width:1029px){
+  .light-logo, .dark-logo{
+    display: none;
+  }
+  .logo-icono{
+    width: 5vw;
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .logo-icono{
+    width: 7vw;
+    margin-top: -10px;
+  }
+}

@@ -5,7 +5,9 @@
   flex-direction: column;
   align-items: center; 
   text-align: center;
+  width: auto;
 }
+
 
 .page-photo-list .photo .photo-details .user-photo {
   width: 550px;
@@ -95,4 +97,13 @@
 @keyframes roll-animation { 
   0% { transform: translateX(0); } 
   100% { transform: translateX(-500px); } 
+}
+
+
+
+@media (min-width: 720px) and (max-width: 1024px){
+  .page-photo-list, .no-more-photos, footer {
+    width: calc(100vw - 14vw);
+    margin-left: auto;
+  }
 }

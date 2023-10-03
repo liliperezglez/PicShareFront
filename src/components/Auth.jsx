@@ -19,11 +19,9 @@ export const Auth = () => {
   ) : (
     <ul className='auth-register'>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>Register / Login</Link>
       </li>
-      <li>
-        <Link to='/login'>Login</Link>
-      </li>
+
     </ul>
   );
 };

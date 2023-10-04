@@ -13,6 +13,19 @@
   width: 550px;
   height: 400px;
 }
+
+.app .no-more-photos{
+  margin-top: 20px;
+}
+
+.app .no-more-photos span{
+  text-align: center;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 6px;
+  color: #a63c60;
+}
 /*Clase foto de usuario*/
 .user-photo {
   object-fit: cover;
@@ -98,12 +111,73 @@
   0% { transform: translateX(0); } 
   100% { transform: translateX(-500px); } 
 }
+/*--------------------*\
+      MEDIA QUERIES
+\*--------------------*/
 
-
-
-@media (min-width: 720px) and (max-width: 1024px){
+/* PANTALLAS w1400px  */
+@media (min-width: 1024px) and (max-width: 1400px) {
   .page-photo-list, .no-more-photos, footer {
     width: calc(100vw - 14vw);
     margin-left: auto;
+    overflow-x: hidden;
   }
+}
+
+
+/* PANTALLAS w1024px  */
+@media (min-width: 769px) and (max-width: 1024px){
+  .page-photo-list, .no-more-photos, footer {
+    width: calc(100vw - 9vw);
+    margin-left: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* PANTALLAS w768px  */
+@media (min-width: 425px) and (max-width: 768px) {
+  .page-photo-list, .no-more-photos, footer {
+    width: calc(100vw - 9vw);
+    overflow-x: hidden;
+    margin-left: auto;
+  }
+  .page-photo-list .photo-list{
+    width: 66%;
+  }
+
+  .page-photo-list .photo .photo-details .user-photo {
+    width: 450px;
+    height: 370px;
+}
+}
+
+/* PANTALLAS w425px  A w320px */
+@media (max-width: 425px) {
+  .page-photo-list, .no-more-photos, footer {
+    width: 100%;
+    overflow-x: hidden;
+    margin-left: 0;
+  }
+  .page-photo-list .photo-list{
+    width: 92%;
+  }
+
+  .page-photo-list .photo .photo-details .user-photo {
+    width: 375px;
+    height: 335px;
+  }
+}
+
+@media (max-width: 380px){
+  .page-photo-list .photo .photo-details .user-photo {
+    width: 330px;
+    height: 330px;
+  }
+}
+@media (max-width: 320px){
+  .page-photo-list .photo .photo-details .user-photo {
+    width: 278px;
+    height: 275px;
+  }
+ 
 }

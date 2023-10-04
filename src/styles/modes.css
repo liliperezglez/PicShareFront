@@ -17,7 +17,8 @@
 .dark .add-photos-button:hover,
 .dark .search-photos-button:hover,
 .dark .go-perfil-button:hover,
-.dark .config-button:hover {
+.dark .config-button:hover,
+.dark .auth-register:hover {
   background-color: #ffffff09;
   transition: background 0s ease-in-out;
 }
@@ -197,7 +198,8 @@
 .light .add-photos-button:hover,
 .light .search-photos-button:hover,
 .light .go-perfil-button:hover,
-.light .config-button:hover {
+.light .config-button:hover,
+.light .auth-register:hover {
   background-color: #00000010;
   transition: background 0s ease-in-out;
 }
@@ -395,5 +397,12 @@
   .logo-icono{
     width: 7vw;
     margin-top: -10px;
+  }
+}
+@media screen and (max-width: 380px) {
+   .logo-icono{
+    width: 8vw;
+    margin-top: -10px;
+    margin-left: 6px;
   }
 }

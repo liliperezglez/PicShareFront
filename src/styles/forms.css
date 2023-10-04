@@ -87,12 +87,19 @@
 /* ======================= *\
         RESPONSIVE
 \* ======================= */
+@media screen and (max-width: 768px) {
+  .form-pages {
+    margin-top: 30px;
+    
+  }
+}
 @media screen and (max-width: 450px) {
   .form-pages {
     width: 100%;
     padding: 20px;
     
   }
+
 
   .form input[type="text"], 
   .form input[type="email"], 

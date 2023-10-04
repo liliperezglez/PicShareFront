@@ -273,7 +273,7 @@
     font-size: 14px;
   }
 
-  .photo-details:nth-child(2) svg {
+  .user-photo-list .photo-details:nth-child(2) svg {
     width: 20px;
     height: 20px;
   }
@@ -367,7 +367,7 @@
     width: calc(100vw - 8vw);
   }
 
-  .photo-details:nth-child(2) svg {
+  .user-photo-list .photo-details:nth-child(2) svg {
     width: 20px;
     height: 20px;
   }

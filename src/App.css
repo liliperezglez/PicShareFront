@@ -369,6 +369,8 @@ button {
 /* ======================= *\
         RESPONSIVE
 \* ======================= */
+
+/*Nav-Header*/
 @media screen and (max-width: 1029px) {
   .nav-header{
     width: 12vw;

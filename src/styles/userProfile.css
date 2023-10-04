@@ -93,7 +93,7 @@
       MEDIA QUERIES
 \*--------------------*/
 
-/* PANTALLAS w1400px  */
+/* PANTALLAS w1400px */
 @media (min-width: 1024px) and (max-width: 1400px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
@@ -112,57 +112,11 @@
   /* Info del perfil del usuario */
   .user {
     display: flex;
-    width: 300px;
-    position: relative;
     width: calc(100vw - 75vw);
-  }
-
-  .user .user-buttons {
-    flex-direction: column;
-    margin: auto;
-    min-width: 8vw;
-  }
-
-  .user .user-buttons .user-button {
-    margin-top: 0;
-  }
-
-  /* Avatar */
-  .user > img {
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-    border-radius: 100%;
-    margin: auto 20px;
-  }
-
-  /* Datos del usuario */
-  .user-data {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0px;
-    width: 10vw;
-    min-width: 18vw;
-  }
-
-  .user-data > * {
-    margin-top: 15px;
-    font-size: 14px;
-  }
-
-  .user-data > div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .user-photo-list {
-    width: calc(100vw - 15vw);
-    margin-left: auto;
   }
 }
 
-/* PANTALLAS w1024px  */
+/* PANTALLAS w1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
@@ -174,19 +128,17 @@
     height: 200px;
   }
 
+  .user-photo-list {
+    margin: auto;
+  }
+
   .user-photo-list > .photo-list {
     width: 620px;
     gap: 20px;
   }
 
-  .user-photo-list {
-    margin: auto;
-  }
-
   .user {
     display: flex;
-    width: 300px;
-    position: relative;
     margin-bottom: 50px;
     width: calc(100vw - 70vw);
   }
@@ -203,40 +155,26 @@
 
   /* Avatar */
   .user > img {
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-    border-radius: 100%;
+    height: 120px;
+    width: 120px;
     margin: auto 20px;
   }
 
   /* Datos del usuario */
   .user-data {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0px;
-    width: 10vw;
     min-width: 18vw;
   }
 
   .user-data > * {
-    margin-top: 15px;
     font-size: 14px;
-  }
-
-  .user-data > div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
   }
 
   .user-photo-list {
     width: calc(100vw - 52vw);
-    margin-left: auto;
   }
 }
 
-/* PANTALLAS w768px  */
+/* PANTALLAS w768px */
 @media (min-width: 425px) and (max-width: 768px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
@@ -253,22 +191,64 @@
     gap: 10px;
   }
 
+  .user {
+    margin: 30px auto;
+    width: calc(100vw - 65vw);
+  }
+
+  /* Avatar */
+  .user > img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 42vw);
+  }
+}
+
+/* PANTALLAS w425px */
+@media (min-width: 375px) and (max-width: 425px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 125px;
+    height: 125px;
+  }
+  .user-photo-list > .photo-list > li > .photo img {
+    width: 125px;
+    height: 125px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 425px;
+  }
+
   .user-photo-list {
     margin: auto;
   }
 
   .user {
-    display: flex;
-    width: 300px;
-    position: relative;
-    margin-bottom: 50px;
-    width: calc(100vw - 70vw);
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: calc(100vw - 18vw);
+  }
+
+  .user > .user-data {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .user > .user-data > div,
+  .user > .user-data > h3 {
+    margin-top: 0;
   }
 
   .user .user-buttons {
-    flex-direction: column;
-    margin: auto;
-    min-width: 8vw;
+    gap: 15px;
   }
 
   .user .user-buttons .user-button {
@@ -279,18 +259,13 @@
   .user > img {
     height: 80px;
     width: 80px;
-    object-fit: cover;
-    border-radius: 100%;
     margin: auto 20px;
   }
 
   /* Datos del usuario */
   .user-data {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0px;
     width: 10vw;
-    min-width: 18vw;
+    text-align: center;
   }
 
   .user-data > * {
@@ -298,14 +273,102 @@
     font-size: 14px;
   }
 
-  .user-data > div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  .photo-details:nth-child(2) svg {
+    width: 20px;
+    height: 20px;
   }
 
   .user-photo-list {
-    width: calc(100vw - 41vw);
+    width: calc(100vw - 8vw);
+  }
+}
+
+/* PANTALLAS w375px */
+@media (min-width: 320px) and (max-width: 375px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .user-photo-list > .photo-list > li > .photo img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 375px;
+    gap: 10px;
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    width: calc(100vw - 18vw);
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 8vw);
     margin-left: auto;
+  }
+}
+
+/* PANTALLAS w320px */
+@media (max-width: 320px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 96px;
+    height: 96px;
+  }
+  .user-photo-list > .photo-list > li > .photo img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 320px;
+    gap: 5px;
+  }
+
+  .user-photo-list {
+    margin: auto;
+  }
+
+  .user > .user-data {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .user .user-buttons {
+    gap: 15px;
+  }
+
+  .user .user-buttons .user-button {
+    margin-top: 0;
+  }
+
+  /* Avatar */
+  .user > img {
+    height: 80px;
+    width: 80px;
+    margin: auto 20px;
+  }
+
+  .user-data > * {
+    font-size: 14px;
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 8vw);
+  }
+
+  .photo-details:nth-child(2) svg {
+    width: 20px;
+    height: 20px;
   }
 }

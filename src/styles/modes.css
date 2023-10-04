@@ -355,7 +355,11 @@
   color: #000;
 }
 
+/* ======================= *\
+        RESPONSIVE
+\* ======================= */
 
+/*Logo*/
 
 @media (min-width: 1030px) and (max-width:1440px) {
   .light-logo, .dark-logo{
@@ -378,6 +382,12 @@
   .logo-icono{
     width: 5vw;
     margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-icono{
+    width: 6vw;
   }
 }
 

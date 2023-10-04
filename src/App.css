@@ -29,7 +29,7 @@ footer {
   grid-row: 3 / 4;
   text-align: center;
   align-self: center;
-  margin: 15px;
+  margin: 20px 15px;
 }
 
 h1 {
@@ -87,6 +87,8 @@ button {
 .nav-header span {
   padding-left: 10px;
   font-size: 16.5px;
+  align-self: center;
+  cursor: pointer;
 }
 
 .footer {
@@ -116,7 +118,8 @@ button {
 .add-photos-button,
 .search-photos-button,
 .go-perfil-button,
-.config-button {
+.config-button,
+.auth-register {
   border: none;
   display: flex;
   gap: 0.5rem;
@@ -129,8 +132,7 @@ button {
   transition: background 0.1s ease-in-out;
 }
 
-.auth-log,
-.auth-register {
+.auth-log {
   justify-self: end;
   margin: 10px;
   grid-column: 2 / 4;
@@ -138,13 +140,16 @@ button {
 }
 
 .auth-register {
-  text-decoration: none;
+  justify-self: end;
+  margin: 5px;
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+.auth-register a{
   display: flex;
-  gap: 1rem;
-  list-style-type: none;
-  line-height: 30px;
-  padding: 0 15px;
-  font-weight: 700;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .auth {
@@ -371,21 +376,41 @@ button {
         RESPONSIVE
 \* ======================= */
 
+/* Auth */
+@media (max-width: 768px) {
+  .auth-log, .auth-register {
+    display: none;
+  }
+
+  /*650px*/
+}
+
 /*Nav-Header*/
 @media screen and (max-width: 1029px) {
   .nav-header {
     width: 12vw;
   }
-
+  
   .nav-header span {
     display: none;
   }
+
+  .search-user-button,
+  .add-photos-button,
+  .search-photos-button,
+  .go-perfil-button,
+  .config-button,
+  .auth-register {
+   width: max-content;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
   .nav-header {
     padding: 20px 35px 20px 10px;
   }
+
 }
 
 @media screen and (max-width: 650px) {
@@ -422,11 +447,75 @@ button {
   }
 }
 
-/* Auth */
-@media (max-width: 768px) {
-  .auth-log {
-    display: none;
+@media screen and (max-width: 380px) {
+  .nav-header{
+    position: fixed;
+    height: 8vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+    bottom: 0;
+    top: auto;
+  }
+  .nav-header button {
+    width: 60px;
+
   }
 
-  /*650px*/
+  .dark .nav-header {
+    background-color: #141414;
+  } 
+
+  .light .nav-header {
+    background-color: #fff;
+  } 
+
+  .nav-menu {
+    flex-direction: row;
+    display: flex;
+    gap: 0rem;
+  }
+  .nav-menu .avatar-post {
+    width: 30px;
+    height: 30px;
+  }
 }
+
+@media screen and (max-width: 380px) {
+  .nav-header{
+    position: fixed;
+    height: 8vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px ;
+    bottom: 0;
+    top: auto;
+  }
+  .nav-header button{
+    width: 55px;
+
+  }
+
+  .dark .nav-header {
+    background-color: #141414;
+  } 
+
+  .light .nav-header {
+    background-color: #fff;
+  } 
+
+  .nav-menu{
+    flex-direction: row;
+    display: flex;
+    gap: 0rem;
+  }
+  .nav-menu .avatar-post{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+

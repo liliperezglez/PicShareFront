@@ -47,9 +47,10 @@ export const HomePage = () => {
       <aside className='no-more-photos'>
         <p>
           <AnimationSayGoodBye />
-          Estás al día en las últimas fotos subidas. Visita algún usuario para ver sus fotos.
+          Estás al día en las últimas fotos subidas
           <AnimationSayGoodBye />
         </p>
+        <span>Visita algún usuario para ver sus fotos.</span>
       </aside>
       {loading ? <p>{loading}</p> : null}
       {error ? <p className='error-message'>{error}</p> : null}

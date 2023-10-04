@@ -186,14 +186,12 @@ background: none;
 .nav-header > .config-overlay > .config-content > button {
   border: none;
   display: flex;
-  gap: 0.5rem;
-  font-size: 16.5px;
-
+  gap: 0rem;
   background-color: transparent;
   cursor: pointer;
   width: 8vw;
   border-radius: 8px;
-  padding: 20px 20px;
+  padding: 20px;
   transition: background 0.1s ease-in-out;
 }
 
@@ -204,6 +202,21 @@ background: none;
 
 .nav-header > .config-overlay > .config-content > :first-child {
   justify-content: left;
+}
+
+.nav-header .auth-register {
+  justify-self: left;
+  margin: 0;
+}
+.nav-header .config-overlay span{
+  font-size: 14px;
+}
+
+.nav-header .config-content button:nth-child(4) svg{
+    margin-left: 5px;
+}
+.nav-header .config-content button:nth-child(3) svg{
+  margin-left: -5px;
 }
 
 .toggle-mode {

@@ -100,7 +100,7 @@
     width: 200px;
     height: 200px;
   }
-  .user-photo-list > .photo-list > li > .photo img {
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 200px;
     height: 200px;
   }
@@ -123,7 +123,8 @@
     width: 200px;
     height: 200px;
   }
-  .user-photo-list > .photo-list > li > .photo img {
+  
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 200px;
     height: 200px;
   }
@@ -181,7 +182,7 @@
     width: 175px;
     height: 175px;
   }
-  .user-photo-list > .photo-list > li > .photo img {
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 175px;
     height: 175px;
   }
@@ -214,7 +215,7 @@
     width: 125px;
     height: 125px;
   }
-  .user-photo-list > .photo-list > li > .photo img {
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 125px;
     height: 125px;
   }
@@ -291,7 +292,7 @@
     height: 110px;
   }
   
-  .user-photo-list > .photo-list > li > .photo img {
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 110px;
     height: 110px;
   }
@@ -323,7 +324,7 @@
     width: 96px;
     height: 96px;
   }
-  .user-photo-list > .photo-list > li > .photo img {
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 96px;
     height: 96px;
   }

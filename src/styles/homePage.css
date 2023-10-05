@@ -24,7 +24,7 @@
   display: block;
   margin-bottom: 20px;
   margin-top: 6px;
-  color: #a63c60;
+  color: #e86c81;
 }
 /*Clase foto de usuario*/
 .user-photo {
@@ -166,6 +166,12 @@
     width: 375px;
     height: 335px;
   }
+  .app .no-more-photos span{
+      font-size: 11px;
+   }
+  .no-more-photos p{
+      font-size: 14px;
+  }
 }
 
 @media (max-width: 380px){
@@ -178,6 +184,15 @@
   .page-photo-list .photo .photo-details .user-photo {
     width: 278px;
     height: 275px;
+    
+  }
+  
+  .app .no-more-photos span{
+      font-size: 10px;
+   }
+
+  .no-more-photos p{
+      font-size: 11px;
   }
  
 }

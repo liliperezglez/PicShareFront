@@ -67,7 +67,7 @@ export const Header = ({ showNavHeader }) => {
                 <button className='go-perfil-button'>
                   <img
                     className='avatar-post'
-                    src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'}
+                    src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '/../src/resources/DefaultAvatar.png'}
                     height='40'
                     width='40'
                     alt='Avatar'

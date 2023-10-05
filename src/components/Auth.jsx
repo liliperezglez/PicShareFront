@@ -10,7 +10,7 @@ export const Auth = () => {
       <Link to={`/users/${idUser}`} className='auth'>
         <img
           className='avatar-post'
-          src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'}
+          src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '/../src/resources/DefaultAvatar.png'}
           alt='Avatar'
         />
         <p>{userName}</p>

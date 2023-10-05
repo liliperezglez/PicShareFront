@@ -54,7 +54,7 @@ function Configuration({ closeConfig }) {
               <span>Editar Perfil</span>
             </button>
           )}
-          {
+          {!token && (
             <button className='auth-register'>
               <Link to='/register'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='27' height='25' fill='currentColor' class='bi bi-box-arrow-in-right' viewBox='0 0 16 16'>
@@ -70,7 +70,7 @@ function Configuration({ closeConfig }) {
                 <span>Registrarse</span>
               </Link>
             </button>
-          }
+          )}
           {token && (
             <button onClick={logout}>
               <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-box-arrow-right' viewBox='0 0 16 16'>

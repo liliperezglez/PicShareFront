@@ -61,11 +61,11 @@
   height: 100%;
 }
 
-.search-user .user-content label{
+.search-user .user-content label {
   text-align: center;
 }
 
-.search-user .user-content input{
+.search-user .user-content input {
   padding: 5px;
   border-radius: 5px;
 }
@@ -78,7 +78,7 @@
   padding: 15px;
 }
 
-.search-user .user-content .name-user{
+.search-user .user-content .name-user {
   font-size: 12px;
   padding-left: 5px;
 }
@@ -224,28 +224,24 @@
   }
 }
 
-
 /*----------------------------*\
     MODAL Token caducado POST
 \*----------------------------*/
-.modal-content.token-caducado{
+.modal-content.token-caducado {
   flex-direction: column;
   gap: 15px;
   padding: 30px;
 }
-
-.modal-content.token-caducado .buttons-logout-modal .secondary-button{
+.modal-content.token-caducado .buttons-logout-modal .secondary-button {
   margin-top: 5px;
 }
-
-
 
 /*---------------------*\
     MODAL BOTÓN "MÁS"
 \*---------------------*/
 
 .nav-header > .config-overlay {
-background: none;
+  background: none;
 }
 
 .nav-header > .config-overlay .config-content {
@@ -281,15 +277,15 @@ background: none;
   justify-self: left;
   margin: 0;
 }
-.nav-header .config-overlay span{
+.nav-header .config-overlay span {
   font-size: 14px;
   align-self: center;
 }
 
-.nav-header .config-content button:nth-child(4) svg{
-    margin-left: 5px;
+.nav-header .config-content button:nth-child(4) svg {
+  margin-left: 5px;
 }
-.nav-header .config-content button:nth-child(3) svg{
+.nav-header .config-content button:nth-child(3) svg {
   margin-left: -5px;
 }
 
@@ -377,8 +373,12 @@ background: none;
 .modal-content .modal-data .user-description {
   padding-bottom: 15px;
   margin-bottom: 10px;
-  margin: 30px 0 10px 0;
+  margin: 0 0 10px 0;
   width: auto;
+}
+
+.modal-data .comments {
+  margin-bottom: 15px;
 }
 
 .user-details > p {
@@ -428,13 +428,19 @@ background: none;
 
 .comments-list {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   width: 28vw;
   margin-top: 5px;
 }
 
 .comments-list > .user-info {
   align-items: start;
+}
+
+.comments-list > .comment {
+  margin-top: 5px;
+  margin-left: 15px;
 }
 
 .user-details > p {
@@ -452,6 +458,7 @@ background: none;
 
 .date-and-delete {
   display: flex;
+  justify-content: end;
 }
 
 .date-and-delete > button {
@@ -462,13 +469,13 @@ background: none;
 }
 
 .comment-date {
-  margin-left: auto;
   font-size: 12px;
   cursor: default;
 }
 
 .like-and-comment {
   padding: 10px 0px;
+  margin-left: 15px;
   text-align: left;
   display: flex;
   gap: 15px;
@@ -476,6 +483,7 @@ background: none;
 
 .comment-form {
   display: flex;
+  align-items: baseline;
 }
 
 .comment-form > fieldset {
@@ -541,7 +549,7 @@ background: none;
   gap: 5px;
   margin-bottom: 10px;
 }
-.comments .edit-comment p{
+.comments .edit-comment p {
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -642,6 +650,163 @@ background: none;
 }
 @media (max-width: 320px){
  
+}
+
+/*-------------------------------------*\
+ MEDIA QUERIES - MODALES PUBLICACIONES
+\*-------------------------------------*/
+
+/* PANTALLAS w1400px */
+@media (min-width: 1400px) and (max-width: 2560px) {
+  .user-description {
+    padding-top: 20px;
+  }
+
+  .comment-form > fieldset > input {
+    width: 22vw;
+  }
+}
+
+/* PANTALLAS w1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modal-content {
+    width: 95vw;
+  }
+
+  /* Imagen de la publicación */
+  .modal-content .modal-img {
+    width: 55%;
+  }
+
+  /* Zona de comentarios */
+  .modal-content > .modal-data {
+    width: 39vw;
+  }
+
+  .user-comment > .comments-list {
+    margin-top: 5px;
+    margin-left: 15px;
+    width: 95%;
+  }
+
+  .user-comment > .comments-list > .comment {
+    margin: 5px 5px 10px 15px;
+  }
+
+  /* Input de comentarios */
+  .comment-form > fieldset > input {
+    width: 28vw;
+    font-size: 17px;
+  }
+
+  .comment-form > button {
+    font-size: 15px;
+  }
+}
+
+/* PANTALLAS w768px */
+@media (min-width: 425px) and (max-width: 768px) {
+  .modal-content {
+    max-width: 85vw;
+    max-height: 95vh;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+
+  .modal-content .modal-img {
+    width: auto;
+    height: 55vh;
+    margin-top: 10px;
+  }
+
+  .modal-content .modal-img img {
+    height: 90%;
+  }
+
+  .modal-content .modal-data {
+    height: 95%;
+    width: 90%;
+    margin: auto;
+  }
+
+  .modal-overlay .modal-data .user-description {
+    margin: 0;
+  }
+
+  .user-comment > .comments-list {
+    margin-top: 5px;
+    margin-left: 15px;
+    width: 95%;
+  }
+
+  .modal-data > .comments {
+    height: 18vh;
+    margin-bottom: 0;
+  }
+
+  .comments > p {
+    margin: 15px;
+  }
+
+  .comment-form > fieldset > input {
+    width: 60vw;
+    padding: 5px;
+    font-size: 17px;
+  }
+
+  .modal-overlay > button {
+    right: 15px;
+  }
+}
+
+/* PANTALLAS w425px */
+@media (min-width: 375px) and (max-width: 425px) {
+  .photo .photo-details .modal-content {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 0px;
+    justify-content: start;
+  }
+
+  .modal-content .modal-img {
+    max-height: 50vh;
+    margin-top: 0px;
+    margin-bottom: -15px;
+  }
+
+  .modal-content .modal-img img {
+    width: 98vw;
+    max-height: auto;
+    object-fit: contain;
+  }
+
+  .modal-overlay .modal-content .modal-data {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  .modal-data > .comments {
+    height: 30vh;
+  }
+
+  .date-and-delete svg {
+    vertical-align: bottom;
+    transform: scale(0.6);
+  }
+
+  .modal-overlay > button {
+    top: 15px;
+    transform: scale(1.8);
+  }
+}
+
+/* PANTALLAS w375px */
+@media (min-width: 320px) and (max-width: 375px) {
+}
+
+/* PANTALLAS w320px */
+@media (max-width: 320px) {
 }
 
 /*---------------------*\

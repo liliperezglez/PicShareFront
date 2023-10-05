@@ -21,7 +21,7 @@ function PhotoList({ photos, removePost, toggleLike, editComment, addComment, re
       })}
     </ul>
   ) : (
-    <p className='p-photo-list'>No hay publicaciones...</p>
+    <p className='p-photo-list'>No se encontraron publicaciones...</p>
   );
 }
 

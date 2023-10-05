@@ -93,7 +93,9 @@ export const UserProfile = () => {
                 <h2>{username}</h2>
               </div>
               <h3>{name}</h3>
-              <h3>{photosUser.length} Publicaciones </h3>
+              <h3>
+                {photosUser.length} {photosUser.length > 1 || photosUser.length == 0 ? `Publicaciones` : `Publicación`}
+              </h3>
               <h3>{`Miembro desde ${new Date(user.date).toLocaleDateString()}`}</h3>
             </div>
             <div className='user-buttons'>

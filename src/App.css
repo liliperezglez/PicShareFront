@@ -237,7 +237,6 @@ button {
   overflow-x: auto;
   overflow-y: clip;
   text-align: left;
-  margin-bottom: 5px;
 }
 
 .disabled-link {
@@ -427,6 +426,9 @@ button {
   .nav-header button {
     width: 60px;
   }
+  .nav-header .go-perfil-button{
+    width: auto;
+  }
 
   .dark .nav-header {
     background-color: #141414;
@@ -448,74 +450,26 @@ button {
 }
 
 @media screen and (max-width: 380px) {
+  .nav-header button{
+    width: 55px;
+  }
+  
+}
+@media screen and (max-width: 320px){
   .nav-header{
     position: fixed;
-    height: 8vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    padding: 0 10px;
-    bottom: 0;
-    top: auto;
+    height: 7vh;
+    padding: 0;
   }
-  .nav-header button {
-    width: 60px;
-
-  }
-
-  .dark .nav-header {
-    background-color: #141414;
-  } 
-
-  .light .nav-header {
-    background-color: #fff;
-  } 
-
-  .nav-menu {
-    flex-direction: row;
-    display: flex;
+    .nav-menu {
     gap: 0rem;
   }
   .nav-menu .avatar-post {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
 }
-
-@media screen and (max-width: 380px) {
-  .nav-header{
-    position: fixed;
-    height: 8vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    padding: 0 10px ;
-    bottom: 0;
-    top: auto;
-  }
-  .nav-header button{
-    width: 55px;
-
-  }
-
-  .dark .nav-header {
-    background-color: #141414;
-  } 
-
-  .light .nav-header {
-    background-color: #fff;
-  } 
-
-  .nav-menu{
-    flex-direction: row;
-    display: flex;
-    gap: 0rem;
-  }
-  .nav-menu .avatar-post{
-    width: 30px;
-    height: 30px;
-  }
-}
+ 
 
 
 

@@ -42,14 +42,13 @@
 }
 
 /* Lista de fotos del perfil */
-.user-photo-list {
+.user-photo-list,.p-photo-list {
   display: flex;
   width: calc(100vw - 15vw);
   margin-left: auto;
 }
 
-.user-photo-list > .photo-list,
-.p-photo-list {
+.user-photo-list > .photo-list {
   display: grid;
   grid-template-columns: repeat(3, 33%);
   gap: 35px;
@@ -162,7 +161,7 @@
 
   /* Datos del usuario */
   .user-data {
-    min-width: 18vw;
+    min-width: 25vw;
   }
 
   .user-data > * {
@@ -236,10 +235,10 @@
   }
 
   .user > .user-data {
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
+    width: max-content;
   }
 
   .user > .user-data > div,
@@ -269,7 +268,7 @@
   }
 
   .user-data > * {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 14px;
   }
 
@@ -319,6 +318,12 @@
 /* PANTALLAS w320px */
 @media (max-width: 320px) {
   /* Lista de fotos */
+  .user-photo-list, .p-photo-list {
+    display: flex;
+    width: calc(100vw - 10vw);
+    margin-left: auto;
+}
+
   .user-photo-list > .photo-list > li {
     width: 96px;
     height: 96px;
@@ -338,10 +343,9 @@
   }
 
   .user > .user-data {
-    flex-direction: row;
     align-items: center;
-    gap: 15px;
-    text-align: center;
+    justify-content: center;
+    width: max-content;
   }
 
   .user .user-buttons {

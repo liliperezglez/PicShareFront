@@ -94,7 +94,7 @@ export const EditProfile = ({ closeEditProfile, tokenCaducadoVisible, setTokenCa
               <label>Avatar</label>
               <div>
                 <img
-                  src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'}
+                  src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../../src/resources/DefaultAvatar.png'}
                   alt={`Avatar de ${userName}`}
                 />
                 <input

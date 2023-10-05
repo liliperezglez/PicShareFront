@@ -47,9 +47,9 @@ export const Register = () => {
     <section className='form-pages'>
       <Header showNavHeader={false} />
       {isLightMode ? (
-        <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo' onClick={handleLogoClick} />
+        <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo-form' onClick={handleLogoClick} />
       ) : (
-        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo' onClick={handleLogoClick} />
+        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo-form' onClick={handleLogoClick} />
       )}
       <p>Regístrate para ver y compartir fotos con tus amigos.</p>
       <form className='form' onSubmit={handleForm}>

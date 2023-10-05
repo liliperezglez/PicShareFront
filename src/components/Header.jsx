@@ -31,11 +31,11 @@ export const Header = ({ showNavHeader }) => {
           <div className='nav-menu'>
             <h1>
               <Link to='/'>
-                <img src={LogoIcon} alt='Logo Icono' className='logo-icono' />
+                <img src={LogoIcon} alt='Logo Icono' className='logo-icono-nav-header' />
                 {isLightMode ? (
-                  <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo' />
+                  <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo-nav-header' />
                 ) : (
-                  <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo' />
+                  <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo-nav-header' />
                 )}
               </Link>
             </h1>

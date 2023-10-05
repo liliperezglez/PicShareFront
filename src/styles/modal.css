@@ -130,6 +130,69 @@
 }
 
 /*-----------------------*\
+      MEDIA QUERIES    
+    MODAL search user
+\*-----------------------*/
+/* PANTALLAS 4k */
+@media (min-width: 2560px) {
+  .search-user .user-content {
+    width: 14vw;
+  }
+}
+
+/* PANTALLAS w+1400px*/
+@media (min-width:1401px) and (max-width: 2559px) {
+  .search-user .user-content {
+    position: absolute;
+    top: -50px;
+    left: 202px;
+    float: left;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 100%;
+    margin-top: 50px;
+   }
+}
+
+/* PANTALLAS w1400px  */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .search-user .user-content {
+    position: absolute;
+    top: -50px;
+    left: 123px;
+    float: left;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 100%;
+    margin-top: 50px;
+   }
+}
+
+/* PANTALLAS w1024px  */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-user .user-content {
+   position: absolute;
+   top: -50px;
+   left: 92px;
+   float: left;
+   overflow: hidden;
+   border-radius: 5px;
+   height: 100%;
+   margin-top: 50px;
+  }
+}
+
+/* PANTALLAS de w320px a w768px */
+@media (max-width: 767px) {
+  .search-user .user-content {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+  }
+}
+
+/*-----------------------*\
     MODAL ELIMINAR POST
 \*-----------------------*/
 
@@ -667,6 +730,35 @@ background: none;
   justify-content: space-evenly;
 }
 
+/*-----------------------*\
+      MEDIA QUERIES    
+    MODAL EDITAR PERFIL
+\*-----------------------*/
+/* PANTALLAS de w320px a w768px */
+@media (max-width: 425px) {
+  .edit-profile > .modal-content {
+    width: 94%;
+    height: 88%;
+  }  
+  
+  .edit-profile > .modal-content > .user-data {
+    width: 100vw;
+    flex-direction: column;
+  }    
+  
+  .edit-profile  .modal-content .user-data form {
+    align-self: center;
+  }
+
+  .edit-profile  .modal-content h1 {
+    background-color: chartreuse;
+  }
+}
+
+@media (max-width: 320px) {
+
+}
+
 /*---------------------*\
   MODAL ELIMINAR PERFIL
 \*---------------------*/
@@ -689,4 +781,34 @@ background: none;
   object-fit: cover;
   border-radius: 100%;
   margin-bottom: 10px;
+}
+
+/*-----------------------*\
+      MEDIA QUERIES    
+   MODAL ELIMINAR PERFIL
+\*-----------------------*/
+
+/* PANTALLAS de w320px a w768px */
+@media (min-width: 376px) and (max-width: 425px) {
+  .delete-profile .modal-content  {
+    height: 133vw;
+    width: 90vw;
+  }
+}
+
+@media (min-width:321px) and (max-width: 375px) {
+  .delete-profile .modal-content {
+    height: 96%;
+    width: 90vw;
+    overflow: hidden;
+  }
+}
+
+/* Esta última igual cuando cambiemos el tamaño de letra nos la podemos cargar */
+@media (max-width: 320px) {
+  .delete-profile .modal-content {
+    height: 99%;
+    width: 90vw;
+    overflow: hidden;
+  }
 }

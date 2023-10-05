@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Header } from '../components/Header';
 import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 import LogoModoClaro from '../resources/LogoModoClaro.png';
+import LogoIcon from '../resources/LogoIconos.png';
 import { useTheme } from '../context/ThemeContext';
 
 export const Login = () => {
@@ -38,9 +39,9 @@ export const Login = () => {
     <section className='form-pages'>
       <Header showNavHeader={false} />
       {isLightMode ? (
-        <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo' onClick={handleLogoClick} />
+        <img src={LogoModoClaro} alt='Logo Modo Claro' className='light-logo-form' onClick={handleLogoClick} />
       ) : (
-        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo' onClick={handleLogoClick} />
+        <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo-form' onClick={handleLogoClick} />
       )}
       <form className='form' onSubmit={handleForm}>
         <fieldset>

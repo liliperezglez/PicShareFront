@@ -689,6 +689,10 @@
     width: 39vw;
   }
 
+  .modal-overlay .modal-data > .user-description {
+    margin-top: 15px;
+  }
+
   .user-comment > .comments-list {
     margin-top: 5px;
     margin-left: 15px;
@@ -735,8 +739,8 @@
     margin: auto;
   }
 
-  .modal-overlay .modal-data .user-description {
-    margin: 0;
+  .modal-overlay .modal-data > .user-description {
+    margin: 0px;
   }
 
   .user-comment > .comments-list {
@@ -810,12 +814,106 @@
 
 /* PANTALLAS w375px */
 @media (min-width: 320px) and (max-width: 375px) {
+  .photo .photo-details .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-content .modal-img {
+    max-height: 50vh;
+    height: auto;
+    width: 90vw;
+    margin-left: 5px;
+  }
+  
+  .modal-content .modal-img img {
+    max-height: 40vh;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .modal-content .modal-data {
+    padding-top: 50px;
+  }
+
+  .modal-data .user-description {
+    margin-top: 50px;
+    padding: 0;  
+  }
+
+  .modal-data .comments {
+    min-height: 35vh;
+    max-height: 100%;
+    
+  }
+
+  .modal-data .comments ul {
+    overflow-x: hidden;
+  }
+
+  .user-comment > .comments-list  {
+    width: 100%;
+  }
+
+   .comment-form > fieldset > input {
+      width: 58vw;  
+    }
+
+  .modal-overlay > button {
+    top: 10px;
+    right: 10px;
+    transform: scale(2);
+  }
 }
 
 /* PANTALLAS w320px */
 @media (max-width: 320px) {
-}
+  .photo .photo-details .modal-content {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    justify-content: start;    
+  }
 
+  .modal-content .modal-img {
+    min-height: auto;
+    max-height: 50vh;
+    width: 95vw;
+  }
+  
+  .modal-content .modal-img img {
+    width: 100%;
+  }
+
+  .modal-content .modal-data {
+    height: 50vh;
+    width: 100vw;
+    padding-top: 0px;
+  }
+
+  .modal-data .user-description {
+    margin-top: 50px;
+    padding: 0;
+  }
+
+  .user-comment > .comments-list  {
+    width: 100%;
+  }
+
+  .comment-form > fieldset > input {
+    width: 58vw;  
+  }
+
+  .date-and-delete svg {
+    vertical-align: bottom;
+    transform: scale(0.6);
+  }
+
+  .modal-overlay > button {
+    top: 10px;
+    right: 10px;
+    transform: scale(2);
+  }
+}
 
 /*---------------------*\
    MODAL EDITAR PERFIL

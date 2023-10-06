@@ -899,30 +899,87 @@
       MEDIA QUERIES    
     MODAL EDITAR PERFIL
 \*-----------------------*/
+
+@media (min-width:426px) and (max-width: 1024px) {
+  .modal-content {
+    max-width: 90vw;
+  } 
+}
 /* PANTALLAS de w320px a w768px */
 @media (max-width: 425px) {
   .edit-profile > .modal-content {
     width: 94%;
     height: 88%;
-  }  
-  
-  .edit-profile > .modal-content > .user-data {
-    width: 100vw;
+    display: flex;
     flex-direction: column;
-  }    
-  
-  .edit-profile  .modal-content .user-data form {
-    align-self: center;
+    justify-content: flex-start; 
+    align-items: center;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px); 
   }
 
-  .edit-profile  .modal-content h1 {
-    background-color: chartreuse;
+  .edit-profile > .modal-content h1 {
+    font-size: 24px;
+    margin: 10px 0; 
+  }
+
+  .edit-profile > .modal-content .user-data {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .edit-profile > .modal-content form {
+    width: 100%;
+  }
+
+  .edit-profile > .modal-content .user-data form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0; 
+  }
+
+  .edit-profile > .modal-content .user-data form > div fieldset {
+    width: 90%; 
+  }
+
+  .edit-profile > .modal-content .user-data form button {
+    margin: 10px 0; 
   }
 }
 
+/* PANTALLAS w320px */
 @media (max-width: 320px) {
+  .edit-profile > .modal-content .user-data form.change-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .edit-profile > .modal-content .user-data form.change-avatar > fieldset {
+    width: 100%; 
+    text-align: center;
+  }
+  
+  .edit-profile > .modal-content .user-data form.change-avatar > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0; 
+  }
+  
+  .edit-profile > .modal-content .user-data form.change-avatar button.main-button {
+    margin: 10px 0; 
+  }
 
+  .edit-profile > .modal-content .user-data form.change-avatar input{
+    margin-left: 26px;
+  }
+  .edit-profile > .modal-content .user-data form.change-avatar img {
+    margin: 10px 27px 10px 36px; 
+  }
 }
+
 
 /*---------------------*\
   MODAL ELIMINAR PERFIL

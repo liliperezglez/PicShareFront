@@ -761,7 +761,7 @@
 
 /* PANTALLAS w425px */
 @media (min-width: 375px) and (max-width: 425px) {
-  .photo .photo-details .modal-content {
+  .photo .photo-details > .modal-overlay > .modal-content {
     min-width: 100%;
     min-height: 100%;
     border-radius: 0px;
@@ -780,7 +780,7 @@
     object-fit: contain;
   }
 
-  .modal-overlay .modal-content .modal-data {
+  .photo .photo-details > .modal-overlay > .modal-content .modal-data {
     height: 100%;
     width: 100%;
     margin: 0;

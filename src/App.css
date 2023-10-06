@@ -146,7 +146,7 @@ button {
   grid-row: 1;
 }
 
-.auth-register a{
+.auth-register a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -384,22 +384,22 @@ button {
     font-size: 1.2rem;
   }
 
-  p, span {
+  p,
+  span {
     font-size: 14px;
   }
 
-  footer{
+  footer {
     font-size: 15px;
   }
-  
-  .modal-content .user-description > p{
+
+  .modal-content .user-description > p {
     font-size: 14px;
   }
-  
 }
 
 @media screen and (max-width: 600px) {
-  .app{
+  .app {
     height: 110%;
   }
   h2 {
@@ -407,11 +407,10 @@ button {
   }
 }
 
-
-
 /* Auth */
 @media (max-width: 768px) {
-  .auth-log, .auth-register {
+  .auth-log,
+  .auth-register {
     display: none;
   }
 
@@ -423,7 +422,7 @@ button {
   .nav-header {
     width: 12vw;
   }
-  
+
   .nav-header span {
     display: none;
   }
@@ -434,16 +433,14 @@ button {
   .go-perfil-button,
   .config-button,
   .auth-register {
-   width: max-content;
+    width: max-content;
   }
-
 }
 
 @media screen and (max-width: 768px) {
   .nav-header {
     padding: 20px 35px 20px 10px;
   }
-
 }
 
 @media screen and (max-width: 650px) {
@@ -460,7 +457,7 @@ button {
   .nav-header button {
     width: 65px;
   }
-  .nav-header .go-perfil-button{
+  .nav-header .go-perfil-button {
     width: auto;
   }
 
@@ -477,7 +474,9 @@ button {
     display: flex;
     gap: 0.5rem;
   }
-  .nav-menu .avatar-post,.comments-list .avatar-post {
+
+  .nav-menu .avatar-post,
+  .comments-list .avatar-post {
     width: 30px;
     height: 30px;
   }
@@ -491,27 +490,30 @@ button {
     height: 20px;
   }
 }
+
 @media screen and (max-width: 380px) {
   .nav-menu {
     gap: 0;
   }
+
   .logo-icono-nav-header {
     width: 12vw;
     margin-left: 0;
   }
-  
 }
-@media screen and (max-width: 320px){
-  .nav-header{
+
+@media screen and (max-width: 320px) {
+  .nav-header {
     position: fixed;
     height: 7vh;
     padding: 0px 10px;
   }
+
   .nav-header button {
     width: 55px;
     padding: 15px;
     align-items: center;
-}
+  }
 
   .nav-menu .avatar-post {
     width: 25px;
@@ -519,7 +521,3 @@ button {
     margin-top: 5px;
   }
 }
-
-
-
-

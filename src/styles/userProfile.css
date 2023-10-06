@@ -50,7 +50,7 @@
 
 .user-photo-list > .photo-list {
   display: grid;
-  grid-template-columns: repeat(3, 33%);
+  grid-template-columns: repeat(3, 1fr);
   gap: 35px;
   justify-content: center;
   width: 1050px;

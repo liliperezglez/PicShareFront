@@ -61,7 +61,6 @@
   margin-top: 50px;
 }
 
-
 .search-user .user-content label {
   text-align: center;
 }
@@ -146,20 +145,20 @@
 @media (max-width: 1440px) {
   .search-user .user-content {
     left: 202px;
-   }
+  }
 }
 
 /* PANTALLAS w1400px  */
 @media (max-width: 1400px) {
   .search-user .user-content {
     left: 123px;
-   }
+  }
 }
 
 /* PANTALLAS w1024px  */
 @media (max-width: 1023px) {
   .search-user .user-content {
-   left: 92px;
+    left: 92px;
   }
 }
 
@@ -183,7 +182,6 @@
   }
 }
 
-
 @media (max-width: 375px) {
   .search-user .user-content {
     top: 0;
@@ -204,12 +202,12 @@
 \*-----------------------*/
 
 /*Modal de borrar publicacion*/
-.modal-overlay .modal-content.delete-post-content{
+.modal-overlay .modal-content.delete-post-content {
   flex-direction: column;
   gap: 10px;
   padding: 30px;
 }
-.modal-overlay .modal-content.delete-post-content .buttons-delete-post{
+.modal-overlay .modal-content.delete-post-content .buttons-delete-post {
   display: flex;
   gap: 10px;
   margin-top: -10px;
@@ -220,12 +218,11 @@
 
 /* PANTALLAS w425px  A w320px */
 @media (max-width: 425px) {
-  
-  .modal-overlay .modal-content.delete-post-content{
+  .modal-overlay .modal-content.delete-post-content {
     padding: 20px;
     width: 80%;
   }
-  .modal-overlay .modal-content.delete-post-content *{
+  .modal-overlay .modal-content.delete-post-content * {
     font-size: 16px;
   }
 }
@@ -278,7 +275,6 @@
   transition: background 0s ease-in-out;
 }
 
-
 .nav-header .auth-register {
   justify-self: left;
   margin: 0;
@@ -291,9 +287,7 @@
 .nav-header .config-content button:nth-child(4) svg {
   margin-left: 5px;
 }
-.nav-header .config-content button:nth-child(3) svg {
-  margin-left: -5px;
-}
+
 
 .toggle-mode {
   display: flex;
@@ -306,25 +300,22 @@
 \*--------------------------------*/
 /* PANTALLAS w1400px  */
 @media (min-width: 1024px) and (max-width: 1440px) {
-  .nav-header > .config-overlay > .config-content > button{
+  .nav-header > .config-overlay > .config-content > button {
     width: 12vw;
   }
-  
 }
 
-
 /* PANTALLAS w1024px - w768px  */
-@media (min-width: 768px) and (max-width: 1024px){
-  .nav-header > .config-overlay > .config-content > button{
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav-header > .config-overlay > .config-content > button {
     width: auto;
     justify-content: center !important;
   }
 }
 
-
 /* PANTALLAS w425px  A w320px */
 @media (max-width: 425px) {
-  .nav-header > .config-overlay > .config-content{
+  .nav-header > .config-overlay > .config-content {
     width: 17vw;
     padding: 3px;
     position: absolute;
@@ -332,22 +323,21 @@
     right: 5vw;
     bottom: 8vh;
   }
-  .nav-header > .config-overlay > .config-content > button{
+  .nav-header > .config-overlay > .config-content > button {
     width: fit-content;
   }
 }
 
-@media (max-width: 380px){
- .nav-header > .config-overlay > .config-content > button{  
+@media (max-width: 380px) {
+  .nav-header > .config-overlay > .config-content > button {
     padding: 15px;
   }
 }
-@media (max-width: 320px){
- .nav-header > .config-overlay > .config-content > button{  
+@media (max-width: 320px) {
+  .nav-header > .config-overlay > .config-content > button {
     padding: 15px 10px;
   }
 }
-
 
 /*---------------------*\
   MODALES PUBLICACIONES
@@ -518,9 +508,8 @@
   font-size: 16px;
 }
 
-
 /* MODAL EDIT COMMENT */
-.user-comment .date-and-delete .modal-overlay{
+.user-comment .date-and-delete .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -532,7 +521,7 @@
   z-index: 1;
 }
 
-.user-comment .date-and-delete .modal-content{
+.user-comment .date-and-delete .modal-content {
   height: auto;
   overflow: scroll;
   overflow-x: hidden;
@@ -616,46 +605,40 @@
   cursor: pointer;
 }
 
-
 /*-------------------------------------------*\
       MEDIA QUERIES - MODAL Edit comment
 \*-------------------------------------------*/
 /* PANTALLAS w1400px  */
 @media (max-width: 1400px) {
-  .user-comment .date-and-delete .modal-content{
+  .user-comment .date-and-delete .modal-content {
     width: 35vw;
   }
   .comments .edit-comment {
     padding: 10px;
     max-width: fit-content;
   }
-  
 }
 
-
 /* PANTALLAS w1024px - w768px  */
-@media (min-width: 426px) and (max-width: 1024px){
-  .user-comment .date-and-delete .modal-content{
+@media (min-width: 426px) and (max-width: 1024px) {
+  .user-comment .date-and-delete .modal-content {
     width: fit-content;
   }
 }
 
-
-
 /* PANTALLAS w425px  A w320px */
 @media (max-width: 425px) {
-   .user-comment .date-and-delete .modal-content{
+  .user-comment .date-and-delete .modal-content {
     width: 85vw;
   }
 }
 
-@media (max-width: 380px){
-  .user-comment .date-and-delete .modal-content *{
+@media (max-width: 380px) {
+  .user-comment .date-and-delete .modal-content * {
     font-size: 14px;
   }
 }
-@media (max-width: 320px){
- 
+@media (max-width: 320px) {
 }
 
 /*-------------------------------------*\
@@ -812,95 +795,35 @@
   }
 }
 
-/* PANTALLAS w375px */
-@media (min-width: 320px) and (max-width: 375px) {
-  .photo .photo-details .modal-content {
-    flex-direction: column;
+/* PANTALLAS w320px */
+@media (max-width: 320px) {
+  .photo .photo-details > .modal-overlay > .modal-content {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 0px;
+    justify-content: start;
   }
 
   .modal-content .modal-img {
     max-height: 50vh;
-    height: auto;
-    width: 90vw;
-    margin-left: 5px;
+    margin-top: 0px;
+    margin-bottom: -15px;
   }
-  
+
   .modal-content .modal-img img {
-    max-height: 40vh;
-    width: 100%;
+    width: 98vw;
+    max-height: auto;
     object-fit: contain;
   }
 
-  .modal-content .modal-data {
-    padding-top: 50px;
-  }
-
-  .modal-data .user-description {
-    margin-top: 50px;
-    padding: 0;  
-  }
-
-  .modal-data .comments {
-    min-height: 35vh;
-    max-height: 100%;
-    
-  }
-
-  .modal-data .comments ul {
-    overflow-x: hidden;
-  }
-
-  .user-comment > .comments-list  {
-    width: 100%;
-  }
-
-   .comment-form > fieldset > input {
-      width: 58vw;  
-    }
-
-  .modal-overlay > button {
-    top: 10px;
-    right: 10px;
-    transform: scale(2);
-  }
-}
-
-/* PANTALLAS w320px */
-@media (max-width: 320px) {
-  .photo .photo-details .modal-content {
+  .photo .photo-details > .modal-overlay > .modal-content .modal-data {
     height: 100%;
     width: 100%;
-    border-radius: 0px;
-    justify-content: start;    
+    margin: 0;
   }
 
-  .modal-content .modal-img {
-    min-height: auto;
-    max-height: 50vh;
-    width: 95vw;
-  }
-  
-  .modal-content .modal-img img {
-    width: 100%;
-  }
-
-  .modal-content .modal-data {
-    height: 50vh;
-    width: 100vw;
-    padding-top: 0px;
-  }
-
-  .modal-data .user-description {
-    margin-top: 50px;
-    padding: 0;
-  }
-
-  .user-comment > .comments-list  {
-    width: 100%;
-  }
-
-  .comment-form > fieldset > input {
-    width: 58vw;  
+  .modal-data > .comments {
+    height: 30vh;
   }
 
   .date-and-delete svg {
@@ -908,10 +831,15 @@
     transform: scale(0.6);
   }
 
+  .comment-form > fieldset > input {
+    width: 50vw;
+    font-size: 12px;
+  }
+
   .modal-overlay > button {
-    top: 10px;
+    top: 15px;
     right: 10px;
-    transform: scale(2);
+    transform: scale(1.8);
   }
 }
 
@@ -1006,10 +934,10 @@
     MODAL EDITAR PERFIL
 \*-----------------------*/
 
-@media (min-width:426px) and (max-width: 1024px) {
+@media (min-width: 426px) and (max-width: 1024px) {
   .modal-content {
     max-width: 90vw;
-  } 
+  }
 }
 /* PANTALLAS de w320px a w768px */
 @media (max-width: 425px) {
@@ -1018,15 +946,15 @@
     height: 88%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
-    max-height: calc(100vh - 40px); 
+    max-height: calc(100vh - 40px);
   }
 
   .edit-profile > .modal-content h1 {
     font-size: 24px;
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
   .edit-profile > .modal-content .user-data {
@@ -1042,15 +970,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
   .edit-profile > .modal-content .user-data form > div fieldset {
-    width: 90%; 
+    width: 90%;
   }
 
   .edit-profile > .modal-content .user-data form button {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 }
 
@@ -1061,31 +989,30 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   .edit-profile > .modal-content .user-data form.change-avatar > fieldset {
-    width: 100%; 
+    width: 100%;
     text-align: center;
   }
-  
+
   .edit-profile > .modal-content .user-data form.change-avatar > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0; 
-  }
-  
-  .edit-profile > .modal-content .user-data form.change-avatar button.main-button {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
-  .edit-profile > .modal-content .user-data form.change-avatar input{
+  .edit-profile > .modal-content .user-data form.change-avatar button.main-button {
+    margin: 10px 0;
+  }
+
+  .edit-profile > .modal-content .user-data form.change-avatar input {
     margin-left: 26px;
   }
   .edit-profile > .modal-content .user-data form.change-avatar img {
-    margin: 10px 27px 10px 36px; 
+    margin: 10px 27px 10px 36px;
   }
 }
-
 
 /*---------------------*\
   MODAL ELIMINAR PERFIL
@@ -1118,13 +1045,13 @@
 
 /* PANTALLAS de w320px a w768px */
 @media (min-width: 376px) and (max-width: 425px) {
-  .delete-profile .modal-content  {
+  .delete-profile .modal-content {
     height: 133vw;
     width: 90vw;
   }
 }
 
-@media (min-width:321px) and (max-width: 375px) {
+@media (min-width: 321px) and (max-width: 375px) {
   .delete-profile .modal-content {
     height: 96%;
     width: 90vw;

@@ -404,8 +404,8 @@
 
 @media screen and (max-width: 650px) {
   .logo-icono-nav-header{
-    width: 7vw;
-    margin-top: -10px;
+    width: 8vw;
+    margin-bottom: -10px;
   }
 }
 @media screen and (max-width: 380px) {

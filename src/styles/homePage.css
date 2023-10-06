@@ -33,6 +33,13 @@
   margin-top: 8px;
 }
 
+/*description*/
+.photo .user-description .user-info .avatar-post{
+  height: 30px;
+  width: 30px;
+}
+
+
 /*Redondeo avatar*/
 .avatar-post {
   border-radius: 100px;
@@ -148,7 +155,10 @@
   .page-photo-list .photo .photo-details .user-photo {
     width: 450px;
     height: 370px;
-}
+  }
+  .photo .user-description .user-info p{
+   font-size: 14px;
+  }
 }
 
 /* PANTALLAS w425px  A w320px */

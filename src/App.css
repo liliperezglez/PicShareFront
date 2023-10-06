@@ -374,6 +374,40 @@ button {
 /* ======================= *\
         RESPONSIVE
 \* ======================= */
+/*GENERAL*/
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p, span {
+    font-size: 14px;
+  }
+
+  footer{
+    font-size: 15px;
+  }
+  
+  .modal-content .user-description > p{
+    font-size: 14px;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .app{
+    height: 110%;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+
+
 
 /* Auth */
 @media (max-width: 768px) {
@@ -413,14 +447,6 @@ button {
 }
 
 @media screen and (max-width: 650px) {
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
   .nav-header {
     position: fixed;
     height: 8vh;

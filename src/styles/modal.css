@@ -52,14 +52,15 @@
 /* CSS para el contenido del userContent */
 .search-user .user-content {
   position: absolute;
-  top: 11vh;
-  left: 0;
+  top: -50px;
+  left: 262px;
   float: left;
-  gap: 20px;
   overflow: hidden;
   border-radius: 5px;
   height: 100%;
+  margin-top: 50px;
 }
+
 
 .search-user .user-content label {
   text-align: center;
@@ -141,57 +142,63 @@
 }
 
 /* PANTALLAS w+1400px*/
-@media (min-width:1401px) and (max-width: 2559px) {
+
+@media (max-width: 1440px) {
   .search-user .user-content {
-    position: absolute;
-    top: -50px;
     left: 202px;
-    float: left;
-    overflow: hidden;
-    border-radius: 5px;
-    height: 100%;
-    margin-top: 50px;
    }
 }
 
 /* PANTALLAS w1400px  */
-@media (min-width: 1024px) and (max-width: 1400px) {
+@media (max-width: 1400px) {
   .search-user .user-content {
-    position: absolute;
-    top: -50px;
     left: 123px;
-    float: left;
-    overflow: hidden;
-    border-radius: 5px;
-    height: 100%;
-    margin-top: 50px;
    }
 }
 
 /* PANTALLAS w1024px  */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 1023px) {
   .search-user .user-content {
-   position: absolute;
-   top: -50px;
    left: 92px;
-   float: left;
-   overflow: hidden;
-   border-radius: 5px;
-   height: 100%;
-   margin-top: 50px;
   }
 }
 
 /* PANTALLAS de w320px a w768px */
-@media (max-width: 767px) {
+@media (max-width: 650px) {
   .search-user .user-content {
     top: 0;
     left: 0;
-    width: 100%;
+    margin-top: 20px;
+    width: 74%;
     height: 90%;
   }
 }
 
+@media (max-width: 425px) {
+  .search-user .user-content {
+    top: 0;
+    left: 0;
+    width: 80%;
+    margin-left: 45px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .search-user .user-content {
+    top: 0;
+    left: 0;
+    width: 90%;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-user .user-content {
+    width: 95%;
+    margin-left: 10px;
+  }
+}
 /*-----------------------*\
     MODAL ELIMINAR POST
 \*-----------------------*/
@@ -318,8 +325,8 @@
 /* PANTALLAS w425px  A w320px */
 @media (max-width: 425px) {
   .nav-header > .config-overlay > .config-content{
-    width: 21vw;
-    padding: 11px;
+    width: 17vw;
+    padding: 3px;
     position: absolute;
     left: auto;
     right: 5vw;
@@ -667,7 +674,7 @@
 }
 
 /* PANTALLAS w1024px */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .modal-content {
     width: 95vw;
   }
@@ -704,7 +711,7 @@
 }
 
 /* PANTALLAS w768px */
-@media (min-width: 425px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .modal-content {
     max-width: 85vw;
     max-height: 95vh;
@@ -745,12 +752,13 @@
 
   .comments > p {
     margin: 15px;
+    font-size: 14.5px;
   }
 
   .comment-form > fieldset > input {
     width: 60vw;
     padding: 5px;
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .modal-overlay > button {
@@ -808,319 +816,6 @@
 @media (max-width: 320px) {
 }
 
-/*-------------------------------------*\
- MEDIA QUERIES - MODALES PUBLICACIONES
-\*-------------------------------------*/
-
-/* PANTALLAS w1400px */
-@media (min-width: 1400px) and (max-width: 2560px) {
-  .user-description {
-    padding-top: 20px;
-  }
-
-  .comment-form > fieldset > input {
-    width: 22vw;
-  }
-}
-
-/* PANTALLAS w1024px */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .modal-content {
-    width: 95vw;
-  }
-
-  /* Imagen de la publicación */
-  .modal-content .modal-img {
-    width: 55%;
-  }
-
-  /* Zona de comentarios */
-  .modal-content > .modal-data {
-    width: 39vw;
-  }
-
-  .user-comment > .comments-list {
-    margin-top: 5px;
-    margin-left: 15px;
-    width: 95%;
-  }
-
-  .user-comment > .comments-list > .comment {
-    margin: 5px 5px 10px 15px;
-  }
-
-  /* Input de comentarios */
-  .comment-form > fieldset > input {
-    width: 28vw;
-    font-size: 17px;
-  }
-
-  .comment-form > button {
-    font-size: 15px;
-  }
-}
-
-/* PANTALLAS w768px */
-@media (min-width: 425px) and (max-width: 768px) {
-  .modal-content {
-    max-width: 85vw;
-    max-height: 95vh;
-    flex-direction: column;
-    overflow-y: hidden;
-  }
-
-  .modal-content .modal-img {
-    width: auto;
-    height: 55vh;
-    margin-top: 10px;
-  }
-
-  .modal-content .modal-img img {
-    height: 90%;
-  }
-
-  .modal-content .modal-data {
-    height: 95%;
-    width: 90%;
-    margin: auto;
-  }
-
-  .modal-overlay .modal-data .user-description {
-    margin: 0;
-  }
-
-  .user-comment > .comments-list {
-    margin-top: 5px;
-    margin-left: 15px;
-    width: 95%;
-  }
-
-  .modal-data > .comments {
-    height: 18vh;
-    margin-bottom: 0;
-  }
-
-  .comments > p {
-    margin: 15px;
-  }
-
-  .comment-form > fieldset > input {
-    width: 60vw;
-    padding: 5px;
-    font-size: 17px;
-  }
-
-  .modal-overlay > button {
-    right: 15px;
-  }
-}
-
-/* PANTALLAS w425px */
-@media (min-width: 375px) and (max-width: 425px) {
-  .photo .photo-details .modal-content {
-    min-width: 100%;
-    min-height: 100%;
-    border-radius: 0px;
-    justify-content: start;
-  }
-
-  .modal-content .modal-img {
-    max-height: 50vh;
-    margin-top: 0px;
-    margin-bottom: -15px;
-  }
-
-  .modal-content .modal-img img {
-    width: 98vw;
-    max-height: auto;
-    object-fit: contain;
-  }
-
-  .modal-overlay .modal-content .modal-data {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-  }
-
-  .modal-data > .comments {
-    height: 30vh;
-  }
-
-  .date-and-delete svg {
-    vertical-align: bottom;
-    transform: scale(0.6);
-  }
-
-  .modal-overlay > button {
-    top: 15px;
-    transform: scale(1.8);
-  }
-}
-
-/* PANTALLAS w375px */
-@media (min-width: 320px) and (max-width: 375px) {
-}
-
-/* PANTALLAS w320px */
-@media (max-width: 320px) {
-}
-
-/*-------------------------------------*\
- MEDIA QUERIES - MODALES PUBLICACIONES
-\*-------------------------------------*/
-
-/* PANTALLAS w1400px */
-@media (min-width: 1400px) and (max-width: 2560px) {
-  .user-description {
-    padding-top: 20px;
-  }
-
-  .comment-form > fieldset > input {
-    width: 22vw;
-  }
-}
-
-/* PANTALLAS w1024px */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .modal-content {
-    width: 95vw;
-  }
-
-  /* Imagen de la publicación */
-  .modal-content .modal-img {
-    width: 55%;
-  }
-
-  /* Zona de comentarios */
-  .modal-content > .modal-data {
-    width: 39vw;
-  }
-
-  .user-comment > .comments-list {
-    margin-top: 5px;
-    margin-left: 15px;
-    width: 95%;
-  }
-
-  .user-comment > .comments-list > .comment {
-    margin: 5px 5px 10px 15px;
-  }
-
-  /* Input de comentarios */
-  .comment-form > fieldset > input {
-    width: 28vw;
-    font-size: 17px;
-  }
-
-  .comment-form > button {
-    font-size: 15px;
-  }
-}
-
-/* PANTALLAS w768px */
-@media (min-width: 425px) and (max-width: 768px) {
-  .modal-content {
-    max-width: 85vw;
-    max-height: 95vh;
-    flex-direction: column;
-    overflow-y: hidden;
-  }
-
-  .modal-content .modal-img {
-    width: auto;
-    height: 55vh;
-    margin-top: 10px;
-  }
-
-  .modal-content .modal-img img {
-    height: 90%;
-  }
-
-  .modal-content .modal-data {
-    height: 95%;
-    width: 90%;
-    margin: auto;
-  }
-
-  .modal-overlay .modal-data .user-description {
-    margin: 0;
-  }
-
-  .user-comment > .comments-list {
-    margin-top: 5px;
-    margin-left: 15px;
-    width: 95%;
-  }
-
-  .modal-data > .comments {
-    height: 18vh;
-    margin-bottom: 0;
-  }
-
-  .comments > p {
-    margin: 15px;
-  }
-
-  .comment-form > fieldset > input {
-    width: 60vw;
-    padding: 5px;
-    font-size: 17px;
-  }
-
-  .modal-overlay > button {
-    right: 15px;
-  }
-}
-
-/* PANTALLAS w425px */
-@media (min-width: 375px) and (max-width: 425px) {
-  .photo .photo-details .modal-content {
-    min-width: 100%;
-    min-height: 100%;
-    border-radius: 0px;
-    justify-content: start;
-  }
-
-  .modal-content .modal-img {
-    max-height: 50vh;
-    margin-top: 0px;
-    margin-bottom: -15px;
-  }
-
-  .modal-content .modal-img img {
-    width: 98vw;
-    max-height: auto;
-    object-fit: contain;
-  }
-
-  .modal-overlay .modal-content .modal-data {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-  }
-
-  .modal-data > .comments {
-    height: 30vh;
-  }
-
-  .date-and-delete svg {
-    vertical-align: bottom;
-    transform: scale(0.6);
-  }
-
-  .modal-overlay > button {
-    top: 15px;
-    transform: scale(1.8);
-  }
-}
-
-/* PANTALLAS w375px */
-@media (min-width: 320px) and (max-width: 375px) {
-}
-
-/* PANTALLAS w320px */
-@media (max-width: 320px) {
-}
 
 /*---------------------*\
    MODAL EDITAR PERFIL

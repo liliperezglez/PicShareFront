@@ -458,7 +458,7 @@ button {
     top: auto;
   }
   .nav-header button {
-    width: 60px;
+    width: 65px;
   }
   .nav-header .go-perfil-button{
     width: auto;
@@ -477,15 +477,27 @@ button {
     display: flex;
     gap: 0.5rem;
   }
-  .nav-menu .avatar-post {
+  .nav-menu .avatar-post,.comments-list .avatar-post {
     width: 30px;
     height: 30px;
   }
-}
 
+  .delete-post-button-user-profile {
+    right: 0px;
+  }
+
+  .delete-post-button-user-profile svg {
+    width: 20px;
+    height: 20px;
+  }
+}
 @media screen and (max-width: 380px) {
-  .nav-header button{
-    width: 55px;
+  .nav-menu {
+    gap: 0;
+  }
+  .logo-icono-nav-header {
+    width: 12vw;
+    margin-left: 0;
   }
   
 }
@@ -493,17 +505,21 @@ button {
   .nav-header{
     position: fixed;
     height: 7vh;
-    padding: 0;
+    padding: 0px 10px;
   }
-    .nav-menu {
-    gap: 0rem;
-  }
+  .nav-header button {
+    width: 55px;
+    padding: 15px;
+    align-items: center;
+}
+
   .nav-menu .avatar-post {
     width: 25px;
     height: 25px;
+    margin-top: 5px;
   }
 }
- 
+
 
 
 

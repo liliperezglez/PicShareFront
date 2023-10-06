@@ -29,7 +29,7 @@ footer {
   grid-row: 3 / 4;
   text-align: center;
   align-self: center;
-  margin: 20px 15px;
+  margin: 25px 15px;
 }
 
 h1 {
@@ -413,6 +413,14 @@ button {
 }
 
 @media screen and (max-width: 650px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
   .nav-header {
     position: fixed;
     height: 8vh;

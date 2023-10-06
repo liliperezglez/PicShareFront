@@ -273,7 +273,7 @@
     font-size: 14px;
   }
 
-  .user-photo-list .photo-details:nth-child(2) svg {
+  .photo-details .modal-overlay svg {
     width: 20px;
     height: 20px;
   }
@@ -372,7 +372,7 @@
     width: calc(100vw - 8vw);
   }
 
-  .user-photo-list .photo-details:nth-child(2) svg {
+  .photo-details .modal-overlay svg {
     width: 20px;
     height: 20px;
   }

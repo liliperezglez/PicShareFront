@@ -666,6 +666,9 @@
   .comment-form > fieldset > input {
     width: 22vw;
   }
+  .modal-data .comments {
+   padding-top: 20px;
+  }
 }
 
 /* PANTALLAS w1024px */
@@ -682,6 +685,10 @@
   /* Zona de comentarios */
   .modal-content > .modal-data {
     width: 39vw;
+  }
+  
+  .modal-data .comments {
+   padding-top: 20px;
   }
 
   .modal-overlay .modal-data > .user-description {

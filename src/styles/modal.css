@@ -326,6 +326,15 @@
   .nav-header > .config-overlay > .config-content > button {
     width: fit-content;
   }
+
+  .nav-header > .config-overlay > .config-content > .edit-profile > .modal-content {
+    text-align: center;
+  }
+
+  .nav-header > .config-overlay > .config-content > .edit-profile > .modal-content button {
+    width: fit-content;
+  }
+
 }
 
 @media (max-width: 380px) {

@@ -521,3 +521,22 @@ button {
     margin-top: 5px;
   }
 }
+
+/* Botón principal */
+@media (max-width: 425px) {
+  .main-button {
+    font-size: 14px !important; 
+  }
+
+  .secondary-button {
+    font-size: 14px !important; 
+  }
+
+  .delete-button {
+    font-size: 14px !important; 
+  }
+}
+
+
+
+

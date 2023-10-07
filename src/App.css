@@ -493,12 +493,12 @@ button {
 
 @media screen and (max-width: 380px) {
   .nav-menu {
-    gap: 0;
+    gap: 0 !important;
   }
 
   .logo-icono-nav-header {
-    width: 12vw;
-    margin-left: 0;
+    width: 12vw !important;
+    margin-left: 0 !important;
   }
 }
 
@@ -506,19 +506,19 @@ button {
   .nav-header {
     position: fixed;
     height: 7vh;
-    padding: 0px 10px;
+    padding: 0px 10px !important;
   }
 
   .nav-header button {
-    width: 55px;
-    padding: 15px;
-    align-items: center;
+    width: 55px !important;
+    padding: 15px !important;
+    align-items: center !important;
   }
 
   .nav-menu .avatar-post {
-    width: 25px;
-    height: 25px;
-    margin-top: 5px;
+    width: 25px !important;
+    height: 25px !important;
+    margin-top: 5px !important;
   }
 }
 

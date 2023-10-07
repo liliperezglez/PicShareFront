@@ -131,9 +131,6 @@
   border-radius: 8px;
 }
 
-.dark .modal-content .modal-data .user-description {
-  border-bottom: 1px solid #000;
-}
 
 .dark .comment-date {
   color: #c7c7c7;

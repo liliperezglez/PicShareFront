@@ -131,7 +131,6 @@
   border-radius: 8px;
 }
 
-
 .dark .comment-date {
   color: #c7c7c7;
 }
@@ -187,7 +186,7 @@
   color: #000000;
 }
 
-.light-logo-nav-header{
+.light-logo-nav-header {
   cursor: pointer;
   margin-bottom: 10px;
 }
@@ -306,9 +305,9 @@
 }
 
 .light .user-comment:hover {
-    background-color: #00000010;
-    border-radius: 8px;
-  }
+  background-color: #00000010;
+  border-radius: 8px;
+}
 
 .light .modal-content .modal-data .user-description {
   border-bottom: 1px solid #000;
@@ -370,43 +369,45 @@
 
 /*Logo nav-header*/
 
-@media (min-width: 1030px) and (max-width:1440px) {
-  .light-logo-nav-header, .dark-logo-nav-header{
+@media (min-width: 1030px) and (max-width: 1440px) {
+  .light-logo-nav-header,
+  .dark-logo-nav-header {
     margin-left: -20px;
     width: 13vw;
   }
 }
 
-@media screen and (min-width:1030px){
-  .logo-icono-nav-header{
+@media screen and (min-width: 1030px) {
+  .logo-icono-nav-header {
     display: none;
   }
 }
 
-@media screen and (max-width:1029px){
-  .light-logo-nav-header, .dark-logo-nav-header{
+@media screen and (max-width: 1029px) {
+  .light-logo-nav-header,
+  .dark-logo-nav-header {
     display: none;
   }
-  .logo-icono-nav-header{
+  .logo-icono-nav-header {
     width: 5vw;
     margin-left: 15px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .logo-icono-nav-header{
+  .logo-icono-nav-header {
     width: 6vw;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .logo-icono-nav-header{
+  .logo-icono-nav-header {
     width: 8vw;
     margin-bottom: -10px;
   }
 }
 @media screen and (max-width: 380px) {
-   .logo-icono{
+  .logo-icono {
     width: 8vw;
     margin-top: -10px;
     margin-left: 6px;

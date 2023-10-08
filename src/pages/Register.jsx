@@ -6,7 +6,6 @@ import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 import LogoModoClaro from '../resources/LogoModoClaro.png';
 import { useTheme } from '../context/ThemeContext';
 
-
 export const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');

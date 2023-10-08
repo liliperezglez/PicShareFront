@@ -54,7 +54,7 @@ export const AddPost = () => {
       // Obtén el token de autenticación del contexto
       const token = localStorage.getItem('token');
 
-      const response = await addPhotoService({ token, formData });
+      await addPhotoService({ token, formData });
 
       // Verifica la respuesta y toma medidas en consecuencia
       navigate('/');

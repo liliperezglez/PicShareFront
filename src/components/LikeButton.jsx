@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import TokenCaducado from './TokenCaducado';
-import usePosts from '../hooks/usePosts';
 
 function LikeButton({ photo, toggleLike, tokenCaducadoVisible }) {
   const { token, idUser } = useContext(AuthContext);

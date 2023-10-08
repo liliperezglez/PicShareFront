@@ -1,46 +1,45 @@
 .search-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .search-page .search-photos-form {
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
-    margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 10px;
 }
 
-.search-page .search-photos-form fieldset{
-    border-radius: 5px;
-    padding: 8px;
+.search-page .search-photos-form fieldset {
+  border-radius: 5px;
+  padding: 8px;
 }
 
-.search-page .search-photos-form label{
-    margin-right: 10px;
+.search-page .search-photos-form label {
+  margin-right: 10px;
 }
 
-.search-page .search-photos-form input{
-    padding: 5px;
-    min-width: 350px;
-    border-radius: 5px;
+.search-page .search-photos-form input {
+  padding: 5px;
+  min-width: 350px;
+  border-radius: 5px;
 }
 
 .search-page .photos-desc-content .photo .profile-posts {
-    width: 550px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 550px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
 }
-
 
 /*--------------------*\
       MEDIA QUERIES
 \*--------------------*/
 /* PANTALLAS w1400px  */
 @media (min-width: 1024px) and (max-width: 1400px) {
-  .search-page .search-photos-form{
+  .search-page .search-photos-form {
     overflow-x: hidden;
     width: calc(100vw - 19vw);
     margin-left: auto;
@@ -62,7 +61,7 @@
     width: calc(100vw - 18vw);
     margin-left: auto;
   }
-  .search-page .search-photos-form{
+  .search-page .search-photos-form {
     width: calc(100vw - 12vw);
     margin-left: auto;
     margin-top: 20px;
@@ -87,7 +86,7 @@
   .photos-desc-content {
     width: 100vw;
   }
-  .search-page .search-photos-form{
+  .search-page .search-photos-form {
     width: 100vw;
     margin-top: 40px;
     display: flex;
@@ -99,7 +98,7 @@
 
   .search-page .search-photos-form fieldset {
     max-width: 394px;
-}
+  }
 
   .search-page .photos-desc-content .photo-list {
     width: 89%;
@@ -118,7 +117,7 @@
     width: 100vw;
   }
 
-  .search-page .search-photos-form{
+  .search-page .search-photos-form {
     width: 100vw;
     margin-top: 40px;
     display: flex;
@@ -129,12 +128,12 @@
   }
 
   .search-page .search-photos-form fieldset {
-  max-width: 300px;
+    max-width: 300px;
   }
-  
+
   .search-page .search-photos-form input {
     min-width: 340px;
-}
+  }
 
   .search-page .photos-desc-content .photo-list {
     width: 88%;
@@ -147,13 +146,13 @@
   }
 }
 
-@media (max-width: 320px){
+@media (max-width: 320px) {
   .search-page {
     width: 100vw;
     overflow-x: hidden;
   }
 
-  .search-page .search-photos-form{
+  .search-page .search-photos-form {
     width: 95%;
     margin-top: 40px;
     display: flex;
@@ -161,9 +160,8 @@
     gap: 2px;
     align-items: center;
     margin-bottom: 6px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
   }
-
 
   .search-page .search-photos-form input {
     min-width: 280px;
@@ -174,4 +172,4 @@
     height: auto;
     object-fit: cover;
   }
-} 
+}

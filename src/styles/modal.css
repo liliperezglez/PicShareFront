@@ -288,7 +288,6 @@
   margin-left: 5px;
 }
 
-
 .toggle-mode {
   display: flex;
   align-items: center;
@@ -334,7 +333,6 @@
   .nav-header > .config-overlay > .config-content > .edit-profile > .modal-content button {
     width: fit-content;
   }
-
 }
 
 @media (max-width: 380px) {
@@ -667,7 +665,7 @@
     width: 22vw;
   }
   .modal-data .comments {
-   padding-top: 20px;
+    padding-top: 20px;
   }
 }
 
@@ -686,9 +684,9 @@
   .modal-content > .modal-data {
     width: 39vw;
   }
-  
+
   .modal-data .comments {
-   padding-top: 20px;
+    padding-top: 20px;
   }
 
   .modal-overlay .modal-data > .user-description {

@@ -5,7 +5,6 @@ import { AuthContext } from '../context/AuthContext';
 import { Header } from '../components/Header';
 import LogoModoOscuro from '../resources/LogoModoOscuro.png';
 import LogoModoClaro from '../resources/LogoModoClaro.png';
-import LogoIcon from '../resources/LogoIconos.png';
 import { useTheme } from '../context/ThemeContext';
 
 export const Login = () => {

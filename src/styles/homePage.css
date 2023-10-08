@@ -3,22 +3,21 @@
 .page-photo-list {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   text-align: center;
   width: auto;
 }
-
 
 .page-photo-list .photo .photo-details .user-photo {
   width: 550px;
   height: 400px;
 }
 
-.app .no-more-photos{
+.app .no-more-photos {
   margin-top: 20px;
 }
 
-.app .no-more-photos span{
+.app .no-more-photos span {
   text-align: center;
   font-size: 12px;
   display: block;
@@ -34,11 +33,10 @@
 }
 
 /*description*/
-.photo .user-description .user-info .avatar-post{
+.photo .user-description .user-info .avatar-post {
   height: 30px;
   width: 30px;
 }
-
 
 /*Redondeo avatar*/
 .avatar-post {
@@ -59,16 +57,18 @@
   background-color: transparent;
 }
 
-.delete-post-button-home-page:hover, .comment-button:hover, .like-button:hover {
+.delete-post-button-home-page:hover,
+.comment-button:hover,
+.like-button:hover {
   cursor: pointer;
 }
 
-.comment-button, .like-button {
+.comment-button,
+.like-button {
   border: none;
   background-color: transparent;
   font-size: 16px;
 }
-
 
 /* -------------- Animation -------------- */
 #animation {
@@ -90,14 +90,18 @@
   animation: frame-animation 1.2s steps(10) infinite;
 }
 
-@keyframes frame-animation { 
-  0% { background-position: 0px 0; } 
-  100% { background-position: -500px 0; } 
+@keyframes frame-animation {
+  0% {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: -500px 0;
+  }
 }
 
 /* -------------- Roll -------------- */
 .showRoll #roll {
-  opacity: .2;
+  opacity: 0.2;
 }
 
 #roll {
@@ -110,13 +114,17 @@
   height: 72px;
   border: none;
   background: hsl(0, 0%, 100%) url(https://s.cdpn.io/79/sprite-steps.png) no-repeat left top;
-  transition: opacity .3s linear;
+  transition: opacity 0.3s linear;
   animation: roll-animation 1.2s steps(10) infinite;
 }
 
-@keyframes roll-animation { 
-  0% { transform: translateX(0); } 
-  100% { transform: translateX(-500px); } 
+@keyframes roll-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
 }
 /*--------------------*\
       MEDIA QUERIES
@@ -124,17 +132,20 @@
 
 /* PANTALLAS w1400px  */
 @media (min-width: 1024px) and (max-width: 1400px) {
-  .page-photo-list, .no-more-photos, footer {
+  .page-photo-list,
+  .no-more-photos,
+  footer {
     width: calc(100vw - 14vw);
     margin-left: auto;
     overflow-x: hidden;
   }
 }
 
-
 /* PANTALLAS w1024px  */
-@media (min-width: 769px) and (max-width: 1024px){
-  .page-photo-list, .no-more-photos, footer {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-photo-list,
+  .no-more-photos,
+  footer {
     width: calc(100vw - 9vw);
     margin-left: auto;
     overflow-x: hidden;
@@ -143,12 +154,14 @@
 
 /* PANTALLAS w768px  */
 @media (min-width: 425px) and (max-width: 768px) {
-  .page-photo-list, .no-more-photos, footer {
+  .page-photo-list,
+  .no-more-photos,
+  footer {
     width: calc(100vw - 9vw);
     overflow-x: hidden;
     margin-left: auto;
   }
-  .page-photo-list .photo-list{
+  .page-photo-list .photo-list {
     width: 66%;
   }
 
@@ -156,19 +169,21 @@
     width: 450px;
     height: 370px;
   }
-  .photo .user-description .user-info p{
-   font-size: 14px;
+  .photo .user-description .user-info p {
+    font-size: 14px;
   }
 }
 
 /* PANTALLAS w425px  A w320px */
 @media (max-width: 425px) {
-  .page-photo-list, .no-more-photos, footer {
+  .page-photo-list,
+  .no-more-photos,
+  footer {
     width: 100%;
     overflow-x: hidden;
     margin-left: 0;
   }
-  .page-photo-list .photo-list{
+  .page-photo-list .photo-list {
     width: 92%;
   }
 
@@ -176,33 +191,31 @@
     width: 375px;
     height: 335px;
   }
-  .app .no-more-photos span{
-      font-size: 11px;
-   }
-  .no-more-photos p{
-      font-size: 14px;
+  .app .no-more-photos span {
+    font-size: 11px;
+  }
+  .no-more-photos p {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 380px){
+@media (max-width: 380px) {
   .page-photo-list .photo .photo-details .user-photo {
     width: 330px;
     height: 330px;
   }
 }
-@media (max-width: 320px){
+@media (max-width: 320px) {
   .page-photo-list .photo .photo-details .user-photo {
     width: 278px;
     height: 275px;
-    
   }
-  
-  .app .no-more-photos span{
-      font-size: 10px;
-   }
 
-  .no-more-photos p{
-      font-size: 11px;
+  .app .no-more-photos span {
+    font-size: 10px;
   }
- 
+
+  .no-more-photos p {
+    font-size: 11px;
+  }
 }

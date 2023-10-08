@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "serve dist -s",
+    "start": "serve dist -s -n -L -p $PORT",
     "lint": "eslint --fix . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write ."
   },

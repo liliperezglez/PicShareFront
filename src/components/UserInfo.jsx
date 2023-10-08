@@ -15,7 +15,7 @@ function UserInfo({ user, nombre, closeUserSearch }) {
           src={
             user.avatar
               ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${user.idUser || idUser}/${user.avatar}`
-              : '../../src/resources/DefaultAvatar.png'
+              : `${import.meta.env.VITE_APP_BACKEND}/resources/DefaultAvatar.png`
           }
         />
         <div className='user-details'>

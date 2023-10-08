@@ -11,7 +11,7 @@ Este proyecto es la interfaz de usuario para la aplicación PicShare, que se con
 
 A continuación se muestran algunas capturas de pantalla de la interfaz de usuario de PicShare Frontend:
 
-![Login Screenshot](./src/resources/screenshot-login.jpg)
+![Login Screenshot](./src/resources/screenshot-login-screen.jpg)
 *Inicio de sesión*
 
 ![Home Page Screenshot](./src/resources/screenshot-homepage.jpg)

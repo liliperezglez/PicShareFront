@@ -7,7 +7,6 @@ import usePosts from '../hooks/usePosts';
 import { AuthContext } from '../context/AuthContext';
 import { EditProfile } from '../components/EditProfile';
 import { Header } from '../components/Header';
-import userAvatar from '../resources/DefaultAvatar.png';
 
 export const UserProfile = () => {
   const { idUser, avatar, setAvatar, logout } = useContext(AuthContext);
@@ -71,7 +70,7 @@ export const UserProfile = () => {
   } else if (user && user.avatar && actualUser) {
     avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${actualUser}/${user.avatar}`;
   } else {
-    avatarSrc = userAvatar;
+    avatarSrc = `${import.meta.env.VITE_APP_BACKEND}/resources/DefaultAvatar.png`;
   }
 
   const updatedPhotosUser = photosUser.map((photoNew) => {

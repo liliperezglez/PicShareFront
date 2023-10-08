@@ -1,7 +1,7 @@
 # PicShare Frontend
 
 ![Logo App](./src/resources/PicShare-full-logo.jpg)
-*Logo*
+
 
 ## Descripción
 Este proyecto es la interfaz de usuario para la aplicación PicShare, que se conecta a la API de PicShare para permitir a los usuarios interactuar con la plataforma de compartir fotos. Permite a los usuarios registrados ver, publicar y comentar fotos, así como interactuar con otros miembros de la comunidad PicShare.

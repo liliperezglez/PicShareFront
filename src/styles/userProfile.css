@@ -11,7 +11,7 @@
   height: 120px;
   width: 120px;
   border-radius: 100px;
-  margin: 25px 50px 25px 60px;
+  margin: 25px 50px 25px 50px;
   display: flex;
 }
 
@@ -291,10 +291,10 @@
 }
 
 /* PANTALLAS w390px */
-@media (min-width: 375px) and (max-width: 390px) {
+@media (min-width: 375px) and (max-width: 393px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
-    width: 110px;
+    width: 100%;
     height: 110px;
   }
 

@@ -155,7 +155,7 @@
   }
 
   /* Avatar */
-  .user > .img-container {
+  .user .img-container {
     height: 120px;
     width: 120px;
     border-radius: 100px;
@@ -163,7 +163,7 @@
     display: flex;
   }
 
-  .user > .img-container > img {
+  .user .img-container img {
     object-fit: cover;
     width: max-content;
     border-radius: inherit;

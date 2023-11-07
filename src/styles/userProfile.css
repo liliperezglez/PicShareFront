@@ -7,12 +7,18 @@
 }
 
 /* Avatar */
-.user > img {
-  height: 125px;
-  width: 125px;
-  object-fit: cover;
-  border-radius: 100%;
+.user > .img-container {
+  height: 120px;
+  width: 120px;
+  border-radius: 100px;
   margin: 25px 50px 70px 60px;
+  display: flex;
+}
+
+.user > .img-container > img {
+  object-fit: cover;
+  width: max-content;
+  border-radius: inherit;
 }
 
 /* Datos del usuario */
@@ -155,18 +161,10 @@
   }
 
   /* Avatar */
-  .user .img-container {
+  .user > img {
     height: 120px;
     width: 120px;
-    border-radius: 100px;
-    margin: 25px 50px 70px 60px;
-    display: flex;
-  }
-
-  .user .img-container img {
-    object-fit: cover;
-    width: max-content;
-    border-radius: inherit;
+    margin: auto 20px;
   }
 
   /* Datos del usuario */

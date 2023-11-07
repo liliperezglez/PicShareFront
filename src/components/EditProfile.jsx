@@ -164,7 +164,7 @@ export const EditProfile = ({ closeEditProfile, tokenCaducadoVisible, setTokenCa
                   />
                 )}
                 <button type='button' className='secondary-button' onClick={openDeleteProfile}>
-                  Eliminar cuenta
+                  Desactivar cuenta
                 </button>
               </div>
             </div>

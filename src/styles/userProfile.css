@@ -17,7 +17,7 @@
 
 .user > .img-container > img {
   object-fit: cover;
-  width: max-content;
+  width: inherit;
   border-radius: inherit;
 }
 
@@ -214,12 +214,13 @@
   }
 }
 
-/* PANTALLAS w425px */
-@media (min-width: 375px) and (max-width: 425px) {
+/* PANTALLAS w390px */
+@media (min-width: 375px) and (max-width: 390px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
     width: 125px;
     height: 125px;
+    gap: 10px;
   }
   .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 125px;
@@ -291,7 +292,7 @@
 }
 
 /* PANTALLAS w375px */
-@media (min-width: 320px) and (max-width: 375px) {
+@media (min-width: 320px) and (max-width: 390px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
     width: 110px;

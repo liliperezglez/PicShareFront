@@ -17,7 +17,7 @@
 
 .user > .img-container > img {
   object-fit: cover;
-  width: max-content;
+  width: inherit;
   border-radius: inherit;
 }
 
@@ -215,7 +215,7 @@
 }
 
 /* PANTALLAS w425px */
-@media (min-width: 375px) and (max-width: 425px) {
+@media (min-width: 390px) and (max-width: 425px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
     width: 125px;
@@ -289,6 +289,40 @@
     width: calc(100vw - 8vw);
   }
 }
+
+/* PANTALLAS w390px */
+@media (min-width: 375px) and (max-width: 390px) {
+  /* Lista de fotos */
+  .user-photo-list > .photo-list > li {
+    width: 110px;
+    height: 110px;
+  }
+
+  .user-photo-list > .photo-list > li > .photo .profile-posts {
+    width: 110px;
+    height: 110px;
+  }
+
+  .user-photo-list > .photo-list {
+    width: 375px;
+    gap: 10px;
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    width: calc(100vw - 18vw);
+  }
+
+  .user-photo-list {
+    width: calc(100vw - 8vw);
+    margin-left: auto;
+  }
+}
+
 
 /* PANTALLAS w375px */
 @media (min-width: 320px) and (max-width: 375px) {

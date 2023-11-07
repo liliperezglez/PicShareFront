@@ -11,13 +11,13 @@
   height: 120px;
   width: 120px;
   border-radius: 100px;
-  margin: 25px 50px 70px 60px;
+  margin: 25px 50px 25px 60px;
   display: flex;
 }
 
 .user > .img-container > img {
   object-fit: cover;
-  width: inherit;
+  width: max-content;
   border-radius: inherit;
 }
 
@@ -214,13 +214,12 @@
   }
 }
 
-/* PANTALLAS w390px */
-@media (min-width: 375px) and (max-width: 390px) {
+/* PANTALLAS w425px */
+@media (min-width: 375px) and (max-width: 425px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
     width: 125px;
     height: 125px;
-    gap: 10px;
   }
   .user-photo-list > .photo-list > li > .photo .profile-posts {
     width: 125px;
@@ -292,7 +291,7 @@
 }
 
 /* PANTALLAS w375px */
-@media (min-width: 320px) and (max-width: 390px) {
+@media (min-width: 320px) and (max-width: 375px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
     width: 110px;

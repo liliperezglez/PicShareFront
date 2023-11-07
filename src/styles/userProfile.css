@@ -215,7 +215,7 @@
 }
 
 /* PANTALLAS w425px */
-@media (min-width: 390px) and (max-width: 425px) {
+@media (min-width: 393px) and (max-width: 425px) {
   /* Lista de fotos */
   .user-photo-list > .photo-list > li {
     width: 125px;
@@ -228,6 +228,7 @@
 
   .user-photo-list > .photo-list {
     width: 425px;
+    gap: 10px;
   }
 
   .user-photo-list {

@@ -31,6 +31,16 @@
   text-align: center;
 }
 
+.login-form {
+  height: 340px;
+  max-height: 340px;
+}
+
+.register-form {
+  height: 524px;
+  max-height: 524px;
+}
+
 .form fieldset {
   border: none;
   padding: 0;
@@ -84,7 +94,7 @@
 
 #login-link,
 #register-link {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 /* ======================= *\

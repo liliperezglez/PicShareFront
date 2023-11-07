@@ -155,10 +155,18 @@
   }
 
   /* Avatar */
-  .user > img {
+  .user > .img-container {
     height: 120px;
     width: 120px;
-    margin: auto 20px;
+    border-radius: 100px;
+    margin: 25px 50px 70px 60px;
+    display: flex;
+  }
+
+  .user > .img-container > img {
+    object-fit: cover;
+    width: max-content;
+    border-radius: inherit;
   }
 
   /* Datos del usuario */

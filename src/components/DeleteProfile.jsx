@@ -32,7 +32,7 @@ export const DeleteProfile = ({ closeDeleteProfile, setTokenCaducadoVisible, tok
   return (
     <section className='modal-overlay delete-profile' onClick={handleOverlayClick}>
       <div className='modal-content'>
-        <h1>Eliminar cuenta</h1>
+        <h1>Desactivar cuenta</h1>
         <div>
           <img
             src={avatar ? `${import.meta.env.VITE_APP_BACKEND}/uploads/avatarUser/${idUser}/${avatar}` : '../src/resources/userNoAvatar_icon.svg'}
@@ -42,8 +42,8 @@ export const DeleteProfile = ({ closeDeleteProfile, setTokenCaducadoVisible, tok
           <p>{`Eres miembro desde ${new Date(userCreatedAt).toLocaleDateString()}`}</p>
         </div>
         <div>
-          <h2>Esto eliminará tu cuenta</h2>
-          <p>Vas a eliminar tu cuenta de PicShare.</p>
+          <h2>Esto desactivará tu cuenta</h2>
+          <p>Vas a desactivar tu cuenta de PicShare.</p>
           <p>Tu perfil dejará de ser accesible y tus acciones serán eliminadas.</p>
         </div>
         <div>
@@ -52,7 +52,7 @@ export const DeleteProfile = ({ closeDeleteProfile, setTokenCaducadoVisible, tok
           <p></p>
         </div>
         <button type='button' className='delete-button' onClick={handleDeleteAccount}>
-          Eliminar cuenta
+          Desactivar cuenta
         </button>
       </div>
       {error ? <p className='error-message'>{error}</p> : null}

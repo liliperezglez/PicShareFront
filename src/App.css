@@ -109,6 +109,10 @@ button {
   margin: 1rem 0;
 }
 
+.app .nav-menu > h1 {
+  text-align: start;
+}
+
 .nav-menu a {
   text-decoration: none;
 }
@@ -128,7 +132,7 @@ button {
   cursor: pointer;
   width: 12vw;
   border-radius: 8px;
-  padding: 20px 20px;
+  padding: 15px 20px 20px 20px;
   transition: background 0.1s ease-in-out;
 }
 
@@ -140,6 +144,7 @@ button {
 }
 
 .auth-register {
+  width: 12vw;
   justify-self: end;
   margin: 5px;
   grid-column: 2 / 4;
@@ -149,6 +154,7 @@ button {
 .auth-register a {
   display: flex;
   align-items: center;
+  margin: 0 auto;
   gap: 0.5rem;
 }
 
@@ -255,8 +261,18 @@ button {
   margin: 5px;
 }
 
-/* NotFoundPage */
+/* Botones "Entrar" y "Regístrate" */
+#login-link > a,
+#register-link > a {
+  color: #007bff;
+}
 
+/* Scroll de login y register */
+body:has(.form-pages) {
+  overflow-y: hidden;
+}
+
+/* NotFoundPage */
 .not-found-container {
   background-color: #f0f0f0;
   display: flex;
@@ -453,6 +469,7 @@ button {
     padding: 0 10px;
     bottom: 0;
     top: auto;
+    padding-left: 0;
   }
   .nav-header button {
     width: 65px;

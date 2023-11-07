@@ -51,7 +51,7 @@ export const Register = () => {
         <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo-form' onClick={handleLogoClick} />
       )}
       <p>Regístrate para ver y compartir fotos con tus amigos.</p>
-      <form className='form' onSubmit={handleForm}>
+      <form className='form register-form' onSubmit={handleForm}>
         <fieldset>
           <input type='email' id='email' name='email' placeholder='Correo electrónico' required onChange={(e) => setEmail(e.target.value)} />
         </fieldset>

@@ -6,6 +6,8 @@ function TokenCaducado() {
   const { logout } = useContext(AuthContext);
   const [tokenCaducado, setTokenCaducado] = useState(true);
 
+
+
   const navigate = useNavigate();
 
   const closeModal = () => {

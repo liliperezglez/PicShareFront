@@ -42,7 +42,7 @@ export const Login = () => {
       ) : (
         <img src={LogoModoOscuro} alt='Logo Modo Oscuro' className='dark-logo-form' onClick={handleLogoClick} />
       )}
-      <form className='form' onSubmit={handleForm}>
+      <form className='form login-form' onSubmit={handleForm}>
         <fieldset>
           <input
             type='email'

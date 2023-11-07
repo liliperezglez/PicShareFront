@@ -31,12 +31,6 @@ export const AuthProviderComponent = ({ children }) => {
     }
   }, [token, idUser, name, userName, avatar, userCreatedAt]);
 
-  useEffect(() => {
-    if (!token || token == null) {
-      logout();
-    }
-  }, [token]);
-
   function logout() {
     setToken('');
     setIdUser('');

@@ -1,15 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
 import PhotoList from '../components/PhotoList';
 import { Header } from '../components/Header';
 import usePosts from '../hooks/usePosts';
 import { getAllPhotosService } from '../services';
 import AnimationSayGoodBye from '../components/AnimationSayGoodBye';
+import { AuthContext } from '../context/AuthContext';
 
 export const HomePage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
   const { setPhotos, photos, removePost, removeComment, editComment, addComment, tokenCaducadoVisible, setTokenCaducadoVisible, toggleLike } = usePosts();
+  const { token, logout } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!token || token == null) {
+      logout();
+    }
+  }, [token]);
 
   useEffect(() => {
     const getPhotos = async () => {

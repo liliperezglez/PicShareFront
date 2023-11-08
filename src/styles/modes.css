@@ -309,10 +309,6 @@
   border-radius: 8px;
 }
 
-.light .modal-content .modal-data .user-description {
-  border-bottom: 1px solid #000;
-}
-
 .light .comment-date {
   color: #000000;
 }
